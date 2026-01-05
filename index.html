@@ -1,106 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grand Signature</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Reset and base styles */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-    }
-
-    /* Navigation */
-    .navbar {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 20px;
-      background: #1e293b;
-    }
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .navbar a:hover {
-      color: #6366f1;
-    }
-
-    /* Header */
-    header {
-      padding: 80px 20px;
-    }
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: #cbd5f5;
-      margin-bottom: 30px;
-    }
-    button {
-      padding: 15px 30px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      background: #6366f1;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #4f46e5;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 80px;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #94a3b8;
-      background: #1e293b;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      .navbar {
-        flex-direction: column;
-        gap: 15px;
-      }
-      header {
-        padding: 60px 10px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Realty | Premium Real Estate</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">Elite<span>Realty</span></div>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Properties</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <nav class="navbar" aria-label="Main Navigation">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Home</h1>
+            <p>Discover the perfect property in your favorite location.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Enter City, Zip, or Neighborhood...">
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
 
-  <header>
-    <h1>Grand Signature</h1>
-    <p>Premium digital experiences crafted with precision.</p>
-    <button>Get Started</button>
-  </header>
+    <section class="featured">
+        <h2>Featured Properties</h2>
+        <div class="property-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=60" alt="Modern Villa">
+                <div class="card-info">
+                    <h3>Modern Luxury Villa</h3>
+                    <p>$1,250,000</p>
+                    <a href="portfolio.html" class="btn">View Details</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=60" alt="Family Home">
+                <div class="card-info">
+                    <h3>Comfortable Family Home</h3>
+                    <p>$850,000</p>
+                    <a href="portfolio.html" class="btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    © 2026 Grand Signature. All rights reserved.
-  </footer>
-
+    <footer>
+        <p>&copy; 2024 Elite Realty. All rights reserved.</p>
+    </footer>
 </body>
 </html>
