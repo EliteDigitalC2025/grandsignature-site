@@ -22,13 +22,17 @@
         .filter-btn { padding: 10px 25px; border: 1px solid var(--gold); background: transparent; color: var(--gold); cursor: pointer; font-weight: bold; transition: 0.3s; }
         .filter-btn.active, .filter-btn:hover { background: var(--gold); color: var(--dark); }
 
-        .property-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 40px 10%; }
-        .property-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .property-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 40px 10%; min-height: 400px;}
+        .property-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
         .property-card img { width: 100%; height: 250px; object-fit: cover; }
-        .content { padding: 20px; }
-        .price { color: var(--gold); font-weight: bold; }
+        .content { padding: 20px; flex-grow: 1; }
+        .price { color: var(--gold); font-weight: bold; font-size: 1.2rem; margin-bottom: 5px; }
         
-        .load-more-area { text-align: center; padding: 40px; }
+        .load-more-area { text-align: center; padding: 40px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        
+        /* Details link style inside cards */
+        .details-link { display: block; text-align: center; margin-top: 15px; padding: 10px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-weight: bold; transition: 0.3s; border-radius: 4px; }
+        .details-link:hover { background: var(--gold); color: var(--dark); }
 
         @media (max-width: 900px) { .property-grid { grid-template-columns: 1fr; } }
     </style>
@@ -49,7 +53,7 @@
 
     <section class="portfolio-hero">
         <h1>Global Property Portfolio</h1>
-        <p>Browse our curated selection of over 1000 luxury estates Nationwide.</p>
+        <p>Browse our curated selection of luxury estates Nationwide.</p>
         
         <div class="filter-container">
             <button class="filter-btn active">All</button>
@@ -69,38 +73,36 @@
 
     <div class="load-more-area">
         <button id="loadMoreBtn" class="filter-btn" style="padding: 15px 40px;">Load More Properties</button>
+        <a href="index.html" style="color: var(--dark); text-decoration: none; font-size: 14px; font-weight: bold;">&larr; Return to Homepage</a>
     </div>
 
     <script>
-        // Data for your 100 properties
+        // 1. Unified Data Array
         const allProperties = [
             { title: "Manhattan Luxury Suite", price: "$4.2M", loc: "Lagos", img: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=600&q=80" },
             { title: "Eko Atlantic Villa", price: "$1.5M", loc: "Lagos", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" },
             { title: "Palm Jumeirah Mansion", price: "$12M", loc: "Abuja", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" },
             { title: "The Kensington Penthouse", price: "£8.5M", loc: "Abuja", img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" },
             { title: "Maitama Heights Estate", price: "$2.8M", loc: "Abuja", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" },
-            { title: "Beverly Hills Modern", price: "$15.2M", loc: "Ibadan", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" }
-            { title: "Manhattan Luxury Suite", price: "$4.2M", loc: "Asaba", img: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=600&q=80" },
+            { title: "Beverly Hills Modern", price: "$15.2M", loc: "Ibadan", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" },
+            { title: "Luxury Suite", price: "$4.2M", loc: "Asaba", img: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=600&q=80" },
             { title: "Eko Atlantic Villa", price: "$1.5M", loc: "Lagos", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" },
-            { title: "Palm Jumeirah Mansion", price: "$12M", loc: "Oguni", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" },
-            { title: "The Kensington Penthouse", price: "£8.5M", loc: "Asaba", img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" },
-            { title: "Maitama Heights Estate", price: "$2.8M", loc: "Abuja", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" },
-            { title: "Beverly Hills Modern", price: "$15.2M", loc: "Portharcourt", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" }
-            { title: "Manhattan Luxury Suite", price: "$4.2M", loc: "Owerri", img: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=600&q=80" },
-            { title: "Eko Atlantic Villa", price: "$1.5M", loc: "Lagos", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" },
-            { title: "Palm Jumeirah Mansion", price: "$12M", loc: "Awka", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" },
-            { title: "The Kensington Penthouse", price: "£8.5M", loc: "Portharcourt", img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" },
-            { title: "Maitama Heights Estate", price: "$2.8M", loc: "Abuja", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" },
-            { title: "Beverly Hills Modern", price: "$15.2M", loc: "Asaba", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" }
-      ];
-
-
-            // Add more objects here up to 100
+            { title: "Palm Mansion", price: "$12M", loc: "Ogun", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" },
+            { title: "Kensington Penthouse", price: "£8.5M", loc: "Asaba", img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" },
+            { title: "Maitama Estate", price: "$2.8M", loc: "Abuja", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" },
+            { title: "Modern Villa", price: "$15.2M", loc: "Portharcourt", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" },
+            { title: "Royal Suite", price: "$4.2M", loc: "Owerri", img: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=600&q=80" },
+            { title: "Atlantic Villa", price: "$1.5M", loc: "Lagos", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" },
+            { title: "Jumeirah Mansion", price: "$12M", loc: "Awka", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" },
+            { title: "Penthouse", price: "£8.5M", loc: "Portharcourt", img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" },
+            { title: "Heights Estate", price: "$2.8M", loc: "Abuja", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" },
+            { title: "Beverly Modern", price: "$15.2M", loc: "Asaba", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" }
         ];
 
         let itemsShown = 0;
         const itemsPerPage = 6;
 
+        // 2. Render Function
         function displayProperties() {
             const grid = document.getElementById('portfolioGrid');
             const nextBatch = allProperties.slice(itemsShown, itemsShown + itemsPerPage);
@@ -114,23 +116,69 @@
                         <p class="price">${prop.price}</p>
                         <h3>${prop.title}</h3>
                         <p>${prop.loc}</p>
-                        <a href="#" class="filter-btn" style="display:block; text-align:center; margin-top:15px; text-decoration:none;">View Details</a>
+                        <a href="contact.html" class="details-link">View Details</a>
                     </div>
                 `;
                 grid.appendChild(card);
             });
 
             itemsShown += itemsPerPage;
+            
+            // Hide "Load More" button if no more properties are left
             if (itemsShown >= allProperties.length) {
                 document.getElementById('loadMoreBtn').style.display = 'none';
             }
         }
 
-        // Initial load
+        // 3. Initial Call
         displayProperties();
 
-        // Button listener
+        // 4. Load More Event
         document.getElementById('loadMoreBtn').addEventListener('click', displayProperties);
+
+        // 5. City Filter Event
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Ignore the Load More button itself
+                if (this.id === 'loadMoreBtn') return;
+
+                const city = this.innerText;
+                const grid = document.getElementById('portfolioGrid');
+                
+                // Toggle active class on filter buttons
+                document.querySelectorAll('.filter-container .filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Clear existing cards
+                grid.innerHTML = '';
+                
+                // Filter the array
+                const filtered = city === 'All' ? allProperties : allProperties.filter(p => p.loc === city);
+                
+                // If no results, show message
+                if (filtered.length === 0) {
+                    grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 50px; font-weight: bold; color: #999;">No properties currently available in ${city}. Check back soon!</p>`;
+                } else {
+                    filtered.forEach(prop => {
+                        const card = document.createElement('div');
+                        card.className = 'property-card';
+                        card.innerHTML = `
+                            <img src="${prop.img}" alt="${prop.title}">
+                            <div class="content">
+                                <p class="price">${prop.price}</p>
+                                <h3>${prop.title}</h3>
+                                <p>${prop.loc}</p>
+                                <a href="contact.html" class="details-link">View Details</a>
+                            </div>
+                        `;
+                        grid.appendChild(card);
+                    });
+                }
+                
+                // Only show "Load More" if we are on the "All" view and more items exist
+                document.getElementById('loadMoreBtn').style.display = (city === 'All' && itemsShown < allProperties.length) ? 'block' : 'none';
+            });
+        });
     </script>
 </body>
 </html>
