@@ -47,7 +47,7 @@
         .approach-img { flex: 1; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .approach-img img { width: 100%; display: block; }
 
-        /* Property Grid Alignment */
+       /* Property Grid Alignment - Final Fixed Version */
 .properties { 
     padding: 80px 10%; 
     background-color: var(--white); 
@@ -61,8 +61,10 @@
 
 .property-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Forces them into a row */
+    /* This creates exactly 3 columns on desktop */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
+    margin-top: 40px;
 }
 
 .property-card {
@@ -72,6 +74,8 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
     border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
 }
 
 .property-card:hover { 
@@ -86,6 +90,7 @@
 
 .property-card .content { 
     padding: 20px; 
+    flex-grow: 1; /* Ensures cards stay the same height even if text varies */
 }
 
 .property-card .price { 
@@ -110,6 +115,13 @@
 .btn-details:hover {
     background: var(--gold);
     color: var(--dark);
+}
+
+/* Responsive Fix for Mobile */
+@media (max-width: 900px) {
+    .property-grid {
+        grid-template-columns: 1fr; /* Stacks cards on top of each other on small screens */
+    }
 }
 
      /* Testimonial Carousel - Gold Background Version */
@@ -243,69 +255,70 @@ section.carousel button,
     </section>
 
       <section class="properties">
-        <h2>Featured Listings</h2>
-        <div class="property-grid">
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Estate">
-                <div class="content">
-                    <p class="price">$2,450,000</p>
-                    <h3>The Beverly Hills Estate</h3>
-                    <p>5 Bed | 4 Bath | 4,200 sqft</p>
-                    <a href="#" class="btn-details">View Property</a>
-                </div>
+    <h2>Featured Listings</h2>
+    <div class="property-grid">
+        
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Estate">
+            <div class="content">
+                <p class="price">$2,450,000</p>
+                <h3>The Beverly Hills Estate</h3>
+                <p>5 Bed | 4 Bath | 4,200 sqft</p>
+                <a href="#" class="btn-details">View Property</a>
             </div>
+        </div>
 
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Modern House">
-                <div class="content">
-                    <p class="price">$1,890,000</p>
-                    <h3>Modern Sunset Villa</h3>
-                    <p>4 Bed | 3 Bath | 3,500 sqft</p>
-                    <a href="#" class="btn-details">View Property</a>
-                </div>
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Modern House">
+            <div class="content">
+                <p class="price">$1,890,000</p>
+                <h3>Modern Sunset Villa</h3>
+                <p>4 Bed | 3 Bath | 3,500 sqft</p>
+                <a href="#" class="btn-details">View Property</a>
             </div>
+        </div>
 
-            <div class="property-card">
-    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80" alt="Luxury Penthouse">
-    <div class="content">
-        <p class="price">$3,100,000</p>
-        <h3>Skyline Penthouse</h3>
-        <p>3 Bed | 3 Bath | 2,800 sqft</p>
-        <a href="#" class="btn-details">View Property</a>
-    </div>
-</div>
-
-            <div class="property-grid">
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Estate">
-                <div class="content">
-                    <p class="price">$2,450,000</p>
-                    <h3>The Beverly Hills Estate</h3>
-                    <p>5 Bed | 4 Bath | 4,200 sqft</p>
-                    <a href="#" class="btn-details">View Property</a>
-                </div>
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80" alt="Luxury Penthouse">
+            <div class="content">
+                <p class="price">$3,100,000</p>
+                <h3>Skyline Penthouse</h3>
+                <p>3 Bed | 3 Bath | 2,800 sqft</p>
+                <a href="#" class="btn-details">View Property</a>
             </div>
+        </div>
 
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Modern House">
-                <div class="content">
-                    <p class="price">$1,890,000</p>
-                    <h3>Modern Sunset Villa</h3>
-                    <p>4 Bed | 3 Bath | 3,500 sqft</p>
-                    <a href="#" class="btn-details">View Property</a>
-                </div>
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Villa">
+            <div class="content">
+                <p class="price">$2,450,000</p>
+                <h3>The Beverly Hills Estate</h3>
+                <p>5 Bed | 4 Bath | 4,200 sqft</p>
+                <a href="#" class="btn-details">View Property</a>
             </div>
+        </div>
 
-            <div class="property-card">
-    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80" alt="Luxury Penthouse">
-    <div class="content">
-        <p class="price">$3,100,000</p>
-        <h3>Skyline Penthouse</h3>
-        <p>3 Bed | 3 Bath | 2,800 sqft</p>
-        <a href="#" class="btn-details">View Property</a>
-    </div>
-</div>
-    </section>
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=600&q=80" alt="Modern">
+            <div class="content">
+                <p class="price">$1,890,000</p>
+                <h3>Modern Sunset Villa</h3>
+                <p>4 Bed | 3 Bath | 3,500 sqft</p>
+                <a href="#" class="btn-details">View Property</a>
+            </div>
+        </div>
+
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1512914890251-2f96a9b0bbe2?auto=format&fit=crop&w=1200&q=80" alt="Penthouse">
+            <div class="content">
+                <p class="price">$3,100,000</p>
+                <h3>Skyline Penthouse</h3>
+                <p>3 Bed | 3 Bath | 2,800 sqft</p>
+                <a href="#" class="btn-details">View Property</a>
+            </div>
+        </div>
+
+    </div> </section>
 
     <section class="carousel">
         <div class="testimonial active">
