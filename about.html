@@ -4,33 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | GrandSignature Properties</title>
-    <link rel="stylesheet" href="style.css"> 
+    <style>
+        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--white); color: #333; line-height: 1.6; }
+
+        /* Navigation Header */
+        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
+        .logo span { color: var(--gold); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--gold); }
+
+        /* Hero Section */
+        .about-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 20px;
+        }
+        .about-hero h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 3px; }
+        .about-hero p { color: var(--gold); font-size: 1.2rem; margin-top: 10px; }
+
+        /* Story Section */
+        .section-padding { padding: 80px 10%; }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .story-text h2 { font-size: 36px; margin-bottom: 20px; color: var(--dark); }
+        .story-text p { margin-bottom: 20px; color: #666; font-size: 1.1rem; }
+
+        /* Values Section */
+        .values { background: var(--grey); text-align: center; }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .value-card { padding: 40px; background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .value-card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; font-size: 18px; }
+
+        /* Global Footer Styles */
+        footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .footer-col { display: flex; flex-direction: column; }
+        .footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-decoration: none; color: white; }
+        .footer-logo span { color: var(--gold); }
+        .footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 15px; }
+        .footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
+        .footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; }
+
+        @media (max-width: 900px) { 
+            .story-grid, .values-grid, .footer-grid { grid-template-columns: 1fr; }
+            .about-hero h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <nav style="display: flex; justify-content: space-between; align-items: center; background: #1a1a1a; padding: 1rem 5%; color: white;">
-            <div class="logo" style="font-size: 1.6rem; font-weight: bold;">Grand<span style="color: #d4af37;">Signature</span></div>
-            <ul style="display: flex; list-style: none;">
-                <li style="margin-left: 30px;"><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
-                <li style="margin-left: 30px;"><a href="about.html" style="color: #d4af37; text-decoration: none;">About</a></li>
-                <li style="margin-left: 30px;"><a href="portfolio.html" style="color: white; text-decoration: none;">Properties</a></li>
-                <li style="margin-left: 30px;"><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+        <nav>
+            <a href="index.html" class="logo">Grand<span>Signature</span></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" style="color: var(--gold);">About</a></li>
+                <li><a href="portfolio.html">Properties</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section style="padding: 5rem 10%; text-align: center;">
-        <h1 style="font-size: 3rem; margin-bottom: 2rem;">Our Story</h1>
-        <p style="font-size: 1.2rem; color: #555; max-width: 800px; margin: 0 auto;">
-            Founded in 2010, GrandSignature Properties has become the gold standard in luxury real estate. 
-            We believe that finding a home is more than a transaction—it is a lifestyle choice. 
-            Our team of experts is dedicated to providing personalized service and exclusive access to the world's most prestigious estates.
-        </p>
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Office" style="width: 100%; border-radius: 10px; margin-top: 3rem;">
+    <section class="about-hero">
+        <h1>Our Legacy</h1>
+        <p>Defining the standard of luxury real estate since 2015.</p>
     </section>
 
-    <footer style="background: #1a1a1a; color: #888; text-align: center; padding: 3rem;">
-        <p>&copy; 2026 GrandSignature Properties. All rights reserved.</p>
+    <section class="section-padding">
+        <div class="story-grid">
+            <div class="story-text">
+                <h2>The GrandSignature Story</h2>
+                <p>Founded on the principles of integrity and exclusivity, GrandSignature Properties has grown from a boutique agency in Lagos to a nationwide leader in luxury real estate.</p>
+                <p>We don't just sell houses; we curate lifestyles. Our team of expert consultants specializes in identifying high-yield off-market opportunities that provide both personal sanctuary and long-term financial growth.</p>
+            </div>
+            <div class="story-img">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Luxury Interior" style="width:100%; border-radius:10px;">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding values">
+        <p style="color: var(--gold); font-weight: bold; letter-spacing: 2px;">OUR CORE VALUES</p>
+        <h2 style="font-size: 32px; margin-top: 10px; margin-bottom: 40px;">What Drives Us</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Exclusivity</h3>
+                <p>We provide our clients with access to properties that never reach the open market.</p>
+            </div>
+            <div class="value-card">
+                <h3>Transparency</h3>
+                <p>Clear communication and ethical advisory are at the heart of every transaction we manage.</p>
+            </div>
+            <div class="value-card">
+                <h3>Innovation</h3>
+                <p>From AI market tracking to VR tours, we use the latest technology to serve our elite global network.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
+                <p>Curating Nigeria's most exclusive real estate portfolio for the discerning individual.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Sitemap</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Focus Cities</h4>
+                <ul>
+                    <li><a href="portfolio.html">Lagos</a></li>
+                    <li><a href="portfolio.html">Abuja</a></li>
+                    <li><a href="portfolio.html">Port Harcourt</a></li>
+                    <li><a href="portfolio.html">Asaba & Owerri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
+        </div>
     </footer>
+
 </body>
 </html>
