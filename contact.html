@@ -5,110 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | GrandSignature Properties</title>
     <style>
-        /* Shared Global Styles */
-        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f9f9f9; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        body { background-color: var(--grey); line-height: 1.6; }
+        /* Shared Styles from Homepage */
+        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f4f4f4; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--grey); }
 
-        /* Top Banner */
-        .top-banner {
-            background: var(--gold);
-            color: var(--dark);
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* Navigation Header */
-        header {
-            background: var(--dark);
-            padding: 20px 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        /* Row-based Navigation Header */
+        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; }
+        .logo { color: var(--white); font-size: 24px; font-weight: bold; text-decoration: none; }
         .logo span { color: var(--gold); }
         nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 25px; }
-        nav ul li a { color: white; text-decoration: none; transition: 0.3s; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { color: var(--white); text-decoration: none; font-weight: 500; transition: 0.3s; }
         nav ul li a:hover { color: var(--gold); }
 
-        /* Contact Form Section */
-        .contact-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1600&q=80');
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
+        /* Small Contact Banner */
+        .page-title { background: #222; color: white; text-align: center; padding: 40px 0; }
 
-        .contact-wrapper {
-            max-width: 800px;
-            margin: -50px auto 50px;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
+        /* Contact Form Styles (from your screenshot) */
+        .contact-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--dark); }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .submit-btn {
-            background: var(--gold);
-            color: var(--dark);
-            border: none;
-            padding: 15px 40px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            font-size: 18px;
-            transition: 0.3s;
-        }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; }
+        .submit-btn { background: var(--gold); color: #1a1a1a; border: none; padding: 15px 40px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; transition: 0.3s; }
         .submit-btn:hover { background: #b8962e; }
 
         /* Global Footer */
-        footer {
-            background: var(--dark);
-            color: #888;
-            padding: 60px 5% 20px;
-            text-align: center;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: left;
-            max-width: 1200px;
-            margin: 0 auto 40px;
-        }
-        .footer-grid h4 { color: white; margin-bottom: 20px; }
-        .footer-bottom { border-top: 1px solid #333; padding-top: 20px; font-size: 14px; }
+        footer { background: var(--dark); color: #888; padding: 40px 5%; text-align: center; margin-top: 50px; }
+        .footer-text { font-size: 14px; }
     </style>
 </head>
 <body>
-
-    <div class="top-banner">
-        <span>📍 London | Dubai | New York</span>
-        <span>✉️ contact@grandsignature.com</span>
-    </div>
 
     <header>
         <nav>
@@ -122,11 +50,12 @@
         </nav>
     </header>
 
-    <section class="contact-hero">
-        <h1>Get In Touch</h1>
-    </section>
+    <div class="page-title">
+        <h1>Contact Our Agents</h1>
+        <p>We are here to help you find your next signature property.</p>
+    </div>
 
-    <div class="contact-wrapper">
+    <div class="contact-container">
         <form>
             <div class="form-group">
                 <label>Full Name</label>
@@ -138,32 +67,14 @@
             </div>
             <div class="form-group">
                 <label>Message</label>
-                <textarea rows="6" placeholder="How can we help you today?"></textarea>
+                <textarea rows="6" placeholder="How can we help you?"></textarea>
             </div>
             <button type="button" class="submit-btn">Send Message</button>
         </form>
     </div>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-                <h4>GrandSignature</h4>
-                <p>The gold standard in luxury real estate, providing unparalleled service to our elite clientele.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <p><a href="index.html" style="color:#888; text-decoration:none;">Home</a></p>
-                <p><a href="portfolio.html" style="color:#888; text-decoration:none;">Properties</a></p>
-            </div>
-            <div>
-                <h4>Contact Info</h4>
-                <p>📞 +1 (555) 000-8888</p>
-                <p>📍 123 Luxury Way, Beverly Hills</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 GrandSignature Properties. All Rights Reserved.
-        </div>
+        <p class="footer-text">&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
     </footer>
 
 </body>
