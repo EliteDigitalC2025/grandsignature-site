@@ -80,11 +80,10 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
-/* THE BUTTON FIX: Black Button on Gold Background */
 /* FORCE VISIBILITY FOR THE BUTTON */
 .carousel button, 
-section.carousel button {
+section.carousel button,
+.carousel-btn {
     display: inline-block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -92,13 +91,20 @@ section.carousel button {
     z-index: 10; /* Brings it to the front */
     margin-top: 40px;
     background-color: #1a1a1a !important; /* Dark Charcoal */
-    color: #d4af37 !important; /* Gold Text */
+    color: #d4af37 !important;            /* Gold Text */
     border: 2px solid #1a1a1a;
     padding: 15px 35px;
     cursor: pointer;
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.carousel-btn:hover,
+.carousel button:hover {
+    background-color: transparent !important;
+    color: #1a1a1a !important;
 }
 
         /* Footer */
@@ -181,8 +187,8 @@ section.carousel button {
             <span class="author">— Elena Rodriguez, Private Investor</span>
         </div>
         <div style="margin-top: 40px;">
-            <button onclick="changeSlide()" style="background: var(--gold); border: none; padding: 10px 20px; cursor: pointer; font-weight: bold;">Next Review</button>
-        </div>
+    <button onclick="changeSlide()" class="carousel-btn">Next Review</button>
+</div>
     </section>
 
     <footer>
