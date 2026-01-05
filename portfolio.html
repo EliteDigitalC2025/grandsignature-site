@@ -34,7 +34,23 @@
         .details-link { display: block; text-align: center; margin-top: 15px; padding: 10px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-weight: bold; transition: 0.3s; border-radius: 4px; }
         .details-link:hover { background: var(--gold); color: var(--dark); }
 
-        @media (max-width: 900px) { .property-grid { grid-template-columns: 1fr; } }
+        /* Global Footer Styles */
+        footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .footer-col { display: flex; flex-direction: column; }
+        .footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
+        .footer-logo span { color: var(--gold); }
+        .footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 15px; }
+        .footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
+        .footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
+
+        @media (max-width: 900px) { 
+            .property-grid { grid-template-columns: 1fr; } 
+            .footer-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -68,13 +84,53 @@
         </div>
     </section>
 
-    <div class="property-grid" id="portfolioGrid">
-        </div>
+    <div class="property-grid" id="portfolioGrid"></div>
 
     <div class="load-more-area">
         <button id="loadMoreBtn" class="filter-btn" style="padding: 15px 40px;">Load More Properties</button>
         <a href="index.html" style="color: var(--dark); text-decoration: none; font-size: 14px; font-weight: bold;">&larr; Return to Homepage</a>
     </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
+                <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
+                    Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Sitemap</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Focus Cities</h4>
+                <ul>
+                    <li><a href="portfolio.html">Lagos Properties</a></li>
+                    <li><a href="portfolio.html">Abuja Estates</a></li>
+                    <li><a href="portfolio.html">Port Harcourt</a></li>
+                    <li><a href="portfolio.html">Asaba & Owerri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // 1. Unified Data Array
@@ -102,7 +158,6 @@
         let itemsShown = 0;
         const itemsPerPage = 6;
 
-        // 2. Render Function
         function displayProperties() {
             const grid = document.getElementById('portfolioGrid');
             const nextBatch = allProperties.slice(itemsShown, itemsShown + itemsPerPage);
@@ -123,39 +178,23 @@
             });
 
             itemsShown += itemsPerPage;
-            
-            // Hide "Load More" button if no more properties are left
             if (itemsShown >= allProperties.length) {
                 document.getElementById('loadMoreBtn').style.display = 'none';
             }
         }
 
-        // 3. Initial Call
         displayProperties();
-
-        // 4. Load More Event
         document.getElementById('loadMoreBtn').addEventListener('click', displayProperties);
 
-        // 5. City Filter Event
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                // Ignore the Load More button itself
                 if (this.id === 'loadMoreBtn') return;
-
                 const city = this.innerText;
                 const grid = document.getElementById('portfolioGrid');
-                
-                // Toggle active class on filter buttons
                 document.querySelectorAll('.filter-container .filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-
-                // Clear existing cards
                 grid.innerHTML = '';
-                
-                // Filter the array
                 const filtered = city === 'All' ? allProperties : allProperties.filter(p => p.loc === city);
-                
-                // If no results, show message
                 if (filtered.length === 0) {
                     grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 50px; font-weight: bold; color: #999;">No properties currently available in ${city}. Check back soon!</p>`;
                 } else {
@@ -174,8 +213,6 @@
                         grid.appendChild(card);
                     });
                 }
-                
-                // Only show "Load More" if we are on the "All" view and more items exist
                 document.getElementById('loadMoreBtn').style.display = (city === 'All' && itemsShown < allProperties.length) ? 'block' : 'none';
             });
         });
