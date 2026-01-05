@@ -210,13 +210,14 @@ section.carousel button,
     </header>
 
     <section class="hero">
-        <h1>Exceptional Living Starts Here</h1>
-        <p>Expertise in luxury residential and commercial properties.</p>
-        <div class="search-container">
-            <input type="text" placeholder="Enter neighborhood or ZIP...">
-            <button>SEARCH</button>
-        </div>
-    </section>
+    <h1>Exceptional Living Starts Here</h1>
+    <p>Expertise in luxury residential and commercial properties.</p>
+    
+    <div class="search-container">
+        <input type="text" id="propertySearch" onkeyup="filterProperties()" placeholder="Enter neighborhood or city...">
+        <button onclick="filterProperties()">SEARCH</button>
+    </div>
+</section>
 
     <section class="section-padding">
         <div style="text-align: center;">
