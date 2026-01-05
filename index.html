@@ -5,60 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrandSignature Properties | Luxury Real Estate</title>
     <style>
-        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --light-blue: #f0f7ff; }
+        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; --blue: #004a99; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #fff; color: #333; overflow-x: hidden; }
+        body { background-color: var(--white); color: #333; line-height: 1.6; }
 
-        /* Shared Components */
-        .section-padding { padding: 80px 10%; }
-        .center-text { text-align: center; margin-bottom: 50px; }
-        .gold-text { color: var(--gold); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-        
-        /* Navigation (Row-based) */
-        header { background: var(--dark); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; }
+        /* Navigation Header */
+        .top-banner { background: var(--gold); color: var(--dark); padding: 10px 5%; display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; }
+        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
         .logo span { color: var(--gold); }
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 30px; }
-        nav ul li a { color: white; text-decoration: none; transition: 0.3s; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
         nav ul li a:hover { color: var(--gold); }
 
-        /* 1. Icon Grid Section (Why Choose Us) */
-        .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .icon-card { padding: 40px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
-        .icon-card:hover { border-color: var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .icon-card i { font-size: 40px; color: var(--gold); margin-bottom: 20px; display: block; }
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 20px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .search-container { background: white; padding: 10px; border-radius: 5px; display: flex; margin-top: 25px; }
+        .search-container input { border: none; padding: 15px; width: 300px; outline: none; }
+        .search-container button { background: var(--gold); border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; }
 
-        /* 2. Our Approach (Side Image Content) */
-        .approach-section { display: flex; align-items: center; gap: 50px; background: var(--light-blue); }
-        .approach-img { flex: 1; border-radius: 10px; overflow: hidden; }
+        /* Global Impact Grid (The "Elite Digital" look) */
+        .section-padding { padding: 80px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: var(--grey); padding: 40px; text-align: center; border-radius: 8px; transition: 0.3s; border-bottom: 4px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--gold); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--blue); margin-bottom: 15px; }
+
+        /* Our Approach (Split Section) */
+        .approach { display: flex; align-items: center; gap: 50px; background: #f0f4f8; padding: 80px 10%; }
+        .approach-text { flex: 1; }
+        .approach-img { flex: 1; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .approach-img img { width: 100%; display: block; }
-        .approach-content { flex: 1; }
-        .approach-content h2 { font-size: 32px; margin-bottom: 20px; color: var(--dark); }
 
-        /* 3. Client Logo Bar */
-        .logo-bar { background: #fff; padding: 40px 5%; display: flex; justify-content: space-around; align-items: center; filter: grayscale(1); opacity: 0.6; }
-        .logo-bar img { height: 40px; }
+        /* Testimonial Carousel */
+        .carousel { background: var(--blue); color: white; padding: 100px 10%; text-align: center; }
+        .testimonial { display: none; max-width: 800px; margin: 0 auto; animation: fade 0.8s; }
+        .testimonial.active { display: block; }
+        .testimonial p { font-size: 24px; font-style: italic; margin-bottom: 20px; }
+        .author { color: var(--gold); font-weight: bold; font-size: 18px; }
+        @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
-        /* 4. Testimonial Carousel */
-        .carousel-container { background: #004a99; color: white; padding: 80px 10%; text-align: center; position: relative; }
-        .testimonial { display: none; max-width: 800px; margin: 0 auto; }
-        .testimonial.active { display: block; animation: fadeIn 0.5s; }
-        .testimonial p { font-size: 20px; font-style: italic; margin-bottom: 20px; }
-        .author { font-weight: bold; color: var(--gold); }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
-        /* Footer (Same as index) */
-        footer { background: var(--dark); color: #888; padding: 60px 10%; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        /* Footer */
+        footer { background: var(--dark); color: #888; padding: 60px 10% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-grid h4 { color: white; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
+    <div class="top-banner">
+        <span>📍 London | Dubai | New York</span>
+        <span>✉️ contact@grandsignature.com</span>
+    </div>
+
     <header>
-        <a href="#" class="logo">Grand<span>Signature</span></a>
         <nav>
+            <a href="index.html" class="logo">Grand<span>Signature</span></a>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -68,87 +80,97 @@
         </nav>
     </header>
 
+    <section class="hero">
+        <h1>Exceptional Living Starts Here</h1>
+        <p>Expertise in luxury residential and commercial properties.</p>
+        <div class="search-container">
+            <input type="text" placeholder="Enter neighborhood or ZIP...">
+            <button>SEARCH</button>
+        </div>
+    </section>
+
     <section class="section-padding">
-        <div class="center-text">
-            <p class="gold-text">Our Expertise</p>
-            <h2>Why GrandSignature Global Services?</h2>
+        <div style="text-align: center;">
+            <p style="color: var(--gold); font-weight: bold; letter-spacing: 2px;">OUR IMPACT</p>
+            <h2 style="font-size: 32px; margin-top: 10px;">Why GrandSignature Global?</h2>
         </div>
-        <div class="icon-grid">
-            <div class="icon-card">
-                <h3>Global Reach</h3>
-                <p>Connecting elite buyers with the world's most prestigious estates across 6 continents.</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Global Portfolio</h3>
+                <p>Curated access to high-yield off-market assets across major global financial hubs.</p>
             </div>
-            <div class="icon-card">
-                <h3>Legal Excellence</h3>
-                <p>Full-service legal support ensuring seamless high-value transactions.</p>
-            </div>
-            <div class="icon-card">
+            <div class="card">
                 <h3>Digital Solutions</h3>
-                <p>Virtual 4K tours and AI-driven property valuations for the modern investor.</p>
+                <p>Proprietary virtual reality tours and AI-driven market analysis for our elite clients.</p>
+            </div>
+            <div class="card">
+                <h3>Legal Advisory</h3>
+                <p>End-to-end legal and tax compliance support for international real estate transactions.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-padding approach-section">
-        <div class="approach-img">
-            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Office">
+    <section class="approach">
+        <div class="approach-text">
+            <h2 style="font-size: 36px; margin-bottom: 20px;">Our Strategic Approach</h2>
+            <p style="margin-bottom: 20px;">We leverage cutting-edge technology and a deep network of global partners to ensure your real estate investments grow across borders.</p>
+            <ul style="list-style: none;">
+                <li>✔️ Data-Driven Property Valuations</li>
+                <li>✔️ Exclusive VIP Investor Access</li>
+                <li>✔️ Sustainable Luxury Development</li>
+            </ul>
         </div>
-        <div class="approach-content">
-            <p class="gold-text">Strategy</p>
-            <h2>Our Approach to Luxury</h2>
-            <p>We don't just sell property; we curate lifestyles. Our team of analysts and designers work together to ensure every GrandSignature listing is presented with unmatched sophistication.</p>
-            <button style="margin-top: 20px; background: var(--gold); border:none; padding: 12px 25px; cursor: pointer;">Learn More</button>
+        <div class="approach-img">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Modern Office">
         </div>
     </section>
 
-    <div class="logo-bar">
-        <span style="font-weight: bold; color: #333;">PARTNERS:</span>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" alt="Partner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1000px-IBM_logo.svg.png" alt="Partner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" alt="Partner">
-    </div>
-
-    <section class="carousel-container">
+    <section class="carousel">
         <div class="testimonial active">
-            <p>"GrandSignature transformed our portfolio. Their digital-first approach to real estate is years ahead of the competition."</p>
-            <span class="author">— Jonathan Reed, CEO of Reed Ventures</span>
+            <p>"GrandSignature provided an unmatched level of professionalism. They managed my international portfolio with total transparency."</p>
+            <span class="author">— David Harrison, CEO Harrison Intl.</span>
         </div>
         <div class="testimonial">
-            <p>"Unparalleled service and attention to detail. They found us a home that wasn't even on the public market yet."</p>
-            <span class="author">— Sarah Jenkins, Private Investor</span>
+            <p>"The virtual tours were so high-quality I bought my penthouse in Dubai without having to fly there first. Incredible service."</p>
+            <span class="author">— Elena Rodriguez, Private Investor</span>
         </div>
-        <div style="margin-top: 30px;">
-            <button onclick="nextTestimonial()" style="background:none; border: 1px solid var(--gold); color: var(--gold); padding: 5px 15px; cursor:pointer;">Next Review</button>
+        <div style="margin-top: 40px;">
+            <button onclick="changeSlide()" style="background: var(--gold); border: none; padding: 10px 20px; cursor: pointer; font-weight: bold;">Next Review</button>
         </div>
     </section>
 
     <footer>
         <div class="footer-grid">
             <div>
-                <h4 style="color:white; margin-bottom: 20px;">GrandSignature</h4>
-                <p>Defining the future of luxury real estate through innovation and digital transformation.</p>
+                <h4>GrandSignature</h4>
+                <p>Setting the standard for luxury real estate and digital property management globally.</p>
             </div>
             <div>
-                <h4 style="color:white; margin-bottom: 20px;">Contact</h4>
-                <p>London | Dubai | New York</p>
-                <p>info@grandsignature.com</p>
+                <h4>Navigation</h4>
+                <p>Home</p>
+                <p>Portfolios</p>
+                <p>About Us</p>
             </div>
+            <div>
+                <h4>Support</h4>
+                <p>Contact Support</p>
+                <p>Privacy Policy</p>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #333; padding-top: 20px;">
+            <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
         let current = 0;
-        const testimonials = document.querySelectorAll('.testimonial');
-
-        function nextTestimonial() {
-            testimonials[current].classList.remove('active');
-            current = (current + 1) % testimonials.length;
-            testimonials[current].classList.add('active');
+        const slides = document.querySelectorAll('.testimonial');
+        function changeSlide() {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
         }
-        
-        // Auto-slide every 5 seconds
-        setInterval(nextTestimonial, 5000);
+        setInterval(changeSlide, 6000); // Auto-slide every 6 seconds
     </script>
-
 </body>
 </html>
