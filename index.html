@@ -264,7 +264,7 @@ section.carousel button,
             <div class="content">
                 <p class="price">$2,450,000</p>
                 <h3>The Beverly Hills Estate</h3>
-                <p>5 Bed | 4 Bath | 4,200 sqft</p>
+                <p>Lagos, Nigeria | 5 Bed | 4 Bath | 4,200 sqft</p>
                 <a href="#" class="btn-details">View Property</a>
             </div>
         </div>
@@ -274,7 +274,7 @@ section.carousel button,
             <div class="content">
                 <p class="price">$1,890,000</p>
                 <h3>Modern Sunset Villa</h3>
-                <p>4 Bed | 3 Bath | 3,500 sqft</p>
+                <p>Lagos, Nigeria | 4 Bed | 3 Bath | 3,500 sqft</p>
                 <a href="#" class="btn-details">View Property</a>
             </div>
         </div>
@@ -284,7 +284,7 @@ section.carousel button,
             <div class="content">
                 <p class="price">$3,100,000</p>
                 <h3>Skyline Penthouse</h3>
-                <p>3 Bed | 3 Bath | 2,800 sqft</p>
+                <p>Abuja, Nigeria | 3 Bed | 3 Bath | 2,800 sqft</p>
                 <a href="#" class="btn-details">View Property</a>
             </div>
         </div>
@@ -294,7 +294,7 @@ section.carousel button,
             <div class="content">
                 <p class="price">$2,450,000</p>
                 <h3>The Beverly Hills Estate</h3>
-                <p>5 Bed | 4 Bath | 4,200 sqft</p>
+                <p>Portharcourt, Nigeria | 5 Bed | 4 Bath | 4,200 sqft</p>
                 <a href="#" class="btn-details">View Property</a>
             </div>
         </div>
@@ -304,7 +304,7 @@ section.carousel button,
             <div class="content">
                 <p class="price">$1,890,000</p>
                 <h3>Modern Sunset Villa</h3>
-                <p>4 Bed | 3 Bath | 3,500 sqft</p>
+                <p>Abuja, Nigeria | 4 Bed | 3 Bath | 3,500 sqft</p>
                 <a href="#" class="btn-details">View Property</a>
             </div>
         </div>
@@ -314,7 +314,7 @@ section.carousel button,
             <div class="content">
                 <p class="price">$3,100,000</p>
                 <h3>Skyline Penthouse</h3>
-                <p>3 Bed | 3 Bath | 2,800 sqft</p>
+                <p>Lagos, Nigeria | 3 Bed | 3 Bath | 2,800 sqft</p>
                 <a href="#" class="btn-details">View Property</a>
             </div>
         </div>
@@ -359,14 +359,36 @@ section.carousel button,
     </footer>
 
     <script>
-        let current = 0;
-        const slides = document.querySelectorAll('.testimonial');
-        function changeSlide() {
+    // --- Testimonial Slider Logic ---
+    let current = 0;
+    const slides = document.querySelectorAll('.testimonial');
+    
+    function changeSlide() {
+        if(slides.length > 0) { // Safety check
             slides[current].classList.remove('active');
             current = (current + 1) % slides.length;
             slides[current].classList.add('active');
         }
-        setInterval(changeSlide, 6000); // Auto-slide every 6 seconds
-    </script>
+    }
+    setInterval(changeSlide, 6000);
+
+    // --- Search Filter Logic ---
+    function filterProperties() {
+        let input = document.getElementById('propertySearch').value.toLowerCase();
+        let cards = document.getElementsByClassName('property-card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].querySelector('h3').innerText.toLowerCase();
+            // This selects the description paragraph while skipping the price
+            let location = cards[i].querySelector('p:not(.price)').innerText.toLowerCase();
+
+            if (title.includes(input) || location.includes(input)) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
 </body>
 </html>
