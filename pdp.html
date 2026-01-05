@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manhattan Luxury Suite | GrandSignature</title>
+    <style>
+        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        /* Navigation Header */
+        header { background: var(--dark); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
+        .logo span { color: var(--gold); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; }
+
+        /* Property Details Layout */
+        .container { padding: 60px 10%; display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+        
+        /* Left Column: Media & Description */
+        .main-img { width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .property-header { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .property-header h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 10px; }
+        .location-tag { color: var(--gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .description h3 { margin: 30px 0 15px; text-transform: uppercase; font-size: 1.1rem; color: var(--dark); }
+        .description p { color: #666; line-height: 1.8; margin-bottom: 20px; }
+
+        /* Amenities Grid */
+        .amenities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+        .amenity-item { background: var(--grey); padding: 15px; border-radius: 4px; text-align: center; font-size: 0.9rem; font-weight: 600; }
+
+        /* Right Column: Pricing & Contact Sidebar */
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+        .price-card { background: var(--dark); color: white; padding: 40px; border-radius: 8px; text-align: center; margin-bottom: 30px; }
+        .price-card .price { font-size: 2.5rem; color: var(--gold); font-weight: bold; margin-bottom: 10px; display: block; }
+        
+        .inquiry-btn { display: block; background: var(--gold); color: var(--dark); text-align: center; padding: 18px; text-decoration: none; font-weight: bold; text-transform: uppercase; border-radius: 4px; transition: 0.3s; margin-top: 20px; }
+        .inquiry-btn:hover { background: #b8962d; transform: translateY(-3px); }
+
+        /* Global Footer */
+        footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+        .footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-decoration: none; color: white; display: block; }
+        .footer-logo span { color: var(--gold); }
+        .footer-col h4 { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; font-size: 14px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #999; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--gold); }
+
+        @media (max-width: 1024px) { .container { grid-template-columns: 1fr; } .sidebar { position: static; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Grand<span>Signature</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Properties</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <img src="https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=1200&q=80" alt="Property Image" class="main-img">
+            
+            <div class="property-header">
+                <span class="location-tag">Lagos, Nigeria</span>
+                <h1>Manhattan Luxury Suite</h1>
+            </div>
+
+            <div class="description">
+                <h3>About This Property</h3>
+                <p>This exquisite Manhattan Luxury Suite offers an unparalleled living experience in the heart of Lagos. Featuring contemporary architectural design, the estate is comprised of multiple signature units, each providing a seamless blend of indoor and outdoor living.</p>
+                <p>Equipped with premium finishes and high-end security, this property is ideal for the discerning investor looking for both comfort and a high-yield asset in one of Africa's fastest-growing real estate hubs.</p>
+
+                <h3>Core Features</h3>
+                <div class="amenities">
+                    <div class="amenity-item">6 Bedrooms</div>
+                    <div class="amenity-item">6 Bathrooms</div>
+                    <div class="amenity-item">Private Pool</div>
+                    <div class="amenity-item">Gated Security</div>
+                    <div class="amenity-item">Smart Home Tech</div>
+                    <div class="amenity-item">4 Car Garage</div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="price-card">
+                <span class="price">$4.2M</span>
+                <p>Off-Market Opportunity</p>
+                <a href="contact.html" class="inquiry-btn">Inquire Now</a>
+            </div>
+            <div style="text-align: center;">
+                <a href="portfolio.html" style="color: var(--dark); text-decoration: none; font-size: 14px; font-weight: bold;">&larr; Back to Portfolio</a>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
+                <p>Curating Nigeria's most exclusive real estate portfolio for the discerning individual.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Sitemap</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Focus Cities</h4>
+                <ul>
+                    <li><a href="portfolio.html">Lagos</a></li>
+                    <li><a href="portfolio.html">Abuja</a></li>
+                    <li><a href="portfolio.html">Port Harcourt</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
