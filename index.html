@@ -34,228 +34,67 @@
         .search-container input { border: none; padding: 15px; width: 300px; outline: none; }
         .search-container button { background: var(--gold); border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; }
 
-        /* Global Impact Grid (The "Elite Digital" look) */
+        /* Global Impact Grid */
         .section-padding { padding: 80px 10%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
         .card { background: var(--grey); padding: 40px; text-align: center; border-radius: 8px; transition: 0.3s; border-bottom: 4px solid transparent; }
         .card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--gold); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .card h3 { color: var(--blue); margin-bottom: 15px; }
 
-        /* Our Approach (Split Section) */
+        /* Our Approach */
         .approach { display: flex; align-items: center; gap: 50px; background: #f0f4f8; padding: 80px 10%; }
         .approach-text { flex: 1; }
         .approach-img { flex: 1; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .approach-img img { width: 100%; display: block; }
 
-      /* Premium Featured Listings Section */
-.properties { 
-    padding: 100px 10%; 
-    background-color: #fcfcfc; 
-}
+        /* Premium Featured Listings Section */
+        .properties { padding: 100px 10%; background-color: #fcfcfc; }
+        .properties-header { text-align: center; margin-bottom: 60px; }
+        .luxury-tag { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 12px; font-weight: bold; display: block; margin-bottom: 10px; }
+        .properties h2 { font-size: 38px; color: var(--dark); font-weight: 700; }
+        .property-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .property-card { background: #ffffff; border-radius: 0px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; display: flex; flex-direction: column; }
+        .property-card img { width: 100%; height: 280px; object-fit: cover; }
+        .property-card .content { padding: 30px; flex-grow: 1; }
+        .property-card .price { color: var(--gold); font-weight: 600; font-size: 1.4rem; margin-bottom: 10px; }
 
-.properties-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
+        /* Testimonial Carousel */
+        .carousel { background: var(--gold); color: #1a1a1a; padding: 100px 10%; text-align: center; }
+        .testimonial { display: none; max-width: 800px; margin: 0 auto; animation: fade 0.8s; }
+        .testimonial.active { display: block; }
+        .testimonial p { font-size: 24px; font-style: italic; margin-bottom: 20px; }
+        .author { color: #ffffff; font-weight: bold; font-size: 18px; text-transform: uppercase; }
 
-.luxury-tag {
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 12px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-}
+        .carousel-btn, .btn-details { 
+            display: inline-block; 
+            background-color: #1a1a1a; 
+            color: var(--gold); 
+            padding: 15px 35px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            transition: 0.3s; 
+            border: none;
+            cursor: pointer;
+        }
+        .btn-details { width: 100%; margin-top: 15px; }
+        .carousel-btn:hover, .btn-details:hover { background-color: #333; color: white; }
 
-.properties h2 { 
-    font-size: 38px;
-    color: var(--dark);
-    font-weight: 700;
-}
+        /* Global Footer Styles */
+        footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .footer-col { display: flex; flex-direction: column; }
+        .footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-decoration: none; color: white; }
+        .footer-logo span { color: var(--gold); }
+        .footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 15px; }
+        .footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
+        .footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; }
 
-.property-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 40px; 
-}
-
-.property-card {
-    background: #ffffff;
-    border-radius: 0px; 
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: none;
-    display: flex;
-    flex-direction: column;
-}
-
-.property-card:hover { 
-    transform: translateY(-15px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-}
-
-.property-card img { 
-    width: 100%; 
-    height: 280px; 
-    object-fit: cover;
-    filter: brightness(95%); 
-}
-
-.property-card .content { 
-    padding: 30px; 
-    flex-grow: 1;
-}
-
-.property-card .price { 
-    color: var(--gold); 
-    font-weight: 600; 
-    font-size: 1.4rem; 
-    margin-bottom: 10px; 
-}
-
-/* THE BUTTONS */
-.btn-details {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-top: 15px;
-    padding: 14px 20px;
-    background-color: #1a1a1a;
-    color: var(--gold);
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s ease;
-}
-
-.btn-details:hover {
-    background-color: var(--gold);
-    color: #1a1a1a;
-    letter-spacing: 2px;
-}
-
-/* MOBILE FIX */
-@media (max-width: 900px) {
-    .property-grid { grid-template-columns: 1fr; }
-}
-
-        
-     /* Testimonial Carousel - Gold Background Version */
-.carousel { 
-    background: var(--gold); 
-    color: #1a1a1a; /* Dark text for contrast on gold */
-    padding: 100px 10%; 
-    text-align: center; 
-}
-
-.testimonial { 
-    display: none; 
-    max-width: 800px; 
-    margin: 0 auto; 
-    animation: fade 0.8s; 
-}
-
-.testimonial.active { 
-    display: block; 
-}
-
-.testimonial p { 
-    font-size: 24px; 
-    font-style: italic; 
-    margin-bottom: 20px; 
-    color: #1a1a1a; /* Dark text */
-}
-
-.author { 
-    color: #ffffff; /* White text for the author name to look elegant on gold */
-    font-weight: bold; 
-    font-size: 18px; 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-/* FORCE VISIBILITY FOR THE BUTTON */
-.carousel button, 
-section.carousel button,
-.carousel-btn {
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative;
-    z-index: 10; /* Brings it to the front */
-    margin-top: 40px;
-    background-color: #1a1a1a !important; /* Dark Charcoal */
-    color: #d4af37 !important;            /* Gold Text */
-    border: 2px solid #1a1a1a;
-    padding: 15px 35px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-}
-
-/* HOVER EFFECT */
-.carousel-btn:hover,
-.carousel button:hover {
-    background-color: transparent !important;
-    color: #1a1a1a !important;
-}
-
-       /* Unified Global Footer Styles */
-footer { 
-    background: var(--dark); 
-    color: white; 
-    padding: 80px 10% 20px; 
-    margin-top: 50px;
-}
-.footer-grid { 
-    display: grid; 
-    grid-template-columns: 2fr 1fr 1fr 1fr; 
-    gap: 40px; 
-    margin-bottom: 60px; 
-}
-.footer-logo { 
-    font-size: 24px; 
-    font-weight: bold; 
-    margin-bottom: 20px; 
-    display: block; 
-    text-decoration: none; 
-    color: white; 
-}
-.footer-logo span { color: var(--gold); }
-.footer-col h4 { 
-    color: var(--gold); 
-    margin-bottom: 25px; 
-    text-transform: uppercase; 
-    font-size: 14px; 
-    letter-spacing: 2px; 
-}
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 15px; }
-.footer-col ul li a { 
-    color: #999; 
-    text-decoration: none; 
-    transition: 0.3s; 
-    font-size: 14px; 
-}
-.footer-col ul li a:hover { 
-    color: var(--gold); 
-    padding-left: 5px; 
-}
-.footer-bottom { 
-    border-top: 1px solid #333; 
-    padding-top: 30px; 
-    text-align: center; 
-    color: #666; 
-    font-size: 13px; 
-    letter-spacing: 1px; 
-}
-
-@media (max-width: 900px) { 
-    .footer-grid { grid-template-columns: 1fr; } 
-}
+        @media (max-width: 900px) { .property-grid, .footer-grid, .approach { grid-template-columns: 1fr; flex-direction: column; } }
+    </style>
 </head>
 <body>
 
@@ -277,14 +116,13 @@ footer {
     </header>
 
     <section class="hero">
-    <h1>Exceptional Living Starts Here</h1>
-    <p>Expertise in luxury residential and commercial properties.</p>
-    
-    <div class="search-container">
-        <input type="text" id="propertySearch" onkeyup="filterProperties()" placeholder="Enter neighborhood or city...">
-        <button onclick="filterProperties()">SEARCH</button>
-    </div>
-</section>
+        <h1>Exceptional Living Starts Here</h1>
+        <p>Expertise in luxury residential and commercial properties.</p>
+        <div class="search-container">
+            <input type="text" id="propertySearch" placeholder="Enter neighborhood or city...">
+            <button onclick="filterProperties()">SEARCH</button>
+        </div>
+    </section>
 
     <section class="section-padding">
         <div style="text-align: center;">
@@ -292,194 +130,79 @@ footer {
             <h2 style="font-size: 32px; margin-top: 10px;">Why GrandSignature Global?</h2>
         </div>
         <div class="grid">
-            <div class="card">
-                <h3>Global Portfolio</h3>
-                <p>Curated access to high-yield off-market assets across major global financial hubs.</p>
-            </div>
-            <div class="card">
-                <h3>Digital Solutions</h3>
-                <p>Proprietary virtual reality tours and AI-driven market analysis for our elite clients.</p>
-            </div>
-            <div class="card">
-                <h3>Legal Advisory</h3>
-                <p>End-to-end legal and tax compliance support for international real estate transactions.</p>
-            </div>
+            <div class="card"><h3>Global Portfolio</h3><p>Curated access to off-market assets across major global financial hubs.</p></div>
+            <div class="card"><h3>Digital Solutions</h3><p>Proprietary virtual tours and AI-driven market analysis for our clients.</p></div>
+            <div class="card"><h3>Legal Advisory</h3><p>Legal and tax compliance support for international transactions.</p></div>
         </div>
     </section>
 
-    <section class="approach">
-        <div class="approach-text">
-            <h2 style="font-size: 36px; margin-bottom: 20px;">Our Strategic Approach</h2>
-            <p style="margin-bottom: 20px;">We leverage cutting-edge technology and a deep network of global partners to ensure your real estate investments grow across borders.</p>
-            <ul style="list-style: none;">
-                <li>✔️ Data-Driven Property Valuations</li>
-                <li>✔️ Exclusive VIP Investor Access</li>
-                <li>✔️ Sustainable Luxury Development</li>
-            </ul>
+    <section class="properties">
+        <div class="properties-header"><span class="luxury-tag">Exclusive Collection</span><h2>Featured Listings</h2></div>
+        <div class="property-grid">
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Estate">
+                <div class="content"><p class="price">$2,450,000</p><h3>The Beverly Hills Estate</h3><p>Lagos, Nigeria</p><a href="portfolio.html" class="btn-details">View Details</a></div>
+            </div>
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Villa">
+                <div class="content"><p class="price">$1,890,000</p><h3>Modern Sunset Villa</h3><p>Lagos, Nigeria</p><a href="portfolio.html" class="btn-details">View Details</a></div>
+            </div>
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80" alt="Penthouse">
+                <div class="content"><p class="price">$3,100,000</p><h3>Skyline Penthouse</h3><p>Abuja, Nigeria</p><a href="portfolio.html" class="btn-details">View Details</a></div>
+            </div>
         </div>
-        <div class="approach-img">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Modern Office">
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="portfolio.html" class="carousel-btn">Explore All Properties</a>
         </div>
     </section>
-
-      <section class="properties">
-    <div class="properties-header">
-        <span class="luxury-tag">Exclusive Collection</span>
-        <h2>Featured Listings</h2>
-    </div>
-    
-    <div class="property-grid">
-        
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Estate">
-            <div class="content">
-                <p class="price">$2,450,000</p>
-                <h3>The Beverly Hills Estate</h3>
-                <p>Lagos, Nigeria | 5 Bed | 4 Bath | 4,200 sqft</p>
-                <a href="portfolio.html" class="btn-details">View Property Details</a>
-            </div>
-        </div>
-
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Modern House">
-            <div class="content">
-                <p class="price">$1,890,000</p>
-                <h3>Modern Sunset Villa</h3>
-                <p>Lagos, Nigeria | 4 Bed | 3 Bath | 3,500 sqft</p>
-                <a href="portfolio.html" class="btn-details">View Property Details</a>
-            </div>
-        </div>
-
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80" alt="Luxury Penthouse">
-            <div class="content">
-                <p class="price">$3,100,000</p>
-                <h3>Skyline Penthouse</h3>
-                <p>Abuja, Nigeria | 3 Bed | 3 Bath | 2,800 sqft</p>
-                <a href="portfolio.html" class="btn-details">View Property Details</a>
-            </div>
-        </div>
-
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Villa">
-            <div class="content">
-                <p class="price">$2,450,000</p>
-                <h3>The Beverly Hills Estate</h3>
-                <p>Abuja, Nigeria | 5 Bed | 4 Bath | 4,200 sqft</p>
-               <a href="portfolio.html" class="btn-details">View Property Details</a>
-            </div>
-        </div>
-
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Modern Luxury Villa">
-            <div class="content">
-                <p class="price">$1,890,000</p>
-                <h3>Modern Sunset Villa</h3>
-                <p>Abuja, Nigeria | 4 Bed | 3 Bath | 3,500 sqft</p>
-                <a href="portfolio.html" class="btn-details">View Property Details</a>
-            </div>
-        </div>
-
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1512914890251-2f96a9b0bbe2?auto=format&fit=crop&w=1200&q=80" alt="Penthouse">
-            <div class="content">
-                <p class="price">$3,100,000</p>
-                <h3>Skyline Penthouse</h3>
-                <p>Lagos, Nigeria | 3 Bed | 3 Bath | 2,800 sqft</p>
-                <a href="portfolio.html" class="btn-details">View Property Details</a>
-            </div>
-        </div>
-        </div> <div style="text-align: center; margin-top: 50px;">
-        <a href="portfolio.html" class="carousel-btn" style="text-decoration: none;">Explore All 1000+ Properties</a>
-    </div>
-</section>
 
     <section class="carousel">
-        <div class="testimonial active">
-            <p>"GrandSignature provided an unmatched level of professionalism. They managed my international portfolio with total transparency."</p>
-            <span class="author">— David Harrison, CEO Harrison Intl.</span>
-        </div>
-        <div class="testimonial">
-            <p>"The virtual tours were so high-quality I bought my penthouse in Dubai without having to fly there first. Incredible service."</p>
-            <span class="author">— Elena Rodriguez, Private Investor</span>
-        </div>
-        <div style="margin-top: 40px;">
-    <button onclick="changeSlide()" class="carousel-btn">Next Review</button>
-</div>
+        <div class="testimonial active"><p>"GrandSignature provided unmatched professionalism. They managed my portfolio with transparency."</p><span class="author">— David Harrison, CEO</span></div>
+        <div class="testimonial"><p>"Incredible service. The virtual tours were so high-quality I bought my penthouse without flying there."</p><span class="author">— Elena Rodriguez</span></div>
+        <button onclick="changeSlide()" class="carousel-btn" style="margin-top: 40px;">Next Review</button>
     </section>
 
     <footer>
-    <div class="footer-grid">
-        <div class="footer-col">
-            <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
-            <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
-                Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
-            </p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
+                <p>Curating Nigeria's most exclusive real estate portfolio for the discerning individual.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Sitemap</h4>
+                <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="portfolio.html">Properties</a></li><li><a href="contact.html">Contact</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Focus Cities</h4>
+                <ul><li><a href="portfolio.html">Lagos</a></li><li><a href="portfolio.html">Abuja</a></li><li><a href="portfolio.html">Port Harcourt</a></li><li><a href="portfolio.html">Asaba & Owerri</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">YouTube</a></li></ul>
+            </div>
         </div>
-        <div class="footer-col">
-            <h4>Sitemap</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Properties</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Focus Cities</h4>
-            <ul>
-                <li><a href="portfolio.html">Lagos Properties</a></li>
-                <li><a href="portfolio.html">Abuja Estates</a></li>
-                <li><a href="portfolio.html">Port Harcourt</a></li>
-                <li><a href="portfolio.html">Asaba & Owerri</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Social</h4>
-            <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">YouTube</a></li>
-                <li><a href="#">Twitter</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
-    </div>
-</footer>
+        <div class="footer-bottom"><p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p></div>
+    </footer>
 
     <script>
-    // --- Testimonial Slider Logic ---
-    let current = 0;
-    const slides = document.querySelectorAll('.testimonial');
-    
-    function changeSlide() {
-        if(slides.length > 0) { // Safety check
+        let current = 0;
+        const slides = document.querySelectorAll('.testimonial');
+        function changeSlide() {
             slides[current].classList.remove('active');
             current = (current + 1) % slides.length;
             slides[current].classList.add('active');
         }
-    }
-    setInterval(changeSlide, 6000);
+        setInterval(changeSlide, 6000);
 
-    // --- Search Filter Logic ---
-    function filterProperties() {
-        let input = document.getElementById('propertySearch').value.toLowerCase();
-        let cards = document.getElementsByClassName('property-card');
-
-        for (let i = 0; i < cards.length; i++) {
-            let title = cards[i].querySelector('h3').innerText.toLowerCase();
-            // This selects the description paragraph while skipping the price
-            let location = cards[i].querySelector('p:not(.price)').innerText.toLowerCase();
-
-            if (title.includes(input) || location.includes(input)) {
-                cards[i].style.display = "";
-            } else {
-                cards[i].style.display = "none";
+        function filterProperties() {
+            let input = document.getElementById('propertySearch').value.toLowerCase();
+            let cards = document.getElementsByClassName('property-card');
+            for (let i = 0; i < cards.length; i++) {
+                let content = cards[i].innerText.toLowerCase();
+                cards[i].style.display = content.includes(input) ? "" : "none";
             }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
