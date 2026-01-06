@@ -43,14 +43,35 @@
         .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 10000; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
 
-        /* ================= GLOBAL FOOTER ================= */
-        footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 15px; }
-        .footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
-        .footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
+       /* ================= GLOBAL FOOTER ================= */
+footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
+
+.footer-grid { 
+    display: grid; 
+    /* This line now supports all 5 columns in one row */
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; 
+    gap: 30px; 
+    margin-bottom: 60px; 
+}
+
+.footer-col { display: flex; flex-direction: column; }
+.footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
+.footer-logo span { color: var(--gold); }
+.footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 15px; }
+.footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
+.footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
+.footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
+
+/* Responsive adjustments */
+@media (max-width: 1100px) { 
+    .footer-grid { grid-template-columns: 1fr 1fr; } /* Stacks into 2 columns for tablets */
+}
+
+@media (max-width: 768px) { 
+    .footer-grid { grid-template-columns: 1fr; } /* Stacks into 1 column for mobile */
+}
 
         @media (max-width: 900px) { 
             .footer-grid { grid-template-columns: 1fr; }
@@ -116,41 +137,61 @@
     </a>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="index.html" class="logo">Grand<span>Signature</span></a>
-                <p style="color: #999; font-size: 14px; margin-top: 15px;">Curating Nigeria's most exclusive real estate portfolio.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Sitemap</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="portfolio.html">Properties</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
+            <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
+                Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
+            </p>
         </div>
-        <div style="text-align: center; border-top: 1px solid #333; padding-top: 20px; color: #666; font-size: 12px;">
-            © 2026 GrandSignature Properties. All Rights Reserved.
+        
+        <div class="footer-col">
+            <h4>Sitemap</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="portfolio.html">Properties</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
         </div>
-    </footer>
 
+        <div class="footer-col">
+            <h4>Focus Cities</h4>
+            <ul>
+                <li><a href="portfolio.html">Lagos Properties</a></li>
+                <li><a href="portfolio.html">Abuja Estates</a></li>
+                <li><a href="portfolio.html">Port Harcourt</a></li>
+                <li><a href="portfolio.html">Ibadan</a></li>
+                <li><a href="portfolio.html">Asaba & Owerri</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Social</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">YouTube</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">TikTok</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
+    </div>
+</footer>
     <script>
         // Mobile Menu Toggle
         document.querySelector('.menu-toggle').addEventListener('click', () => {
