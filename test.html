@@ -10,34 +10,81 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--white); color: #333; line-height: 1.6; }
 
-        /* Navigation Header */
-        
-        .top-banner { background: var(--gold); color: var(--dark); padding: 10px 5%; display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; }
-        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
-        .logo span { color: var(--gold); }
-        <button class="menu-toggle" aria-label="Toggle menu">
-    ☰
-</button>
-        .menu-toggle {
+       /* ================= NAVIGATION ================= */
+
+.top-banner {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+header {
+    background: var(--dark);
+    padding: 20px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hamburger button */
+.menu-toggle {
     display: none;
     background: none;
     border: none;
     color: white;
-    font-size: 28px;
+    font-size: 30px;
     cursor: pointer;
 }
-@media (max-width: 600px) {
+
+/* Mobile */
+@media (max-width: 768px) {
+
     .top-banner {
         flex-direction: column;
         text-align: center;
         gap: 5px;
         font-size: 12px;
     }
-}
 
-@media (max-width: 600px) {
+    .menu-toggle {
+        display: block;
+    }
+
     nav ul {
         position: absolute;
         top: 100%;
@@ -47,6 +94,7 @@
         flex-direction: column;
         align-items: center;
         display: none;
+        padding: 20px 0;
     }
 
     nav ul li {
@@ -55,10 +103,6 @@
 
     nav ul.show {
         display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
     }
 }
 
@@ -217,16 +261,21 @@
     </div>
 
     <header>
-        <nav>
-            <a href="index.html" class="logo">Grand<span>Signature</span></a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html">Properties</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <a href="index.html" class="logo">Grand<span>Signature</span></a>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+            ☰
+        </button>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Properties</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="hero">
         <h1>Exceptional Living Starts Here</h1>
@@ -299,30 +348,38 @@
     </footer>
 
     <script>
-        let current = 0;
-        const slides = document.querySelectorAll('.testimonial');
-        function changeSlide() {
-            slides[current].classList.remove('active');
-            current = (current + 1) % slides.length;
-            slides[current].classList.add('active');
-        }
-        setInterval(changeSlide, 6000);
+let current = 0;
+const slides = document.querySelectorAll('.testimonial');
 
-        function filterProperties() {
-            let input = document.getElementById('propertySearch').value.toLowerCase();
-            let cards = document.getElementsByClassName('property-card');
-            for (let i = 0; i < cards.length; i++) {
-                let content = cards[i].innerText.toLowerCase();
-                cards[i].style.display = content.includes(input) ? "" : "none";
-            }
-        }
-    </script>
-    <script>
-const toggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('nav ul');
+function changeSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+}
 
-toggle.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
+setInterval(changeSlide, 6000);
+
+function filterProperties() {
+    let input = document.getElementById('propertySearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('property-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        let content = cards[i].innerText.toLowerCase();
+        cards[i].style.display = content.includes(input) ? "" : "none";
+    }
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    if (toggle && navMenu) {
+        toggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    }
 });
 </script>
 
