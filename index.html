@@ -11,60 +11,51 @@
         body { background-color: var(--white); color: #333; line-height: 1.6; }
 
         /* ================= COOKIE BANNER ================= */
-.cookie-container {
-    position: fixed;
-    bottom: -100px; /* Hidden initially */
-    left: 0;
-    width: 100%;
-    background: var(--dark);
-    color: white;
-    padding: 20px 5%;
-    z-index: 20000; /* Higher than WhatsApp button */
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
-    transition: bottom 0.5s ease-in-out;
-}
+        .cookie-container {
+            position: fixed;
+            bottom: -150px; /* Hidden initially */
+            left: 0;
+            width: 100%;
+            background: var(--dark);
+            color: white;
+            padding: 20px 5%;
+            z-index: 25000; /* Higher than everything */
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+            transition: bottom 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
 
-.cookie-container.show {
-    bottom: 0;
-}
+        .cookie-container.show {
+            bottom: 0;
+        }
 
-.cookie-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .cookie-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.cookie-content p {
-    font-size: 14px;
-    margin-right: 20px;
-}
+        .cookie-content p { font-size: 14px; margin-right: 20px; }
+        .cookie-content a { color: var(--gold); text-decoration: underline; }
 
-.cookie-content a {
-    color: var(--gold);
-    text-decoration: underline;
-}
+        .cookie-btn {
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            padding: 10px 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
 
-.cookie-btn {
-    background: var(--gold);
-    color: var(--dark);
-    border: none;
-    padding: 10px 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: 0.3s;
-}
+        .cookie-btn:hover { background: #fff; }
 
-.cookie-btn:hover {
-    background: #fff;
-}
-
-@media (max-width: 768px) {
-    .cookie-content { flex-direction: column; text-align: center; gap: 15px; }
-}
+        @media (max-width: 768px) {
+            .cookie-content { flex-direction: column; text-align: center; gap: 15px; }
+        }
 
        /* ================= NAVIGATION ================= */
 
@@ -162,58 +153,11 @@ nav ul li a {
     }
 }
 
-        /* WhatsApp Floating Button */
-.whatsapp-float {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    z-index: 10000;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    background-color: #128c7e;
-}
-
-/* Tooltip text on hover */
-.whatsapp-float::before {
-    content: 'Chat with us';
-    position: absolute;
-    right: 70px;
-    background: #333;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-}
-
-.whatsapp-float:hover::before {
-    opacity: 1;
-    visibility: visible;
-}
-
-    @media (max-width: 768px) {
-    .whatsapp-float::before {
-        display: none;
-    }
-}
+       /* ================= WHATSAPP BUTTON ================= */
+        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 10000; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+        .whatsapp-float::before { content: 'Chat with us'; position: absolute; right: 75px; background: #333; color: #fff; padding: 8px 12px; border-radius: 5px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .whatsapp-float:hover::before { opacity: 1; visibility: visible; }
 
         /* Hero Section */
         .hero {
@@ -438,6 +382,14 @@ nav ul li a {
     }
 }
 
+        <div id="cookie-banner" class="cookie-container">
+        <div class="cookie-content">
+            <p>This website uses cookies to ensure you get the best experience on our luxury property portal. 
+               <a href="about.html">Learn more</a>
+            </p>
+            <button id="accept-cookies" class="cookie-btn">Accept</button>
+        </div>
+    </div>
         /* Global Footer Styles */
         footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
@@ -454,26 +406,16 @@ nav ul li a {
         @media (max-width: 900px) { .property-grid, .footer-grid, .approach { grid-template-columns: 1fr; flex-direction: column; } }
     </style>
 </head>
-    <a href="https://wa.me/2347075112759?text=Hello%20GrandSignature,%20I%20am%20interested%20in%20your%20luxury%20properties." 
-   class="whatsapp-float" 
-   target="_blank">💬</a>
-</a>
 <body>
-
-    <div id="cookie-banner" class="cookie-container">
-    <div class="cookie-content">
-        <p>This website uses cookies to ensure you get the best experience on our luxury property portal. 
-           <a href="about.html">Learn more</a>
-        </p>
-        <button id="accept-cookies" class="cookie-btn">Accept</button>
-    </div>
-</div>
     
     <div class="top-banner">
         <span>📍Lagos | Abuja | Owerri | Ibadan</span>
         <span>✉️info@grandsignatureproperties.com</span>
     </div>
 
+     <a href="https://wa.me/2347075112759?text=Hello%20GrandSignature,%20I%20am%20interested%20in%20your%20luxury%20properties." 
+       class="whatsapp-float" target="_blank">💬</a>
+    
     <header>
     <nav>
         <a href="index.html" class="logo">Grand<span>Signature</span></a>
