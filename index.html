@@ -10,62 +10,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--white); color: #333; line-height: 1.6; }
 
-        /* ================= COOKIE BANNER ================= */
-.cookie-container {
-    position: fixed;
-    bottom: -100px; /* Hidden initially */
-    left: 0;
-    width: 100%;
-    background: var(--dark);
-    color: white;
-    padding: 20px 5%;
-    z-index: 20000; /* Higher than WhatsApp button */
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
-    transition: bottom 0.5s ease-in-out;
-}
-
-.cookie-container.show {
-    bottom: 0;
-}
-
-.cookie-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.cookie-content p {
-    font-size: 14px;
-    margin-right: 20px;
-}
-
-.cookie-content a {
-    color: var(--gold);
-    text-decoration: underline;
-}
-
-.cookie-btn {
-    background: var(--gold);
-    color: var(--dark);
-    border: none;
-    padding: 10px 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.cookie-btn:hover {
-    background: #fff;
-}
-
-@media (max-width: 768px) {
-    .cookie-content { flex-direction: column; text-align: center; gap: 15px; }
-}
-
        /* ================= NAVIGATION ================= */
 
 .top-banner {
@@ -452,15 +396,59 @@ nav ul li a {
         .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; }
 
         @media (max-width: 900px) { .property-grid, .footer-grid, .approach { grid-template-columns: 1fr; flex-direction: column; } }
+
+        /* ================= COOKIE BANNER FIX ================= */
+.cookie-container {
+    position: fixed;
+    bottom: -150px; /* Initially hidden below the screen */
+    left: 0;
+    width: 100%;
+    background: #1a1a1a; /* Matches your --dark variable */
+    color: white;
+    padding: 20px 5%;
+    z-index: 25000; /* High z-index to stay above everything */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+    transition: bottom 0.6s ease-in-out;
+}
+
+.cookie-container.show {
+    bottom: 0;
+}
+
+.cookie-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cookie-content p { font-size: 14px; }
+.cookie-content a { color: #d4af37; text-decoration: underline; }
+
+.cookie-btn {
+    background: #d4af37; /* Matches your --gold variable */
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .cookie-content { flex-direction: column; text-align: center; gap: 15px; }
+}
     </style>
 </head>
     <a href="https://wa.me/2347075112759?text=Hello%20GrandSignature,%20I%20am%20interested%20in%20your%20luxury%20properties." 
    class="whatsapp-float" 
    target="_blank">💬</a>
-</a>
 <body>
 
-    <div id="cookie-banner" class="cookie-container">
+   <div id="cookie-banner" class="cookie-container">
     <div class="cookie-content">
         <p>This website uses cookies to ensure you get the best experience on our luxury property portal. 
            <a href="about.html">Learn more</a>
@@ -657,5 +645,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+    <script>
+    (function() {
+        const cookieBanner = document.getElementById("cookie-banner");
+        const acceptBtn = document.getElementById("accept-cookies");
+
+        if (cookieBanner && acceptBtn) {
+            // Check if user has already accepted in this browser
+            if (!localStorage.getItem("cookiesAccepted")) {
+                setTimeout(() => {
+                    cookieBanner.classList.add("show");
+                }, 2000); // Popup appears after 2 seconds
+            }
+
+            acceptBtn.addEventListener("click", function () {
+                localStorage.setItem("cookiesAccepted", "true");
+                cookieBanner.classList.remove("show");
+            });
+        }
+    })();
+</script>
 </body>
 </html>
