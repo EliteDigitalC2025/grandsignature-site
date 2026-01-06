@@ -4,23 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrandSignature Properties | Luxury Real Estate</title>
-    <link rel="icon" type="image/png" href="logo-icon.png">
     <link rel="apple-touch-icon" href="logo-icon.png">
     <style>
         :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; --blue: #004a99; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--white); color: #333; line-height: 1.6; }
 
-        /* Navigation Header */
-        .top-banner { background: var(--gold); color: var(--dark); padding: 10px 5%; display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; }
-        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
-        .logo span { color: var(--gold); }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 30px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
-        nav ul li a:hover { color: var(--gold); }
+       /* ================= NAVIGATION ================= */
+
+.top-banner {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+header {
+    background: var(--dark);
+    padding: 20px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hamburger button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .top-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+        font-size: 12px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
 
         /* WhatsApp Floating Button */
 .whatsapp-float {
@@ -68,6 +152,13 @@
     opacity: 1;
     visibility: visible;
 }
+
+    @media (max-width: 768px) {
+    .whatsapp-float::before {
+        display: none;
+    }
+}
+
         /* Hero Section */
         .hero {
             height: 70vh;
@@ -78,13 +169,46 @@
             color: white; text-align: center; padding: 20px;
         }
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .search-container { background: white; padding: 10px; border-radius: 5px; display: flex; margin-top: 25px; }
-        .search-container input { border: none; padding: 15px; width: 300px; outline: none; }
-        .search-container button { background: var(--gold); border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; }
+        .search-container {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 25px;
+}
+
+.search-container input {
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.search-container button {
+    background: var(--gold);
+    color: #1a1a1a;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-container button:hover {
+    background: #c9a633;
+}
 
         /* Global Impact Grid */
         .section-padding { padding: 80px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
         .card { background: var(--grey); padding: 40px; text-align: center; border-radius: 8px; transition: 0.3s; border-bottom: 4px solid transparent; }
         .card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--gold); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .card h3 { color: var(--blue); margin-bottom: 15px; }
@@ -159,16 +283,21 @@
     </div>
 
     <header>
-        <nav>
-            <a href="index.html" class="logo">Grand<span>Signature</span></a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html">Properties</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <a href="index.html" class="logo">Grand<span>Signature</span></a>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+            ☰
+        </button>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Properties</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="hero">
         <h1>Exceptional Living Starts Here</h1>
@@ -241,23 +370,40 @@
     </footer>
 
     <script>
-        let current = 0;
-        const slides = document.querySelectorAll('.testimonial');
-        function changeSlide() {
-            slides[current].classList.remove('active');
-            current = (current + 1) % slides.length;
-            slides[current].classList.add('active');
-        }
-        setInterval(changeSlide, 6000);
+let current = 0;
+const slides = document.querySelectorAll('.testimonial');
 
-        function filterProperties() {
-            let input = document.getElementById('propertySearch').value.toLowerCase();
-            let cards = document.getElementsByClassName('property-card');
-            for (let i = 0; i < cards.length; i++) {
-                let content = cards[i].innerText.toLowerCase();
-                cards[i].style.display = content.includes(input) ? "" : "none";
-            }
-        }
-    </script>
+function changeSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+}
+
+setInterval(changeSlide, 6000);
+
+function filterProperties() {
+    let input = document.getElementById('propertySearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('property-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        let content = cards[i].innerText.toLowerCase();
+        cards[i].style.display = content.includes(input) ? "" : "none";
+    }
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    if (toggle && navMenu) {
+        toggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    }
+});
+</script>
+
 </body>
 </html>
