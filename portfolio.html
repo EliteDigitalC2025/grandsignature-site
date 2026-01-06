@@ -9,6 +9,9 @@
         :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; --blue: #004a99; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--white); color: #333; line-height: 1.6; }
+        html, body {
+    overflow-x: hidden;
+}
 
        /* ================= NAVIGATION ================= */
 
@@ -197,10 +200,18 @@ nav ul li a {
         }
     </style>
 </head>
-<body>
+    <body>
 
-   <header>
+<a href="https://wa.me/2347075112759?text=Hello%20GrandSignature,%20I%20am%20interested%20in%20your%20luxury%20properties."
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+   <!-- svg -->
+</a>
+
+<header>
     <nav>
+
         <a href="index.html" class="logo">Grand<span>Signature</span></a>
 
         <button class="menu-toggle" aria-label="Toggle menu">
@@ -378,13 +389,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
-
-<a href="https://wa.me/2347075112759
-   class="whatsapp-float"
-   target="_blank"
-   aria-label="Chat on WhatsApp">
-    💬
-</a>
-
 </body>
 </html>
