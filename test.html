@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrandSignature Properties | Luxury Real Estate</title>
+    
+    <link rel="icon" type="image/png" href="logo-icon.png">
+    <link rel="apple-touch-icon" href="logo-icon.png">
+
+    <style>
+        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; --blue: #004a99; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--white); color: #333; line-height: 1.6; }
+
+        /* ================= COOKIE BANNER ================= */
+        .cookie-container {
+            position: fixed;
+            bottom: -150px; /* Hidden initially */
+            left: 0;
+            width: 100%;
+            background: var(--dark);
+            color: white;
+            padding: 20px 5%;
+            z-index: 25000; /* Higher than everything */
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+            transition: bottom 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .cookie-container.show {
+            bottom: 0;
+        }
+
+        .cookie-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cookie-content p { font-size: 14px; margin-right: 20px; }
+        .cookie-content a { color: var(--gold); text-decoration: underline; }
+
+        .cookie-btn {
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            padding: 10px 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .cookie-btn:hover { background: #fff; }
+
+        @media (max-width: 768px) {
+            .cookie-content { flex-direction: column; text-align: center; gap: 15px; }
+        }
+
+        /* ================= NAVIGATION ================= */
+        .top-banner { background: var(--gold); color: var(--dark); padding: 10px 5%; display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; }
+        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; }
+        nav { display: flex; align-items: center; justify-content: space-between; position: relative; }
+        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
+        .logo span { color: var(--gold); }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--gold); }
+        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 30px; cursor: pointer; }
+
+        @media (max-width: 768px) {
+            .top-banner { flex-direction: column; text-align: center; gap: 5px; }
+            .menu-toggle { display: block; }
+            nav ul { position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark); flex-direction: column; align-items: center; display: none; padding: 20px 0; }
+            nav ul li { margin: 15px 0; }
+            nav ul.show { display: flex; }
+        }
+
+        /* ================= WHATSAPP BUTTON ================= */
+        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 10000; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+        .whatsapp-float::before { content: 'Chat with us'; position: absolute; right: 75px; background: #333; color: #fff; padding: 8px 12px; border-radius: 5px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .whatsapp-float:hover::before { opacity: 1; visibility: visible; }
+
+        /* ================= HERO & OTHER SECTIONS ================= */
+        .hero { height: 70vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .search-container { background: white; padding: 12px; border-radius: 6px; display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 700px; margin-top: 25px; }
+        .search-container input { padding: 14px 16px; font-size: 16px; border: 1px solid #ddd; border-radius: 4px; outline: none; }
+        .search-container button { background: var(--gold); color: #1a1a1a; font-weight: bold; border: none; padding: 14px; cursor: pointer; transition: 0.3s; border-radius: 4px; }
+        
+        .section-padding { padding: 80px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .card { background: var(--grey); padding: 40px; text-align: center; border-radius: 8px; transition: 0.3s; border-bottom: 4px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--gold); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        .properties { padding: 100px 10%; background-color: #fcfcfc; }
+        .property-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .property-card { background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; }
+        .property-card img { width: 100%; height: 280px; object-fit: cover; }
+        .property-card .content { padding: 30px; }
+
+        .carousel { background: var(--gold); color: #1a1a1a; padding: 100px 10%; text-align: center; }
+        .testimonial { display: none; max-width: 800px; margin: 0 auto; }
+        .testimonial.active { display: block; }
+
+        /* ================= BLOG SECTION ================= */
+        .blog-section { padding: 80px 10%; background-color: var(--white); }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .blog-card { border: 1px solid #eee; overflow: hidden; transition: 0.3s; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .blog-img { width: 100%; height: 220px; object-fit: cover; }
+        .blog-content { padding: 25px; }
+
+        .main-blog-btn { display: inline-block; padding: 18px 45px; border: 2px solid var(--dark); text-decoration: none; font-weight: bold; text-transform: uppercase; color: var(--dark); transition: 0.4s; position: relative; z-index: 1; overflow: hidden; }
+        .main-blog-btn:hover { color: white; }
+        .main-blog-btn::before { content: ''; position: absolute; left: -100%; top: 0; width: 100%; height: 100%; background: var(--dark); transition: 0.4s; z-index: -1; }
+        .main-blog-btn:hover::before { left: 0; }
+
+        footer { background: var(--dark); color: white; padding: 80px 10% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
+        .footer-logo span { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <div id="cookie-banner" class="cookie-container">
+        <div class="cookie-content">
+            <p>This website uses cookies to ensure you get the best experience on our luxury property portal. 
+               <a href="about.html">Learn more</a>
+            </p>
+            <button id="accept-cookies" class="cookie-btn">Accept</button>
+        </div>
+    </div>
+
+    <div class="top-banner">
+        <span>📍 Lagos | Abuja | Owerri | Ibadan</span>
+        <span>✉️ info@grandsignatureproperties.com</span>
+    </div>
+
+    <a href="https://wa.me/2347075112759?text=Hello%20GrandSignature,%20I%20am%20interested%20in%20your%20luxury%20properties." 
+       class="whatsapp-float" target="_blank">💬</a>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Grand<span>Signature</span></a>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Properties</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Exceptional Living Starts Here</h1>
+        <p>Expertise in luxury residential and commercial properties.</p>
+        <div class="search-container">
+            <input type="text" id="propertySearch" placeholder="Enter neighborhood or city...">
+            <button onclick="filterProperties()">SEARCH</button>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div style="text-align: center;">
+            <p style="color: var(--gold); font-weight: bold; letter-spacing: 2px;">OUR IMPACT</p>
+            <h2 style="font-size: 32px; margin-top: 10px;">Why GrandSignature Global?</h2>
+        </div>
+        <div class="grid">
+            <div class="card"><h3>Global Portfolio</h3><p>Curated access to off-market assets across hubs.</p></div>
+            <div class="card"><h3>Digital Solutions</h3><p>Proprietary virtual tours and AI-driven market analysis.</p></div>
+            <div class="card"><h3>Legal Advisory</h3><p>Legal and tax compliance support for transactions.</p></div>
+        </div>
+    </section>
+
+    <section class="properties">
+        <div style="text-align: center; margin-bottom: 60px;"><span class="luxury-tag">Exclusive Collection</span><h2>Featured Listings</h2></div>
+        <div class="property-grid">
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Estate">
+                <div class="content"><p class="price">$2,450,000</p><h3>The Beverly Hills Estate</h3><p>Lagos, Nigeria</p><a href="portfolio.html" class="btn-details">View Details</a></div>
+            </div>
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Villa">
+                <div class="content"><p class="price">$1,890,000</p><h3>Modern Sunset Villa</h3><p>Lagos, Nigeria</p><a href="portfolio.html" class="btn-details">View Details</a></div>
+            </div>
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80" alt="Penthouse">
+                <div class="content"><p class="price">$3,100,000</p><h3>Skyline Penthouse</h3><p>Abuja, Nigeria</p><a href="portfolio.html" class="btn-details">View Details</a></div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;"><a href="portfolio.html" class="carousel-btn">Explore All Properties</a></div>
+    </section>
+
+    <section class="carousel">
+        <div class="testimonial active"><p>"GrandSignature provided professionalism with transparency."</p><span class="author">— David Harrison, CEO</span></div>
+        <div class="testimonial"><p>"The virtual tours were so high-quality I bought without flying there."</p><span class="author">— Elena Rodriguez</span></div>
+        <button onclick="changeSlide()" class="carousel-btn" style="margin-top: 40px;">Next Review</button>
+    </section>
+
+    <section class="blog-section">
+        <div style="text-align: center; margin-bottom: 50px;"><p style="color: var(--gold); font-weight: bold; letter-spacing: 2px;">Insights</p><h2>The Signature Journal</h2></div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" class="blog-img">
+                <div class="blog-content"><span class="blog-category">Market Trends</span><h3>Lagos Real Estate Outlook 2026</h3><p>Exploring tech in property valuations.</p><a href="blog.html" class="read-more">Read Article</a></div>
+            </div>
+            </div>
+        <div style="text-align: center; margin-top: 60px;"><a href="blog.html" class="main-blog-btn">Explore All Insights</a></div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col"><a href="index.html" class="footer-logo">Grand<span>Signature</span></a><p style="color: #999; font-size: 14px;">Curating Nigeria's most exclusive real estate portfolio.</p></div>
+            <div class="footer-col"><h4>Sitemap</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Properties</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="footer-col"><h4>Focus Cities</h4><ul><li><a href="portfolio.html">Lagos</a></li><li><a href="portfolio.html">Abuja</a></li><li><a href="portfolio.html">Owerri</a></li></ul></div>
+            <div class="footer-col"><h4>Social</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p></div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cookieBanner = document.getElementById("cookie-banner");
+            const acceptBtn = document.getElementById("accept-cookies");
+
+            // 1. Show banner if not already accepted
+            if (!localStorage.getItem("cookiesAccepted")) {
+                setTimeout(() => {
+                    cookieBanner.classList.add("show");
+                }, 2000); // Popup after 2 seconds
+            }
+
+            // 2. Hide banner on button click
+            acceptBtn.addEventListener("click", function () {
+                localStorage.setItem("cookiesAccepted", "true");
+                cookieBanner.classList.remove("show");
+            });
+
+            // Navigation Toggle
+            const toggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            if (toggle && navMenu) {
+                toggle.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+            }
+        });
+
+        // Testimonial & Filter Logic
+        let current = 0;
+        const slides = document.querySelectorAll('.testimonial');
+        function changeSlide() {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }
+        setInterval(changeSlide, 6000);
+
+        function filterProperties() {
+            let input = document.getElementById('propertySearch').value.toLowerCase();
+            let cards = document.getElementsByClassName('property-card');
+            for (let i = 0; i < cards.length; i++) {
+                let content = cards[i].innerText.toLowerCase();
+                cards[i].style.display = content.includes(input) ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
