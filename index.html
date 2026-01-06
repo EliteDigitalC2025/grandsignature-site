@@ -10,6 +10,62 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--white); color: #333; line-height: 1.6; }
 
+        /* ================= COOKIE BANNER ================= */
+.cookie-container {
+    position: fixed;
+    bottom: -100px; /* Hidden initially */
+    left: 0;
+    width: 100%;
+    background: var(--dark);
+    color: white;
+    padding: 20px 5%;
+    z-index: 20000; /* Higher than WhatsApp button */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+    transition: bottom 0.5s ease-in-out;
+}
+
+.cookie-container.show {
+    bottom: 0;
+}
+
+.cookie-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cookie-content p {
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.cookie-content a {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+.cookie-btn {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.cookie-btn:hover {
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .cookie-content { flex-direction: column; text-align: center; gap: 15px; }
+}
+
        /* ================= NAVIGATION ================= */
 
 .top-banner {
@@ -404,6 +460,15 @@ nav ul li a {
 </a>
 <body>
 
+    <div id="cookie-banner" class="cookie-container">
+    <div class="cookie-content">
+        <p>This website uses cookies to ensure you get the best experience on our luxury property portal. 
+           <a href="about.html">Learn more</a>
+        </p>
+        <button id="accept-cookies" class="cookie-btn">Accept</button>
+    </div>
+</div>
+    
     <div class="top-banner">
         <span>📍Lagos | Abuja | Owerri | Ibadan</span>
         <span>✉️info@grandsignatureproperties.com</span>
