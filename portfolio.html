@@ -3,18 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Portfolio | GrandSignature</title>
+    <title>GrandSignature Properties | Luxury Real Estate</title>
+    <link rel="apple-touch-icon" href="logo-icon.png">
     <style>
-        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; }
+        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; --blue: #004a99; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        
-        /* Shared Header Styles */
-        header { background: var(--dark); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
-        .logo span { color: var(--gold); }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 30px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: 500; }
+        body { background-color: var(--white); color: #333; line-height: 1.6; }
+
+       /* ================= NAVIGATION ================= */
+
+.top-banner {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+header {
+    background: var(--dark);
+    padding: 20px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hamburger button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .top-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+        font-size: 12px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
+
+        /* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 10000;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+}
+
+/* Tooltip text on hover */
+.whatsapp-float::before {
+    content: 'Chat with us';
+    position: absolute;
+    right: 70px;
+    background: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+    @media (max-width: 768px) {
+    .whatsapp-float::before {
+        display: none;
+    }
+}
+
 
         /* Portfolio Specifics */
         .portfolio-hero { background: var(--grey); padding: 60px 10%; text-align: center; }
@@ -55,17 +199,22 @@
 </head>
 <body>
 
-    <header>
+   <header>
+    <nav>
         <a href="index.html" class="logo">Grand<span>Signature</span></a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html" style="color: var(--gold);">Properties</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+            ☰
+        </button>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Properties</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="portfolio-hero">
         <h1>Global Property Portfolio</h1>
@@ -217,5 +366,17 @@
             });
         });
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    if (toggle && navMenu) {
+        toggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    }
+});
+</script>
 </body>
 </html>
