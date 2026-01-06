@@ -4,22 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | GrandSignature Properties</title>
+    
+    <link rel="icon" type="image/png" href="logo-icon.png">
+    <link rel="apple-touch-icon" href="logo-icon.png">
+
     <style>
         :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--white); color: #333; line-height: 1.6; }
+        body { background-color: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
 
-        /* Navigation Header */
-        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
+        /* ================= NAVIGATION ================= */
+        .top-banner {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        header {
+            background: var(--dark);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
         .logo span { color: var(--gold); }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 30px; }
+
+        nav ul { list-style: none; display: flex; gap: 30px; }
         nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
         nav ul li a:hover { color: var(--gold); }
 
-        /* Hero Section */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .top-banner { flex-direction: column; text-align: center; gap: 5px; font-size: 12px; }
+            .menu-toggle { display: block; }
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                display: none;
+                padding: 20px 0;
+                border-top: 1px solid #333;
+            }
+            nav ul li { margin: 15px 0; }
+            nav ul.show { display: flex; }
+        }
+
+        /* ================= WHATSAPP BUTTON ================= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 10000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+        
+        .whatsapp-float::before {
+            content: 'Chat with us';
+            position: absolute;
+            right: 75px;
+            background: #333;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover::before { opacity: 1; visibility: visible; }
+
+        @media (max-width: 768px) {
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .whatsapp-float::before { display: none; }
+        }
+
+        /* ================= CONTENT SECTIONS ================= */
         .about-hero {
             height: 50vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
@@ -31,42 +138,52 @@
         .about-hero h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 3px; }
         .about-hero p { color: var(--gold); font-size: 1.2rem; margin-top: 10px; }
 
-        /* Story Section */
         .section-padding { padding: 80px 10%; }
         .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .story-text h2 { font-size: 36px; margin-bottom: 20px; color: var(--dark); }
         .story-text p { margin-bottom: 20px; color: #666; font-size: 1.1rem; }
 
-        /* Values Section */
         .values { background: var(--grey); text-align: center; }
         .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
         .value-card { padding: 40px; background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .value-card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; font-size: 18px; }
 
-        /* Global Footer Styles */
+        @media (max-width: 900px) { 
+            .story-grid, .values-grid { grid-template-columns: 1fr; }
+            .about-hero h1 { font-size: 2rem; }
+            .section-padding { padding: 60px 5%; }
+        }
+
+        /* ================= GLOBAL FOOTER ================= */
         footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
         .footer-col { display: flex; flex-direction: column; }
-        .footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-decoration: none; color: white; }
+        .footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
         .footer-logo span { color: var(--gold); }
         .footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 15px; }
         .footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
         .footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
-        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
 
-        @media (max-width: 900px) { 
-            .story-grid, .values-grid, .footer-grid { grid-template-columns: 1fr; }
-            .about-hero h1 { font-size: 2rem; }
-        }
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
+    <div class="top-banner">
+        <span>📍 Lagos | Abuja | Portharcourt | Asaba</span>
+        <span>✉️ info@grandsignatureproperties.com</span>
+    </div>
+
+    <a href="https://wa.me/2347075112759?text=Hello%20GrandSignature,%20I%20am%20interested%20in%20your%20about%20us%20services."
+       class="whatsapp-float" target="_blank">💬</a>
+
     <header>
         <nav>
             <a href="index.html" class="logo">Grand<span>Signature</span></a>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" style="color: var(--gold);">About</a></li>
@@ -117,7 +234,9 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
-                <p>Curating Nigeria's most exclusive real estate portfolio for the discerning individual.</p>
+                <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
+                    Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
+                </p>
             </div>
             <div class="footer-col">
                 <h4>Sitemap</h4>
@@ -131,8 +250,8 @@
             <div class="footer-col">
                 <h4>Focus Cities</h4>
                 <ul>
-                    <li><a href="portfolio.html">Lagos</a></li>
-                    <li><a href="portfolio.html">Abuja</a></li>
+                    <li><a href="portfolio.html">Lagos Properties</a></li>
+                    <li><a href="portfolio.html">Abuja Estates</a></li>
                     <li><a href="portfolio.html">Port Harcourt</a></li>
                     <li><a href="portfolio.html">Asaba & Owerri</a></li>
                 </ul>
@@ -143,6 +262,7 @@
                     <li><a href="#">Instagram</a></li>
                     <li><a href="#">LinkedIn</a></li>
                     <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Twitter</a></li>
                 </ul>
             </div>
         </div>
@@ -151,5 +271,11 @@
         </div>
     </footer>
 
+    <script>
+        // Mobile Menu Toggle logic
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
