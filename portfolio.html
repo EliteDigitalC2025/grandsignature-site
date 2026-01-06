@@ -181,19 +181,35 @@ nav ul li a {
         .details-link { display: block; text-align: center; margin-top: 15px; padding: 10px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-weight: bold; transition: 0.3s; border-radius: 4px; }
         .details-link:hover { background: var(--gold); color: var(--dark); }
 
-        /* Global Footer Styles */
-        footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .footer-col { display: flex; flex-direction: column; }
-        .footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
-        .footer-logo span { color: var(--gold); }
-        .footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 15px; }
-        .footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
-        .footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
-        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
+        /* ================= GLOBAL FOOTER ================= */
+footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
 
+.footer-grid { 
+    display: grid; 
+    /* This line now supports all 5 columns in one row */
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; 
+    gap: 30px; 
+    margin-bottom: 60px; 
+}
+
+.footer-col { display: flex; flex-direction: column; }
+.footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
+.footer-logo span { color: var(--gold); }
+.footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 15px; }
+.footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
+.footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
+.footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
+
+/* Responsive adjustments */
+@media (max-width: 1100px) { 
+    .footer-grid { grid-template-columns: 1fr 1fr; } /* Stacks into 2 columns for tablets */
+}
+
+@media (max-width: 768px) { 
+    .footer-grid { grid-template-columns: 1fr; } /* Stacks into 1 column for mobile */
+}
         @media (max-width: 900px) { 
             .property-grid { grid-template-columns: 1fr; } 
             .footer-grid { grid-template-columns: 1fr; }
@@ -245,51 +261,63 @@ nav ul li a {
         <a href="index.html" style="color: var(--dark); text-decoration: none; font-size: 14px; font-weight: bold;">&larr; Return to Homepage</a>
     </div>
 
-            <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
-                <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
-                    Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
-                </p>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Sitemap</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="portfolio.html">Properties</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Focus Cities</h4>
-                <ul>
-                    <li><a href="portfolio.html">Lagos Properties</a></li>
-                    <li><a href="portfolio.html">Abuja Estates</a></li>
-                    <li><a href="portfolio.html">Port Harcourt</a></li>
-                    <li><a href="portfolio.html">Ibadan</a></li>
-                    <li><a href="portfolio.html">Asaba & Owerri</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">YouTube</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">TikTok</a></li>
-                </ul>
-            </div>
+       <footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
+            <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
+                Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
+            </p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
+        
+        <div class="footer-col">
+            <h4>Sitemap</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="portfolio.html">Properties</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
         </div>
-    </footer>
 
+        <div class="footer-col">
+            <h4>Focus Cities</h4>
+            <ul>
+                <li><a href="portfolio.html">Lagos Properties</a></li>
+                <li><a href="portfolio.html">Abuja Estates</a></li>
+                <li><a href="portfolio.html">Port Harcourt</a></li>
+                <li><a href="portfolio.html">Ibadan</a></li>
+                <li><a href="portfolio.html">Asaba & Owerri</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Social</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">YouTube</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">TikTok</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
+    </div>
+</footer>
+        
     <script>
         // 1. Unified Data Array
         const allProperties = [
