@@ -335,6 +335,53 @@ nav ul li a {
     .blog-section { padding: 60px 5%; }
 }
 
+        /* ================= BLOG CTA BUTTON ================= */
+.main-blog-btn {
+    display: inline-block;
+    padding: 18px 45px;
+    background-color: transparent;
+    color: var(--dark);
+    border: 2px solid var(--dark);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    position: relative;
+    transition: 0.4s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.main-blog-btn:hover {
+    color: var(--white);
+    border-color: var(--dark);
+}
+
+.main-blog-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark);
+    transition: 0.4s ease;
+    z-index: -1;
+}
+
+.main-blog-btn:hover::before {
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .main-blog-btn {
+        width: 100%;
+        text-align: center;
+        padding: 15px 20px;
+    }
+}
+
         /* Global Footer Styles */
         footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
@@ -464,6 +511,9 @@ nav ul li a {
             </div>
         </div>
     </div>
+        <div style="text-align: center; margin-top: 60px;">
+    <a href="blog.html" class="main-blog-btn">Explore All Insights</a>
+</div>
 </section>
     
     <footer>
