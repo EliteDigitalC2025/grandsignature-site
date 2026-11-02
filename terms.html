@@ -1,189 +1,511 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/grandsignature-favicon.ico">
-    <title>Terms of Use | GrandSignature Properties</title>
-    
-    <link rel="icon" type="image/png" href="logo-icon.png">
-    <link rel="apple-touch-icon" href="logo-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Terms of Use | GrandSignature Properties</title>
+  <meta name="description" content="Read the terms governing use of the GrandSignature Properties website, property listings and enquiry services.">
+  <link rel="icon" href="grandsignature-favicon.ico" type="image/x-icon">
 
-    <style>
-        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-dark: #a47c16;
+      --dark: #1a1a1a;
+      --light: #f8f9fa;
+      --muted: #666;
+      --border: #e7e7e7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.75;
+      color: #333;
+      background: #fff;
+    }
+    a { color: inherit; }
+    button { font: inherit; cursor: pointer; }
+    .container { width: min(1100px, 90%); margin: auto; }
 
-        /* ================= NAVIGATION ================= */
-        .top-banner { background: var(--gold); color: var(--dark); padding: 10px 5%; display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; }
-        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; }
-        nav { display: flex; align-items: center; justify-content: space-between; position: relative; }
-        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
-        .logo span { color: var(--gold); }
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
-        nav ul li a:hover { color: var(--gold); }
-        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 30px; cursor: pointer; }
+    .top-banner {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 5%;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .top-banner a { text-decoration: none; }
 
-        @media (max-width: 768px) {
-            .top-banner { flex-direction: column; text-align: center; gap: 5px; }
-            .menu-toggle { display: block; }
-            nav ul { position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark); flex-direction: column; align-items: center; display: none; padding: 20px 0; }
-            nav ul.show { display: flex; }
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--dark);
+      box-shadow: 0 3px 15px rgba(0,0,0,.12);
+    }
+    nav {
+      position: relative;
+      width: min(1300px, 90%);
+      min-height: 80px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo, .footer-logo {
+      color: #fff;
+      font-size: clamp(19px, 2.5vw, 24px);
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .logo span, .footer-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-size: 29px;
+    }
 
-        /* ================= TERMS CONTENT ================= */
-        .policy-container { padding: 80px 15%; max-width: 1200px; margin: 0 auto; }
-        .policy-container h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 20px; border-bottom: 2px solid var(--gold); display: inline-block; }
-        .policy-container h2 { color: var(--dark); margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
-        .policy-container p { margin-bottom: 20px; color: #555; }
+    .hero {
+      padding: 75px 20px;
+      background: linear-gradient(135deg, #151515, #333);
+      color: #fff;
+      text-align: center;
+    }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      margin: 12px 0;
+      font-size: clamp(32px, 5vw, 50px);
+    }
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #ddd;
+      font-size: 15px;
+    }
 
-        /* ================= WHATSAPP BUTTON ================= */
-        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 10000; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+    .terms-layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 55px;
+      padding: 75px 0 95px;
+      align-items: start;
+    }
+    .terms-nav {
+      position: sticky;
+      top: 110px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--light);
+    }
+    .terms-nav h2 {
+      margin-bottom: 17px;
+      font-size: 15px;
+      color: var(--dark);
+    }
+    .terms-nav ul { list-style: none; }
+    .terms-nav li { margin-bottom: 12px; }
+    .terms-nav a {
+      color: #555;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .terms-nav a:hover { color: var(--gold-dark); }
 
-       /* ================= GLOBAL FOOTER ================= */
-footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
+    .terms-content { min-width: 0; }
+    .effective-date {
+      margin-bottom: 25px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .terms-content section {
+      margin-bottom: 36px;
+      scroll-margin-top: 110px;
+    }
+    .terms-content h2 {
+      margin-bottom: 13px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      color: var(--dark);
+      font-size: 23px;
+      line-height: 1.3;
+    }
+    .terms-content p {
+      margin-bottom: 16px;
+      color: #555;
+      font-size: 15px;
+    }
+    .terms-content ul {
+      margin: 0 0 18px 22px;
+      color: #555;
+      font-size: 15px;
+    }
+    .terms-content li { margin-bottom: 9px; }
+    .terms-content a { color: #8a6811; }
 
-.footer-grid { 
-    display: grid; 
-    /* This line now supports all 5 columns in one row */
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 60px; 
-}
+    .whatsapp-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 10000;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 5px 18px rgba(0,0,0,.2);
+    }
+    .whatsapp-float svg { width: 30px; height: 30px; }
+    .whatsapp-float:hover { background: #128c7e; }
 
-.footer-col { display: flex; flex-direction: column; }
-.footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
-.footer-logo span { color: var(--gold); }
-.footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 15px; }
-.footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
-.footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
-.footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
+    footer {
+      padding: 75px 5% 25px;
+      background: var(--dark);
+      color: #fff;
+    }
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto 55px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 30px;
+    }
+    .footer-col { min-width: 0; }
+    .footer-logo { display: block; margin-bottom: 20px; }
+    .footer-col h4 {
+      margin-bottom: 20px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .footer-col p, .footer-col li a {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 11px; }
+    .footer-col li a { text-decoration: none; }
+    .footer-col li a:hover, .footer-col p a { color: var(--gold); }
+    .footer-contact { margin-top: 15px; }
+    .footer-bottom {
+      max-width: 1300px;
+      margin: auto;
+      padding-top: 25px;
+      border-top: 1px solid #383838;
+      color: #888;
+      text-align: center;
+      font-size: 12px;
+    }
 
-/* Responsive adjustments */
-@media (max-width: 1100px) { 
-    .footer-grid { grid-template-columns: 1fr 1fr; } /* Stacks into 2 columns for tablets */
-}
-
-@media (max-width: 768px) { 
-    .footer-grid { grid-template-columns: 1fr; } /* Stacks into 1 column for mobile */
-}
-
-        @media (max-width: 900px) { 
-            .footer-grid { grid-template-columns: 1fr; }
-            .policy-container { padding: 60px 5%; }
-        }
-    </style>
+    @media (max-width: 1100px) {
+      .footer-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 850px) {
+      .terms-layout { grid-template-columns: 1fr; gap: 25px; }
+      .terms-nav { position: static; }
+    }
+    @media (max-width: 768px) {
+      .top-banner { flex-direction: column; text-align: center; gap: 3px; }
+      nav { min-height: 72px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -5.55%;
+        width: 111.1%;
+        padding: 22px 5%;
+        flex-direction: column;
+        gap: 18px;
+        background: var(--dark);
+        border-top: 1px solid #333;
+      }
+      .nav-links.show { display: flex; }
+      .hero { padding: 60px 20px; }
+      .terms-layout { padding: 50px 0 65px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .whatsapp-float { right: 17px; bottom: 17px; }
+    }
+    @media (max-width: 520px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
-
-    <div class="top-banner">
-        <span>📍 Lagos | Abuja | Owerri | Ibadan</span>
-        <span>✉️ info@grandsignatureproperties.com</span>
-    </div>
-
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Grand<span>Signature</span></a>
-            <button class="menu-toggle">☰</button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html">Properties</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="policy-container">
-        <h1>Terms of Use</h1>
-        <p>Effective Date: January 6, 2026</p>
-
-        <h2>1. Agreement to Terms</h2>
-        <p>By accessing the GrandSignature Properties portal, you agree to be bound by these Terms of Use. If you do not agree, please refrain from using our services.</p>
-
-        <h2>2. Use of Content</h2>
-        <p>All property listings, high-resolution imagery, and market insights provided on this site are the intellectual property of GrandSignature Properties. Unauthorized distribution or reproduction is strictly prohibited.</p>
-
-        <h2>3. Accuracy of Listings</h2>
-        <p>While we strive for precision in our signature portfolio, property availability and pricing are subject to change without notice. We recommend contacting our concierge desk for the most current data.</p>
-
-        <h2>4. Limitation of Liability</h2>
-        <p>GrandSignature Properties shall not be held liable for any direct or indirect damages arising from the use of information provided on this platform. Investors are encouraged to perform independent due diligence.</p>
-
-        <h2>5. Governing Law</h2>
-        <p>These terms are governed by the laws of the Federal Republic of Nigeria.</p>
-    </div>
-
-    <a href="https://wa.me/2347075112759" class="whatsapp-float" target="_blank">
-        <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.601 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.089-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+  <div class="top-banner">
+    <span>📍 Lagos | Abuja | Port Harcourt | Asaba</span>
+    <a href="mailto:info@grandsignatureproperties.com">
+      ✉ info@grandsignatureproperties.com
     </a>
+  </div>
 
-    <footer>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Grand<span>Signature</span></a>
+      <button class="menu-toggle" type="button"
+        aria-label="Toggle navigation"
+        aria-controls="mainNav"
+        aria-expanded="false">☰</button>
+
+      <ul class="nav-links" id="mainNav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Properties</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="eyebrow">GrandSignature Properties</span>
+      <h1>Terms of Use</h1>
+      <p>Important information about using our website and reviewing property opportunities.</p>
+    </section>
+
+    <div class="container terms-layout">
+      <aside class="terms-nav" aria-label="Terms sections">
+        <h2>On This Page</h2>
+        <ul>
+          <li><a href="#agreement">Agreement</a></li>
+          <li><a href="#purpose">Website Purpose</a></li>
+          <li><a href="#listings">Property Listings</a></li>
+          <li><a href="#due-diligence">Due Diligence</a></li>
+          <li><a href="#content">Content &amp; Images</a></li>
+          <li><a href="#conduct">Acceptable Use</a></li>
+          <li><a href="#third-party">Third-Party Services</a></li>
+          <li><a href="#liability">Liability</a></li>
+          <li><a href="#law">Governing Law</a></li>
+          <li><a href="#changes">Changes to Terms</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </aside>
+
+      <article class="terms-content">
+        <p class="effective-date">Last updated: 3 November 2026</p>
+
+        <section id="agreement">
+          <h2>1. Agreement to These Terms</h2>
+          <p>These Terms of Use govern access to and use of the GrandSignature Properties website.</p>
+          <p>By using the website, you acknowledge these terms. If you do not agree with them, please discontinue use of the website.</p>
+          <p>Additional terms may apply to separately agreed property transactions or professional services.</p>
+        </section>
+
+        <section id="purpose">
+          <h2>2. Website Purpose</h2>
+          <p>This website provides general information about GrandSignature Properties, property opportunities, editorial content and ways to submit enquiries.</p>
+          <p>Information displayed on the website is not, by itself, a binding offer, reservation, guarantee of availability or professional legal, tax or financial advice.</p>
+        </section>
+
+        <section id="listings">
+          <h2>3. Property Listings and Availability</h2>
+          <p>Property descriptions, prices, locations, specifications, images and availability may change or require confirmation.</p>
+          <p>Some portfolio entries may be illustrative examples rather than verified, currently available properties. An image used to illustrate a property type or design concept should not be interpreted as proof that the depicted building is being offered for sale.</p>
+          <p>Before relying on any listing, contact GrandSignature Properties to confirm availability and obtain current property-specific information.</p>
+        </section>
+
+        <section id="due-diligence">
+          <h2>4. Independent Due Diligence</h2>
+          <p>Real estate transactions involve legal, financial and technical considerations. Prospective buyers should carry out independent investigations before making any commitment.</p>
+          <p>Depending on the transaction, these may include verification of title, seller authority, survey information, planning approvals, property condition, payment terms, taxes and other costs.</p>
+          <p>We recommend engaging suitably qualified independent legal, technical and financial professionals where appropriate. No statement on this website guarantees property appreciation, rental income or investment returns.</p>
+        </section>
+
+        <section id="content">
+          <h2>5. Website Content and Images</h2>
+          <p>Website branding, original text and other materials may be protected by intellectual property laws. Third-party photographs, illustrations, maps and other resources remain subject to the rights and licences of their respective owners.</p>
+          <p>Visitors must not reproduce or commercially redistribute protected content without the necessary permission.</p>
+          <p>Illustrative stock photography is not necessarily a representation of a specific GrandSignature property, office, development or transaction.</p>
+        </section>
+
+        <section id="conduct">
+          <h2>6. Acceptable Website Use</h2>
+          <p>Users must not misuse the website, attempt unauthorised access, interfere with its operation, submit fraudulent enquiries or use the site in violation of applicable law.</p>
+          <p>Enquiry forms should be used to submit genuine requests, with accurate contact information where a response is expected.</p>
+        </section>
+
+        <section id="third-party">
+          <h2>7. Third-Party Links and Services</h2>
+          <p>Our website may link to or use third-party services, including WhatsApp, maps, image hosting and contact-form processing services.</p>
+          <p>Those services may have their own terms and privacy policies. GrandSignature Properties does not control every aspect of third-party websites or services.</p>
+          <p>Users should review relevant third-party information before relying on or sharing personal data through those services.</p>
+        </section>
+
+        <section id="liability">
+          <h2>8. Website Availability and Liability</h2>
+          <p>We aim to provide useful and accurate information, but website content may contain errors, omissions or outdated details. The website may also be temporarily unavailable due to maintenance or technical issues.</p>
+          <p>To the extent permitted by applicable law, GrandSignature Properties does not accept responsibility for losses arising solely from reliance on unverified general website information.</p>
+          <p>Nothing in these terms is intended to exclude or restrict liability or legal rights that cannot lawfully be excluded or restricted.</p>
+        </section>
+
+        <section id="law">
+          <h2>9. Governing Law</h2>
+          <p>These website terms are interpreted in accordance with the applicable laws of the Federal Republic of Nigeria, subject to mandatory legal requirements.</p>
+        </section>
+
+        <section id="changes">
+          <h2>10. Changes to These Terms</h2>
+          <p>We may revise these terms as our website, services or applicable legal requirements change. The current version will be available on this page with its revision date.</p>
+        </section>
+
+        <section id="contact">
+          <h2>11. Contact Information</h2>
+          <p>Questions about these terms can be directed to:</p>
+          <p>
+            <strong>GrandSignature Properties</strong><br>
+            Tina Johnson Close, Coastal Road,<br>
+            Salem Okun-Ajah, beside Avista Beach,<br>
+            Lekki-Epe Expressway, Eti-Osa LGA,<br>
+            Lagos 106104, Nigeria.
+          </p>
+          <p>
+            Email:
+            <a href="mailto:info@grandsignatureproperties.com">
+              info@grandsignatureproperties.com
+            </a><br>
+            WhatsApp:
+            <a href="https://wa.me/2348114452433" target="_blank" rel="noopener noreferrer">
+              +234 811 445 2433
+            </a>
+          </p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <a class="whatsapp-float"
+    href="https://wa.me/2348114452433"
+    target="_blank" rel="noopener noreferrer"
+    aria-label="Chat with GrandSignature Properties on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.87 11.87 0 0 0 12.05 0C5.46 0 .09 5.37.09 11.96c0 2.1.55 4.16 1.59 5.97L0 24l6.23-1.63a11.95 11.95 0 0 0 5.82 1.48h.01c6.59 0 11.96-5.37 11.96-11.96 0-3.2-1.25-6.2-3.5-8.41ZM12.05 21.83a9.87 9.87 0 0 1-5.04-1.38l-.36-.21-3.74.98.99-3.65-.23-.38a9.84 9.84 0 0 1-1.51-5.23c0-5.45 4.44-9.89 9.9-9.89a9.82 9.82 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.86-9.9 9.86Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.62.72.23 1.36.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+    </svg>
+  </a>
+
+  <footer>
     <div class="footer-grid">
-        <div class="footer-col">
-            <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
-            <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
-                Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
-            </p>
-        </div>
-        
-        <div class="footer-col">
-            <h4>Sitemap</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Properties</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </div>
+      <div class="footer-col">
+        <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
+        <p>Curating real estate opportunities across Nigeria, with a focus on property enquiries and professional client service.</p>
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">Office</strong><br>
+          Tina Johnson Close, Coastal Road,<br>
+          Salem Okun-Ajah, beside Avista Beach,<br>
+          Lekki-Epe Expressway, Eti-Osa LGA,<br>
+          Lagos 106104, Nigeria.
+        </p>
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">WhatsApp</strong><br>
+          <a href="https://wa.me/2348114452433" target="_blank" rel="noopener noreferrer">+234 811 445 2433</a>
+        </p>
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">Email</strong><br>
+          <a href="mailto:info@grandsignatureproperties.com">info@grandsignatureproperties.com</a>
+        </p>
+      </div>
 
-        <div class="footer-col">
-            <h4>Focus Cities</h4>
-            <ul>
-                <li><a href="portfolio.html">Lagos Properties</a></li>
-                <li><a href="portfolio.html">Abuja Estates</a></li>
-                <li><a href="portfolio.html">Port Harcourt</a></li>
-                <li><a href="portfolio.html">Ibadan</a></li>
-                <li><a href="portfolio.html">Asaba & Owerri</a></li>
-            </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Sitemap</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-col">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Use</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Focus Cities</h4>
+        <ul>
+          <li><a href="portfolio.html?city=Lagos">Lagos</a></li>
+          <li><a href="portfolio.html?city=Abuja">Abuja</a></li>
+          <li><a href="portfolio.html?city=Port%20Harcourt">Port Harcourt</a></li>
+          <li><a href="portfolio.html?city=Ibadan">Ibadan</a></li>
+          <li><a href="portfolio.html?city=Asaba">Asaba</a></li>
+          <li><a href="portfolio.html?city=Owerri">Owerri</a></li>
+          <li><a href="portfolio.html?city=Awka">Awka</a></li>
+          <li><a href="portfolio.html?city=Ogun">Ogun</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-col">
-            <h4>Social</h4>
-            <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">YouTube</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">TikTok</a></li>
-            </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html" aria-current="page">Terms of Use</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:info@grandsignatureproperties.com">Email Us</a></li>
+          <li><a href="https://wa.me/2348114452433" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        </ul>
+      </div>
     </div>
-    
+
     <div class="footer-bottom">
-        <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
+      &copy; 2026 GrandSignature Properties. All Rights Reserved.
     </div>
-</footer>
-    
-    <script>
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-    </script>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", () => {
+      const open = mainNav.classList.toggle("show");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        mainNav.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 </body>
 </html>

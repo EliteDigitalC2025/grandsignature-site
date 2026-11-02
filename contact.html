@@ -1,347 +1,1437 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/grandsignature-favicon.ico">
-    <title>Contact Us | GrandSignature Properties</title>
-    
-    <link rel="icon" type="image/png" href="logo-icon.png">
-    <link rel="apple-touch-icon" href="logo-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; --blue: #004a99; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
+  <title>Contact Us | GrandSignature Properties</title>
 
-        /* ================= NAVIGATION ================= */
-        .top-banner {
-            background: var(--gold);
-            color: var(--dark);
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            font-weight: bold;
-        }
+  <meta name="description"
+    content="Contact GrandSignature Properties at Tina Johnson Close, Coastal Road, Salem Okun-Ajah, Lagos, Nigeria. Enquire about properties and arrange consultations.">
 
-        header {
-            background: var(--dark);
-            padding: 20px 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+  <link rel="icon" href="grandsignature-favicon.ico" type="image/x-icon">
 
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-        }
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-dark: #a47c16;
+      --dark: #1a1a1a;
+      --white: #ffffff;
+      --light: #f8f9fa;
+      --text: #333333;
+      --muted: #686868;
+      --border: #e6e6e6;
+      --green: #25d366;
+    }
 
-        .logo {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .logo span { color: var(--gold); }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
-        nav ul li a:hover { color: var(--gold); }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
+    a {
+      color: inherit;
+    }
 
-        @media (max-width: 768px) {
-            .top-banner { flex-direction: column; text-align: center; gap: 5px; font-size: 12px; }
-            .menu-toggle { display: block; }
-            nav ul {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--dark);
-                flex-direction: column;
-                align-items: center;
-                display: none;
-                padding: 20px 0;
-                border-top: 1px solid #333;
-            }
-            nav ul li { margin: 15px 0; }
-            nav ul.show { display: flex; }
-        }
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
 
-        /* ================= WHATSAPP BUTTON ================= */
-.whatsapp-float {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    z-index: 10000;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
+    button {
+      cursor: pointer;
+    }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    background-color: #128c7e;
-}
+    .container {
+      width: min(1200px, 90%);
+      margin: 0 auto;
+    }
 
-/* Tooltip text on hover */
-.whatsapp-float::before {
-    content: 'Chat with us';
-    position: absolute;
-    right: 70px;
-    background: #333;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-}
+    /* TOP BANNER */
 
-.whatsapp-float:hover::before {
-    opacity: 1;
-    visibility: visible;
-}
+    .top-banner {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 9px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .top-banner a {
+      text-decoration: none;
+    }
+
+    .top-banner a:hover {
+      text-decoration: underline;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--dark);
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      width: min(1300px, 90%);
+      min-height: 82px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .logo {
+      font-size: clamp(20px, 2.5vw, 25px);
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: -0.6px;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: var(--white);
+      font-size: 29px;
+      padding: 7px;
+      line-height: 1;
+    }
+
+    /* HERO */
+
+    .contact-hero {
+      min-height: 350px;
+      padding: 85px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.76),
+          rgba(0, 0, 0, 0.76)
+        ),
+        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .contact-hero h1 {
+      margin: 12px 0 15px;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.2;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .contact-hero p {
+      max-width: 650px;
+      font-size: 16px;
+      color: #eeeeee;
+    }
+
+    /* INTRODUCTION */
+
+    .intro {
+      padding: 70px 0 20px;
+      text-align: center;
+    }
+
+    .intro .eyebrow {
+      color: var(--gold-dark);
+    }
+
+    .intro h2 {
+      margin: 12px 0 15px;
+      color: var(--dark);
+      font-size: clamp(27px, 3vw, 38px);
+      line-height: 1.25;
+    }
+
+    .intro p {
+      max-width: 760px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* CONTACT SECTION */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 55px;
+      align-items: start;
+      padding-top: 50px;
+      padding-bottom: 85px;
+    }
+
+    .contact-info h2 {
+      margin: 12px 0 18px;
+      font-size: clamp(26px, 3vw, 35px);
+      color: var(--dark);
+      line-height: 1.25;
+    }
+
+    .contact-info > p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: #fbf5e5;
+      color: var(--gold-dark);
+      font-size: 22px;
+    }
+
+    .info-content {
+      min-width: 0;
+    }
+
+    .info-content strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--dark);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-content p,
+    .info-content a {
+      color: var(--muted);
+      font-size: 15px;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .info-content a:hover {
+      color: var(--gold-dark);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      min-height: 48px;
+      border-radius: 4px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-gold:hover {
+      background: #c5a02d;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold-dark);
+    }
+
+    .btn-outline:hover {
+      background: #fbf5e5;
+    }
+
+    /* CONTACT FORM */
+
+    .form-card {
+      padding: 40px;
+      background: var(--light);
+      border: 1px solid #ededed;
+      border-radius: 10px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-card h2 {
+      margin-bottom: 10px;
+      color: var(--dark);
+      font-size: 28px;
+      line-height: 1.3;
+    }
+
+    .form-description {
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      background: white;
+      border: 1px solid #dcdcdc;
+      border-radius: 5px;
+      outline: none;
+      color: var(--dark);
+      font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold-dark);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+    }
+
+    .form-group textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px 20px;
+      background: var(--dark);
+      border: 1px solid var(--dark);
+      border-radius: 5px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    .form-feedback {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .form-feedback.success {
+      display: block;
+      color: #205b32;
+      background: #ecf8ef;
+      border: 1px solid #b9dfc3;
+    }
+
+    .form-feedback.error {
+      display: block;
+      color: #8a2020;
+      background: #fff0f0;
+      border: 1px solid #edbaba;
+    }
+
+    .privacy-note {
+      margin-top: 17px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .privacy-note a {
+      color: var(--gold-dark);
+    }
+
+    /* SERVICE CITIES */
+
+    .locations-section {
+      padding: 65px 0;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+
+    .locations-section h2 {
+      margin: 12px 0;
+      font-size: clamp(26px, 3vw, 35px);
+      color: var(--dark);
+    }
+
+    .locations-section p {
+      max-width: 700px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .city-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 11px;
+    }
+
+    .city-links a {
+      padding: 10px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      color: var(--gold-dark);
+      background: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .city-links a:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* MAP */
+
+    .map-intro {
+      padding: 65px 20px 25px;
+      text-align: center;
+    }
+
+    .map-intro h2 {
+      margin: 12px 0;
+      font-size: clamp(26px, 3vw, 35px);
+      color: var(--dark);
+    }
+
+    .map-intro p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .map-wrapper {
+      height: 430px;
+      background: #eee;
+    }
+
+    .map-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .map-actions {
+      padding: 24px 20px 65px;
+      text-align: center;
+    }
+
+    /* FLOATING WHATSAPP */
+
+    .whatsapp-float {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 10000;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 28px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.23);
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #128c7e;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 75px 5% 25px;
+      background: var(--dark);
+      color: white;
+    }
+
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto 55px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    .footer-col {
+      min-width: 0;
+    }
+
+    .footer-logo {
+      display: block;
+      margin-bottom: 20px;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-col h4 {
+      margin-bottom: 22px;
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-col p,
+    .footer-col li a {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col li a {
+      text-decoration: none;
+    }
+
+    .footer-col li a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col .footer-contact {
+      margin-top: 16px;
+    }
+
+    .footer-col .footer-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      max-width: 1300px;
+      margin: auto;
+      padding-top: 25px;
+      border-top: 1px solid #383838;
+      color: #888;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .contact-layout {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
     @media (max-width: 768px) {
-    .whatsapp-float::before {
+      .top-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 4px;
+      }
+
+      nav {
+        min-height: 72px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: -5.55%;
+        width: 111.1%;
+        padding: 22px 5%;
+        background: var(--dark);
+        border-top: 1px solid #333;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        box-shadow: 0 12px 18px rgba(0,0,0,0.15);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .contact-hero {
+        min-height: 290px;
+        padding: 65px 20px;
+      }
+
+      .intro {
+        padding-top: 50px;
+      }
+
+      .contact-layout {
+        padding-top: 35px;
+        padding-bottom: 65px;
+      }
+
+      .form-card {
+        padding: 25px;
+      }
+
+      .map-wrapper {
+        height: 330px;
+      }
+
+      .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        right: 18px;
+        bottom: 18px;
+      }
     }
-}
 
-        /* ================= CONTACT CONTENT ================= */
-        .contact-hero { 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover; background-position: center;
-            padding: 80px 10%; text-align: center; color: white;
-        }
-        .contact-hero h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 3px; }
+    @media (max-width: 540px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
 
-        .contact-container { padding: 80px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .contact-info h2 { font-size: 36px; margin-bottom: 20px; color: var(--dark); }
-        .info-item { margin-bottom: 25px; }
-        .info-item b { color: var(--gold); display: block; text-transform: uppercase; font-size: 14px; margin-bottom: 5px; }
+      .contact-actions {
+        flex-direction: column;
+      }
 
-        .contact-form { background: var(--grey); padding: 40px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; outline: none; }
-        .form-group input:focus { border-color: var(--gold); }
-        .submit-btn { width: 100%; padding: 15px; background: var(--dark); color: var(--gold); border: none; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        .submit-btn:hover { background: var(--gold); color: var(--dark); }
+      .contact-actions .btn {
+        width: 100%;
+      }
 
-        #form-status { display: none; text-align: center; padding: 20px; background: #fff; border: 1px solid var(--gold); border-radius: 4px; }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
 
-        .map-section { width: 100%; height: 400px; background: #eee; }
+      .info-item {
+        gap: 13px;
+      }
 
-        @media (max-width: 900px) {
-            .contact-container { grid-template-columns: 1fr; padding: 40px 5%; }
-            .contact-hero h1 { font-size: 2rem; }
-        }
+      .info-icon {
+        width: 43px;
+        height: 43px;
+      }
 
-        /* ================= GLOBAL FOOTER ================= */
-footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
-
-.footer-grid { 
-    display: grid; 
-    /* This line now supports all 5 columns in one row */
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 60px; 
-}
-
-.footer-col { display: flex; flex-direction: column; }
-.footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
-.footer-logo span { color: var(--gold); }
-.footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 15px; }
-.footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
-.footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
-.footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
-
-/* Responsive adjustments */
-@media (max-width: 1100px) { 
-    .footer-grid { grid-template-columns: 1fr 1fr; } /* Stacks into 2 columns for tablets */
-}
-
-@media (max-width: 768px) { 
-    .footer-grid { grid-template-columns: 1fr; } /* Stacks into 1 column for mobile */
-}
-    </style>
+      .form-card h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <div class="top-banner">
-        <span>📍 Lagos | Abuja | Portharcourt | Asaba</span>
-        <span>✉️ info@grandsignatureproperties.com</span>
+  <!-- TOP BANNER -->
+
+  <div class="top-banner">
+    <span>📍 Lagos | Abuja | Port Harcourt | Asaba</span>
+
+    <a href="mailto:info@grandsignatureproperties.com">
+      ✉ info@grandsignatureproperties.com
+    </a>
+  </div>
+
+  <!-- HEADER -->
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        Grand<span>Signature</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="mainNav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Properties</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li>
+          <a href="contact.html" class="active" aria-current="page">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="contact-hero">
+    <span class="eyebrow">GrandSignature Properties</span>
+
+    <h1>Connect With Us</h1>
+
+    <p>
+      Your journey to extraordinary living starts here.
+      Speak with our team about your property interests.
+    </p>
+  </section>
+
+  <!-- INTRODUCTION -->
+
+  <section class="intro">
+    <div class="container">
+      <span class="eyebrow">Personalised Property Assistance</span>
+
+      <h2>Let's Discuss Your Property Goals</h2>
+
+      <p>
+        Whether you're exploring residential properties,
+        arranging a viewing or seeking investment information,
+        GrandSignature Properties is here to assist.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT DETAILS AND FORM -->
+
+  <section class="contact-layout container">
+
+    <div class="contact-info">
+      <span class="eyebrow" style="color:var(--gold-dark)">
+        Get In Touch
+      </span>
+
+      <h2>Luxury Real Estate Concierge</h2>
+
+      <p>
+        Reach out for property enquiries, viewing arrangements
+        and real estate consultations.
+      </p>
+
+      <!-- UPDATED OFFICE ADDRESS -->
+
+      <div class="info-item">
+        <div class="info-icon" aria-hidden="true">⌖</div>
+
+        <div class="info-content">
+          <strong>GrandSignature Properties Office</strong>
+
+          <p>
+            Tina Johnson Close, Coastal Road,<br>
+            Salem Okun-Ajah,<br>
+            beside Avista Beach,<br>
+            Lekki-Epe Expressway,<br>
+            Eti-Osa LGA,<br>
+            Lagos 106104, Nigeria.
+          </p>
+        </div>
+      </div>
+
+      <!-- UPDATED WHATSAPP -->
+
+      <div class="info-item">
+        <div class="info-icon" aria-hidden="true">☎</div>
+
+        <div class="info-content">
+          <strong>WhatsApp / Contact Number</strong>
+
+          <a
+            href="https://wa.me/2348114452433"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +234 811 445 2433
+          </a>
+        </div>
+      </div>
+
+      <!-- EMAIL -->
+
+      <div class="info-item">
+        <div class="info-icon" aria-hidden="true">✉</div>
+
+        <div class="info-content">
+          <strong>Email Address</strong>
+
+          <a href="mailto:info@grandsignatureproperties.com">
+            info@grandsignatureproperties.com
+          </a>
+        </div>
+      </div>
+
+      <!-- APPOINTMENTS -->
+
+      <div class="info-item">
+        <div class="info-icon" aria-hidden="true">◷</div>
+
+        <div class="info-content">
+          <strong>Appointments</strong>
+
+          <p>
+            Contact us to arrange a property viewing
+            or private consultation.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-actions">
+
+        <a
+          href="https://wa.me/2348114452433?text=Hello%20GrandSignature%2C%20I%20would%20like%20to%20make%20a%20property%20enquiry."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-gold"
+        >
+          Chat on WhatsApp
+        </a>
+
+        <a
+          href="tel:+2348114452433"
+          class="btn btn-outline"
+        >
+          Call Our Team
+        </a>
+
+      </div>
     </div>
 
-    <a href="https://wa.me/2347075112759?text=Hello%20GrandSignature,%20I%20am%20interested%20in%20your%20luxury%20properties."
-       class="whatsapp-float" target="_blank">💬</a>
+    <!-- CONTACT FORM -->
 
-    <header>
-    <nav>
-        <a href="index.html" class="logo">Grand<span>Signature</span></a>
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <div class="form-card">
+      <h2>Send Us an Enquiry</h2>
+
+      <p class="form-description">
+        Complete the form below and our team can follow up
+        using the contact details you provide.
+      </p>
+
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/xykzajjv"
+        method="POST"
+      >
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="New GrandSignature Properties Enquiry"
+        >
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+
+            <input
+              id="fullName"
+              type="text"
+              name="name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="emailAddress">Email Address *</label>
+
+            <input
+              id="emailAddress"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+
+            <input
+              id="phoneNumber"
+              type="tel"
+              name="phone"
+              placeholder="+234 ..."
+              autocomplete="tel"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="preferredLocation">
+              Preferred Location
+            </label>
+
+            <select
+              id="preferredLocation"
+              name="location"
+            >
+              <option value="">Select a location</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Owerri">Owerri</option>
+              <option value="Asaba">Asaba</option>
+              <option value="Awka">Awka</option>
+              <option value="Ogun">Ogun</option>
+              <option value="Ibadan">Ibadan</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="propertyInterest">
+            Property of Interest
+          </label>
+
+          <input
+            id="propertyInterest"
+            type="text"
+            name="interest"
+            placeholder="e.g. Residential property in Lekki"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Tell us how we can help you..."
+            required
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="submit-btn"
+          id="submitBtn"
+        >
+          Send Enquiry
+        </button>
+
+        <div
+          id="formFeedback"
+          class="form-feedback"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <p class="privacy-note">
+          By submitting this form, you agree to be contacted
+          about your enquiry. Read our
+          <a href="privacy-policy.html">Privacy Policy</a>.
+        </p>
+
+      </form>
+    </div>
+
+  </section>
+
+  <!-- PROPERTY LOCATIONS -->
+
+  <section class="locations-section">
+    <div class="container">
+
+      <span class="eyebrow" style="color:var(--gold-dark)">
+        Our Property Portfolio
+      </span>
+
+      <h2>Explore Our Focus Locations</h2>
+
+      <p>
+        Browse properties by city or contact us about
+        your preferred neighbourhood.
+      </p>
+
+      <div class="city-links">
+        <a href="portfolio.html?city=Lagos">Lagos</a>
+        <a href="portfolio.html?city=Abuja">Abuja</a>
+        <a href="portfolio.html?city=Port%20Harcourt">Port Harcourt</a>
+        <a href="portfolio.html?city=Owerri">Owerri</a>
+        <a href="portfolio.html?city=Asaba">Asaba</a>
+        <a href="portfolio.html?city=Awka">Awka</a>
+        <a href="portfolio.html?city=Ogun">Ogun</a>
+        <a href="portfolio.html?city=Ibadan">Ibadan</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OFFICE LOCATION -->
+
+  <section aria-labelledby="mapTitle">
+
+    <div class="map-intro">
+      <span class="eyebrow" style="color:var(--gold-dark)">
+        Visit Our Office
+      </span>
+
+      <h2 id="mapTitle">GrandSignature Properties Office</h2>
+
+      <p>
+        Tina Johnson Close, Coastal Road, Salem Okun-Ajah,<br>
+        beside Avista Beach, Lekki-Epe Expressway,<br>
+        Eti-Osa LGA, Lagos 106104, Nigeria.
+      </p>
+    </div>
+
+    <div class="map-wrapper">
+
+      <!-- Address-based map search.
+           Verify the exact pin in Google Maps before publishing. -->
+
+      <iframe
+        id="officeMap"
+        title="Map search for GrandSignature Properties office in Salem Okun-Ajah, Lagos"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+
+    </div>
+
+    <div class="map-actions">
+      <a
+        id="directionsLink"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-gold"
+      >
+        Find Our Office on Google Maps
+      </a>
+    </div>
+
+  </section>
+
+  <!-- FLOATING WHATSAPP -->
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/2348114452433?text=Hello%20GrandSignature%2C%20I%20would%20like%20to%20make%20a%20property%20enquiry."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with GrandSignature Properties on WhatsApp"
+    title="Chat with us on WhatsApp"
+  >
+    💬
+  </a>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <a href="index.html" class="footer-logo">
+          Grand<span>Signature</span>
+        </a>
+
+        <p>
+          Curating real estate opportunities across Nigeria.
+          We assist clients with residential property enquiries,
+          viewings and consultations.
+        </p>
+
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">Office</strong><br>
+          Tina Johnson Close, Coastal Road,<br>
+          Salem Okun-Ajah, beside Avista Beach,<br>
+          Lekki-Epe Expressway, Eti-Osa LGA,<br>
+          Lagos 106104, Nigeria.
+        </p>
+
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">WhatsApp</strong><br>
+
+          <a
+            href="https://wa.me/2348114452433"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +234 811 445 2433
+          </a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sitemap</h4>
+
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Properties</a></li>
-            <li><a href="blog.html">Blog</a></li> <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
         </ul>
-    </nav>
-</header>
+      </div>
 
-    <section class="contact-hero">
-        <h1>Connect With Us</h1>
-        <p style="color: var(--gold); font-weight: bold; margin-top: 10px;">Your journey to extraordinary living starts here.</p>
-    </section>
+      <div class="footer-col">
+        <h4>Focus Cities</h4>
 
-    <section class="contact-container">
-        <div class="contact-info">
-            <h2>Luxury Real Estate Concierge</h2>
-            <p style="margin-bottom: 30px; color: #666;">Our specialists are available for private viewings and high-yield investment consultations.</p>
-            <div class="info-item"><b>Headquarters</b><p>Ajah-Lekki, Lagos, Nigeria</p></div>
-            <div class="info-item"><b>Direct Line</b><p>+234 7075112759</p></div>
-            <div class="info-item"><b>Email</b><p>info@grandsignatureproperties.com</p></div>
-        </div>
+        <ul>
+          <li><a href="portfolio.html?city=Lagos">Lagos</a></li>
+          <li><a href="portfolio.html?city=Abuja">Abuja</a></li>
+          <li><a href="portfolio.html?city=Port%20Harcourt">Port Harcourt</a></li>
+          <li><a href="portfolio.html?city=Ibadan">Ibadan</a></li>
+          <li><a href="portfolio.html?city=Asaba">Asaba</a></li>
+          <li><a href="portfolio.html?city=Owerri">Owerri</a></li>
+          <li><a href="portfolio.html?city=Awka">Awka</a></li>
+          <li><a href="portfolio.html?city=Ogun">Ogun</a></li>
+        </ul>
+      </div>
 
-        <div class="contact-form">
-            <form id="contact-form" action="https://formspree.io/f/xykzajjv" method="POST">
-                <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Enter your name" required></div>
-                <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="email@example.com" required></div>
-                <div class="form-group"><label>Interested Property</label><input type="text" name="interest" placeholder="e.g. Abuja Luxury Villa"></div>
-                <div class="form-group"><label>Message</label><textarea name="message" rows="5" placeholder="How can we help you?" required></textarea></div>
-                <button type="submit" class="submit-btn">Send Inquiry</button>
-            </form>
-            <div id="form-status">
-                <h3 style="color: var(--gold);">Inquiry Received</h3>
-                <p>Thank you for your interest. A member of our consulting team will be in touch with you shortly.</p>
-            </div>
-        </div>
-    </section>
+      <div class="footer-col">
+        <h4>Legal</h4>
 
-    <section class="map-section">
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15858.97232306716!2d3.559555139550781!3d6.42571210000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf72f09923831%3A0x679093356066f363!2sAjah%2C%20Lekki!5e0!3m2!1sen!2sng!4v1715870000000!5m2!1sen!2sng" 
-        width="100%" 
-        height="100%" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</section>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
-                <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
-                    Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
-                </p>
-            </div>
-            <div class="footer-col">
-                <h4>Sitemap</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="portfolio.html">Properties</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Focus Cities</h4>
-                <ul>
-                    <li><a href="portfolio.html">Lagos Properties</a></li>
-                    <li><a href="portfolio.html">Abuja Estates</a></li>
-                    <li><a href="portfolio.html">Port Harcourt</a></li>
-                    <li><a href="portfolio.html">Ibadan</a></li>
-                    <li><a href="portfolio.html">Asaba & Owerri</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Use</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">YouTube</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">TikTok</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
-        </div>
-    </footer>
+      <div class="footer-col">
+        <h4>Social</h4>
 
-    <script>
-        // Mobile Menu Toggle logic
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('nav ul').classList.toggle('show');
+        <ul>
+          <li><a href="#" aria-label="Instagram link pending">Instagram</a></li>
+          <li><a href="#" aria-label="LinkedIn link pending">LinkedIn</a></li>
+          <li><a href="#" aria-label="YouTube link pending">YouTube</a></li>
+          <li><a href="#" aria-label="X link pending">X / Twitter</a></li>
+          <li><a href="#" aria-label="TikTok link pending">TikTok</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 GrandSignature Properties.
+      All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // -------------------------------------
+    // OFFICIAL BUSINESS CONTACT DETAILS
+    // -------------------------------------
+
+    const BUSINESS = {
+      address:
+        "Tina Johnson Close, Coastal Road, Salem Okun-Ajah, " +
+        "beside Avista Beach, Lekki-Epe Expressway, " +
+        "Eti-Osa LGA, Lagos 106104, Nigeria",
+
+      whatsapp: "2348114452433",
+
+      email: "info@grandsignatureproperties.com"
+    };
+
+    // -------------------------------------
+    // MOBILE NAVIGATION
+    // -------------------------------------
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("show");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // -------------------------------------
+    // GOOGLE MAPS
+    // -------------------------------------
+
+    // This searches the supplied office address.
+    // It does not assert a verified exact office pin.
+
+    const encodedAddress = encodeURIComponent(BUSINESS.address);
+
+    const officeMap = document.getElementById("officeMap");
+    const directionsLink =
+      document.getElementById("directionsLink");
+
+    officeMap.src =
+      "https://maps.google.com/maps?q=" +
+      encodedAddress +
+      "&output=embed";
+
+    directionsLink.href =
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodedAddress;
+
+    // -------------------------------------
+    // CONTACT FORM
+    // -------------------------------------
+
+    const contactForm =
+      document.getElementById("contact-form");
+
+    const submitBtn =
+      document.getElementById("submitBtn");
+
+    const formFeedback =
+      document.getElementById("formFeedback");
+
+    function showFeedback(type, message) {
+      formFeedback.className = "form-feedback " + type;
+      formFeedback.textContent = message;
+    }
+
+    contactForm.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      if (!contactForm.reportValidity()) {
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending Enquiry...";
+
+      formFeedback.className = "form-feedback";
+      formFeedback.textContent = "";
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: new FormData(contactForm),
+          headers: {
+            "Accept": "application/json"
+          }
         });
 
-        // AJAX Submission to avoid Formspree popup
-        const form = document.getElementById("contact-form");
-        const status = document.getElementById("form-status");
+        if (!response.ok) {
+          throw new Error("Submission failed");
+        }
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const data = new FormData(e.target);
-            fetch(e.target.action, {
-                method: "POST",
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    form.style.display = "none";
-                    status.style.display = "block";
-                    form.reset();
-                } else {
-                    alert("Oops! There was a problem submitting your form");
-                }
-            }).catch(() => {
-                alert("Oops! There was a problem submitting your form");
-            });
-        });
-    </script>
+        showFeedback(
+          "success",
+          "Thank you. Your enquiry has been submitted successfully. Our team can follow up using the contact details you provided."
+        );
+
+        contactForm.reset();
+
+      } catch (error) {
+        showFeedback(
+          "error",
+          "Your enquiry could not be submitted. Please try again or contact us directly on WhatsApp."
+        );
+
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Enquiry";
+      }
+    });
+
+    // -------------------------------------
+    // OPTIONAL PROPERTY PREFILL
+    // Example:
+    // contact.html?property=Modern%20Duplex&city=Lagos
+    // -------------------------------------
+
+    const queryParams =
+      new URLSearchParams(window.location.search);
+
+    const requestedProperty =
+      queryParams.get("property");
+
+    const requestedCity =
+      queryParams.get("city");
+
+    if (requestedProperty) {
+      document.getElementById("propertyInterest").value =
+        requestedProperty;
+    }
+
+    if (requestedCity) {
+      const locationSelect =
+        document.getElementById("preferredLocation");
+
+      const matchingOption = Array.from(
+        locationSelect.options
+      ).find(option =>
+        option.value.toLowerCase() ===
+        requestedCity.toLowerCase()
+      );
+
+      if (matchingOption) {
+        locationSelect.value = matchingOption.value;
+      }
+    }
+
+  </script>
+
 </body>
 </html>

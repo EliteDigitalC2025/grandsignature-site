@@ -1,311 +1,1328 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/grandsignature-favicon.ico">
-    <title>About Us | GrandSignature Properties</title>
-    <link rel="icon" type="image/png" href="logo-icon.png">
-    <link rel="apple-touch-icon" href="logo-icon.png">
-    <style>
-        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* ================= NAVIGATION ================= */
-        .top-banner {
-            background: var(--gold);
-            color: var(--dark);
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            font-weight: bold;
-        }
+  <title>About Us | GrandSignature Properties</title>
 
-        header {
-            background: var(--dark);
-            padding: 20px 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+  <meta name="description"
+    content="Learn about GrandSignature Properties, our approach to real estate, core values and commitment to helping clients explore property opportunities across Nigeria.">
 
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-        }
+  <link rel="icon" href="grandsignature-favicon.ico" type="image/x-icon">
 
-        .logo {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-dark: #a47c16;
+      --dark: #1a1a1a;
+      --dark-soft: #242424;
+      --white: #ffffff;
+      --light: #f8f9fa;
+      --text: #333333;
+      --muted: #686868;
+      --border: #e7e7e7;
+      --green: #25d366;
+    }
 
-        .logo span { color: var(--gold); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
-        nav ul li a:hover { color: var(--gold); }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-        @media (max-width: 768px) {
-            .top-banner { flex-direction: column; text-align: center; gap: 5px; font-size: 12px; }
-            .menu-toggle { display: block; }
-            nav ul {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--dark);
-                flex-direction: column;
-                align-items: center;
-                display: none;
-                padding: 20px 0;
-                border-top: 1px solid #333;
-            }
-            nav ul li { margin: 15px 0; }
-            nav ul.show { display: flex; }
-        }
+    a {
+      color: inherit;
+    }
 
-        /* ================= WHATSAPP BUTTON ================= */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 10000;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
 
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
-        
-        .whatsapp-float::before {
-            content: 'Chat with us';
-            position: absolute;
-            right: 75px;
-            background: #333;
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-        }
+    img {
+      max-width: 100%;
+    }
 
-        .whatsapp-float:hover::before { opacity: 1; visibility: visible; }
+    .container {
+      width: min(1200px, 90%);
+      margin: 0 auto;
+    }
 
-        @media (max-width: 768px) {
-            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
-            .whatsapp-float::before { display: none; }
-        }
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
 
-        /* ================= CONTENT SECTIONS ================= */
-        .about-hero {
-            height: 50vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center; padding: 20px;
-        }
-        .about-hero h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 3px; }
-        .about-hero p { color: var(--gold); font-size: 1.2rem; margin-top: 10px; }
+    .section-heading {
+      color: var(--dark);
+      font-size: clamp(28px, 3.5vw, 40px);
+      line-height: 1.2;
+      margin: 12px 0 22px;
+    }
 
-        .section-padding { padding: 80px 10%; }
-        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .story-text h2 { font-size: 36px; margin-bottom: 20px; color: var(--dark); }
-        .story-text p { margin-bottom: 20px; color: #666; font-size: 1.1rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      text-align: center;
+      transition: .2s ease;
+    }
 
-        .values { background: var(--grey); text-align: center; }
-        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .value-card { padding: 40px; background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .value-card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; font-size: 18px; }
+    .btn-gold {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
+    }
 
-        @media (max-width: 900px) { 
-            .story-grid, .values-grid { grid-template-columns: 1fr; }
-            .about-hero h1 { font-size: 2rem; }
-            .section-padding { padding: 60px 5%; }
-        }
+    .btn-gold:hover {
+      background: #c4a02d;
+    }
 
-        /* ================= GLOBAL FOOTER ================= */
-footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
+    .btn-outline {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: transparent;
+    }
 
-.footer-grid { 
-    display: grid; 
-    /* This line now supports all 5 columns in one row */
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 60px; 
-}
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
 
-.footer-col { display: flex; flex-direction: column; }
-.footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
-.footer-logo span { color: var(--gold); }
-.footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 15px; }
-.footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
-.footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
-.footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
+    /* TOP BANNER */
 
-/* Responsive adjustments */
-@media (max-width: 1100px) { 
-    .footer-grid { grid-template-columns: 1fr 1fr; } /* Stacks into 2 columns for tablets */
-}
+    .top-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 5%;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
 
-@media (max-width: 768px) { 
-    .footer-grid { grid-template-columns: 1fr; } /* Stacks into 1 column for mobile */
-}
-    </style>
+    .top-banner a {
+      text-decoration: none;
+    }
+
+    .top-banner a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--dark);
+      box-shadow: 0 3px 14px rgba(0,0,0,.12);
+    }
+
+    nav {
+      position: relative;
+      width: min(1300px, 90%);
+      min-height: 82px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: clamp(20px, 2.5vw, 25px);
+      font-weight: 800;
+      letter-spacing: -.6px;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      padding: 8px;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 29px;
+      line-height: 1;
+    }
+
+    /* HERO */
+
+    .about-hero {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 90px 20px;
+      text-align: center;
+      color: white;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,.75),
+          rgba(0,0,0,.75)
+        ),
+        url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=85");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .about-hero .eyebrow {
+      color: var(--gold);
+    }
+
+    .about-hero h1 {
+      margin: 14px 0;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.15;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .about-hero p {
+      max-width: 670px;
+      color: #eee;
+      font-size: 16px;
+    }
+
+    /* INTRO */
+
+    .intro-section {
+      padding: 75px 0 30px;
+      text-align: center;
+    }
+
+    .intro-section p {
+      max-width: 780px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* STORY */
+
+    .story-section {
+      padding: 65px 0 90px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .story-text p {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .story-text .btn {
+      margin-top: 10px;
+    }
+
+    .story-image {
+      position: relative;
+      min-height: 460px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .story-image img {
+      display: block;
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+    }
+
+    .image-label {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      padding: 15px 20px;
+      border-left: 3px solid var(--gold);
+      background: rgba(26,26,26,.92);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* MISSION & VISION */
+
+    .purpose-section {
+      padding: 80px 0;
+      background: var(--dark);
+      color: white;
+    }
+
+    .purpose-intro {
+      max-width: 720px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .purpose-intro .eyebrow {
+      color: var(--gold);
+    }
+
+    .purpose-intro h2 {
+      margin: 12px 0;
+      font-size: clamp(28px, 3.5vw, 40px);
+      line-height: 1.2;
+    }
+
+    .purpose-intro p {
+      color: #bcbcbc;
+      font-size: 15px;
+    }
+
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .purpose-card {
+      padding: 35px;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      background: var(--dark-soft);
+    }
+
+    .purpose-card .number {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .purpose-card h3 {
+      margin: 15px 0;
+      color: white;
+      font-size: 25px;
+    }
+
+    .purpose-card p {
+      color: #c4c4c4;
+      font-size: 14px;
+    }
+
+    /* VALUES */
+
+    .values-section {
+      padding: 85px 0;
+      background: var(--light);
+      text-align: center;
+    }
+
+    .values-intro {
+      max-width: 720px;
+      margin: 0 auto 45px;
+    }
+
+    .values-intro p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .value-card {
+      padding: 38px 28px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: white;
+      text-align: left;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.07);
+    }
+
+    .value-icon {
+      width: 55px;
+      height: 55px;
+      margin-bottom: 23px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      background: #fbf5e5;
+      color: var(--gold-dark);
+      font-size: 25px;
+    }
+
+    .value-card h3 {
+      margin-bottom: 13px;
+      color: var(--dark);
+      font-size: 19px;
+    }
+
+    .value-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* APPROACH */
+
+    .approach-section {
+      padding: 85px 0;
+    }
+
+    .approach-header {
+      max-width: 760px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .approach-header p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .approach-step {
+      padding: 25px 22px;
+      border-top: 3px solid var(--gold);
+      background: #fafafa;
+    }
+
+    .step-number {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold-dark);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .approach-step h3 {
+      margin-bottom: 10px;
+      color: var(--dark);
+      font-size: 17px;
+    }
+
+    .approach-step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CITIES */
+
+    .locations-section {
+      padding: 75px 0;
+      background: var(--light);
+      text-align: center;
+    }
+
+    .locations-section p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .city-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .city-links a {
+      padding: 11px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: white;
+      color: var(--gold-dark);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .city-links a:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* CTA */
+
+    .about-cta {
+      padding: 85px 20px;
+      background:
+        linear-gradient(
+          rgba(0,0,0,.84),
+          rgba(0,0,0,.84)
+        ),
+        url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85");
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: white;
+    }
+
+    .about-cta h2 {
+      max-width: 760px;
+      margin: 12px auto 17px;
+      font-size: clamp(29px, 4vw, 44px);
+      line-height: 1.2;
+    }
+
+    .about-cta p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: #ddd;
+      font-size: 15px;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp-float {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 10000;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 5px 18px rgba(0,0,0,.22);
+      transition: transform .2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #128c7e;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 75px 5% 25px;
+      background: var(--dark);
+      color: white;
+    }
+
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto 55px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    .footer-col {
+      min-width: 0;
+    }
+
+    .footer-logo {
+      display: block;
+      margin-bottom: 20px;
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-col h4 {
+      margin-bottom: 22px;
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-col p,
+    .footer-col li a {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col li a {
+      text-decoration: none;
+    }
+
+    .footer-col li a:hover {
+      color: var(--gold);
+    }
+
+    .footer-contact {
+      margin-top: 16px;
+    }
+
+    .footer-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      max-width: 1300px;
+      margin: auto;
+      padding-top: 25px;
+      border-top: 1px solid #383838;
+      color: #888;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .approach-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-section,
+      .values-section,
+      .approach-section {
+        padding: 65px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 4px;
+      }
+
+      nav {
+        min-height: 72px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -5.55%;
+        width: 111.1%;
+        padding: 22px 5%;
+        background: var(--dark);
+        border-top: 1px solid #333;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        box-shadow: 0 12px 18px rgba(0,0,0,.15);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .about-hero {
+        min-height: 320px;
+        padding: 70px 20px;
+      }
+
+      .intro-section {
+        padding: 55px 0 20px;
+      }
+
+      .purpose-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-image,
+      .story-image img {
+        min-height: 320px;
+        height: 320px;
+      }
+
+      .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        right: 18px;
+        bottom: 18px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .values-grid,
+      .approach-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .purpose-card {
+        padding: 27px;
+      }
+
+      .value-card {
+        padding: 30px 24px;
+      }
+
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <div class="top-banner">
-        <span>📍 Lagos | Abuja | Portharcourt | Asaba</span>
-        <span>✉️ info@grandsignatureproperties.com</span>
-    </div>
+  <!-- TOP BANNER -->
 
-    <a href="https://wa.me/2347075112759?text=Hello%20GrandSignature,%20I%20am%20interested%20in%20your%20about%20us%20services."
-       class="whatsapp-float" target="_blank">💬</a>
+  <div class="top-banner">
+    <span>📍 Lagos | Abuja | Port Harcourt | Asaba</span>
 
-    <header>
+    <a href="mailto:info@grandsignatureproperties.com">
+      ✉ info@grandsignatureproperties.com
+    </a>
+  </div>
+
+  <!-- HEADER -->
+
+  <header>
     <nav>
-        <a href="index.html" class="logo">Grand<span>Signature</span></a>
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Properties</a></li>
-            <li><a href="blog.html">Blog</a></li> <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <a href="index.html" class="logo">
+        Grand<span>Signature</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-controls="mainNav"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="mainNav">
+        <li><a href="index.html">Home</a></li>
+
+        <li>
+          <a href="about.html" class="active" aria-current="page">
+            About
+          </a>
+        </li>
+
+        <li><a href="portfolio.html">Properties</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-    <section class="about-hero">
-        <h1>Our Legacy</h1>
-        <p>Defining the standard of luxury real estate since 2015.</p>
+  <!-- HERO -->
+
+  <section class="about-hero">
+    <span class="eyebrow">Welcome to GrandSignature Properties</span>
+
+    <h1>Our Story. Our Purpose.</h1>
+
+    <p>
+      A thoughtful approach to real estate,
+      guided by service, integrity and attention to detail.
+    </p>
+  </section>
+
+  <main>
+
+    <!-- INTRO -->
+
+    <section class="intro-section">
+      <div class="container">
+        <span class="eyebrow">Who We Are</span>
+
+        <h2 class="section-heading">
+          More Than a Property Search
+        </h2>
+
+        <p>
+          GrandSignature Properties is a real estate brand
+          focused on helping clients explore property opportunities
+          with greater clarity and confidence. We believe
+          that choosing a property is about more than its
+          location or appearance — it is about finding a
+          place that supports your goals and lifestyle.
+        </p>
+      </div>
     </section>
 
-    <section class="section-padding">
-        <div class="story-grid">
-            <div class="story-text">
-                <h2>The GrandSignature Story</h2>
-                <p>Founded on the principles of integrity and exclusivity, GrandSignature Properties has grown from a boutique agency in Lagos to a nationwide leader in luxury real estate.</p>
-                <p>We don't just sell houses; we curate lifestyles. Our team of expert consultants specializes in identifying high-yield off-market opportunities that provide both personal sanctuary and long-term financial growth.</p>
-            </div>
-            <div class="story-img">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Luxury Interior" style="width:100%; border-radius:10px;">
-            </div>
+    <!-- OUR STORY -->
+
+    <section class="story-section">
+      <div class="container story-grid">
+
+        <div class="story-text">
+          <span class="eyebrow">The GrandSignature Story</span>
+
+          <h2 class="section-heading">
+            Connecting People With Possibilities
+          </h2>
+
+          <p>
+            Our approach is built around understanding
+            what matters to each client. From residential
+            property searches to investment enquiries,
+            we aim to make every interaction informative,
+            professional and personal.
+          </p>
+
+          <p>
+            We recognise that property decisions often involve
+            significant financial and lifestyle considerations.
+            That is why we value clear communication,
+            careful evaluation and practical guidance
+            throughout the enquiry process.
+          </p>
+
+          <p>
+            Through our property portfolio, we present
+            opportunities across selected Nigerian cities,
+            helping prospective buyers discover options
+            that may suit their preferences and priorities.
+          </p>
+
+          <a href="portfolio.html" class="btn btn-gold">
+            Explore Our Portfolio
+          </a>
         </div>
-    </section>
 
-    <section class="section-padding values">
-        <p style="color: var(--gold); font-weight: bold; letter-spacing: 2px;">OUR CORE VALUES</p>
-        <h2 style="font-size: 32px; margin-top: 10px; margin-bottom: 40px;">What Drives Us</h2>
-        <div class="values-grid">
-            <div class="value-card">
-                <h3>Exclusivity</h3>
-                <p>We provide our clients with access to properties that never reach the open market.</p>
-            </div>
-            <div class="value-card">
-                <h3>Transparency</h3>
-                <p>Clear communication and ethical advisory are at the heart of every transaction we manage.</p>
-            </div>
-            <div class="value-card">
-                <h3>Innovation</h3>
-                <p>From AI market tracking to VR tours, we use the latest technology to serve our elite global network.</p>
-            </div>
+        <div class="story-image">
+          <img
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=85"
+            alt="Real estate consultation with property documents"
+            loading="lazy"
+          >
+
+          <div class="image-label">
+            Property guidance with a personal approach
+          </div>
         </div>
+
+      </div>
     </section>
 
-            <footer>
-    <div class="footer-grid">
-        <div class="footer-col">
-            <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
-            <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
-                Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
+    <!-- MISSION AND VISION -->
+
+    <section class="purpose-section">
+      <div class="container">
+
+        <div class="purpose-intro">
+          <span class="eyebrow">Our Direction</span>
+
+          <h2>Our Mission &amp; Vision</h2>
+
+          <p>
+            The principles that shape how we want to
+            serve clients and develop our brand.
+          </p>
+        </div>
+
+        <div class="purpose-grid">
+
+          <div class="purpose-card">
+            <span class="number">01 / OUR MISSION</span>
+
+            <h3>Making Property Decisions More Informed</h3>
+
+            <p>
+              To connect clients with suitable real estate
+              opportunities through attentive service,
+              transparent communication and a commitment
+              to helping them make informed choices.
             </p>
+          </div>
+
+          <div class="purpose-card">
+            <span class="number">02 / OUR VISION</span>
+
+            <h3>Building a Trusted Real Estate Brand</h3>
+
+            <p>
+              To become a recognised name in Nigerian
+              real estate by consistently prioritising
+              client experience, professionalism and
+              long-term relationships.
+            </p>
+          </div>
+
         </div>
-        
-        <div class="footer-col">
-            <h4>Sitemap</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Properties</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+
+    <section class="values-section">
+      <div class="container">
+
+        <div class="values-intro">
+          <span class="eyebrow">Our Core Values</span>
+
+          <h2 class="section-heading">What Drives Us</h2>
+
+          <p>
+            Our values guide how we communicate,
+            evaluate opportunities and work with clients.
+          </p>
         </div>
 
-        <div class="footer-col">
-            <h4>Focus Cities</h4>
-            <ul>
-                <li><a href="portfolio.html">Lagos Properties</a></li>
-                <li><a href="portfolio.html">Abuja Estates</a></li>
-                <li><a href="portfolio.html">Port Harcourt</a></li>
-                <li><a href="portfolio.html">Ibadan</a></li>
-                <li><a href="portfolio.html">Asaba & Owerri</a></li>
-            </ul>
+        <div class="values-grid">
+
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">◇</div>
+
+            <h3>Exclusivity</h3>
+
+            <p>
+              We believe every client deserves
+              attentive, personalised service
+              and a property search aligned with
+              their individual requirements.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">✓</div>
+
+            <h3>Transparency</h3>
+
+            <p>
+              We value honest conversations,
+              clear information and responsible
+              communication throughout the
+              property enquiry process.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">✧</div>
+
+            <h3>Innovation</h3>
+
+            <p>
+              We seek practical ways to improve
+              how clients discover, compare and
+              enquire about properties using
+              accessible digital tools.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR APPROACH -->
+
+    <section class="approach-section">
+      <div class="container">
+
+        <div class="approach-header">
+          <span class="eyebrow">How We Work</span>
+
+          <h2 class="section-heading">
+            A Client-Focused Approach
+          </h2>
+
+          <p>
+            Every property journey is different.
+            Our approach is designed to keep your
+            priorities at the centre of the conversation.
+          </p>
         </div>
 
-        <div class="footer-col">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Use</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
+        <div class="approach-grid">
+
+          <article class="approach-step">
+            <span class="step-number">01</span>
+
+            <h3>Understand Your Needs</h3>
+
+            <p>
+              We begin by discussing your preferred
+              location, property type, budget and
+              intended use.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <span class="step-number">02</span>
+
+            <h3>Explore Options</h3>
+
+            <p>
+              We help you review relevant property
+              opportunities and identify questions
+              worth investigating further.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <span class="step-number">03</span>
+
+            <h3>Arrange Enquiries</h3>
+
+            <p>
+              We assist with property information
+              requests, consultations and viewing
+              arrangements where available.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <span class="step-number">04</span>
+
+            <h3>Support Next Steps</h3>
+
+            <p>
+              We encourage appropriate independent
+              legal and technical checks before
+              any property commitment.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOCUS CITIES -->
+
+    <section class="locations-section">
+      <div class="container">
+
+        <span class="eyebrow">Explore Our Portfolio</span>
+
+        <h2 class="section-heading">
+          Property Opportunities Across Nigeria
+        </h2>
+
+        <p>
+          Browse properties in the locations represented
+          in our portfolio, or contact us about your
+          preferred area.
+        </p>
+
+        <div class="city-links">
+          <a href="portfolio.html?city=Lagos">Lagos</a>
+          <a href="portfolio.html?city=Abuja">Abuja</a>
+          <a href="portfolio.html?city=Port%20Harcourt">Port Harcourt</a>
+          <a href="portfolio.html?city=Owerri">Owerri</a>
+          <a href="portfolio.html?city=Asaba">Asaba</a>
+          <a href="portfolio.html?city=Awka">Awka</a>
+          <a href="portfolio.html?city=Ogun">Ogun</a>
+          <a href="portfolio.html?city=Ibadan">Ibadan</a>
         </div>
 
-        <div class="footer-col">
-            <h4>Social</h4>
-            <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">YouTube</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">TikTok</a></li>
-            </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+
+    <section class="about-cta">
+      <div class="container">
+
+        <span class="eyebrow" style="color:var(--gold)">
+          Begin Your Property Journey
+        </span>
+
+        <h2>Let's Find the Right Property Conversation</h2>
+
+        <p>
+          Have a property in mind, a preferred location
+          or questions about the buying process?
+          Connect with GrandSignature Properties.
+        </p>
+
+        <div class="cta-actions">
+
+          <a href="contact.html" class="btn btn-gold">
+            Contact Our Team
+          </a>
+
+          <a
+            href="https://wa.me/2348114452433?text=Hello%20GrandSignature%2C%20I%20would%20like%20to%20make%20a%20property%20enquiry."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+          >
+            Chat on WhatsApp
+          </a>
+
         </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FLOATING WHATSAPP -->
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/2348114452433?text=Hello%20GrandSignature%2C%20I%20would%20like%20to%20make%20a%20property%20enquiry."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with GrandSignature Properties on WhatsApp"
+    title="Chat on WhatsApp"
+  >
+    💬
+  </a>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <a href="index.html" class="footer-logo">
+          Grand<span>Signature</span>
+        </a>
+
+        <p>
+          Curating real estate opportunities across Nigeria.
+          We assist clients with property enquiries,
+          viewings and consultations.
+        </p>
+
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">Office</strong><br>
+          Tina Johnson Close, Coastal Road,<br>
+          Salem Okun-Ajah, beside Avista Beach,<br>
+          Lekki-Epe Expressway, Eti-Osa LGA,<br>
+          Lagos 106104, Nigeria.
+        </p>
+
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">WhatsApp</strong><br>
+          <a
+            href="https://wa.me/2348114452433"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +234 811 445 2433
+          </a>
+        </p>
+
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">Email</strong><br>
+          <a href="mailto:info@grandsignatureproperties.com">
+            info@grandsignatureproperties.com
+          </a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sitemap</h4>
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Focus Cities</h4>
+
+        <ul>
+          <li><a href="portfolio.html?city=Lagos">Lagos</a></li>
+          <li><a href="portfolio.html?city=Abuja">Abuja</a></li>
+          <li><a href="portfolio.html?city=Port%20Harcourt">Port Harcourt</a></li>
+          <li><a href="portfolio.html?city=Ibadan">Ibadan</a></li>
+          <li><a href="portfolio.html?city=Asaba">Asaba</a></li>
+          <li><a href="portfolio.html?city=Owerri">Owerri</a></li>
+          <li><a href="portfolio.html?city=Awka">Awka</a></li>
+          <li><a href="portfolio.html?city=Ogun">Ogun</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Social</h4>
+
+        <ul>
+          <li><a href="#" aria-label="Instagram link pending">Instagram</a></li>
+          <li><a href="#" aria-label="LinkedIn link pending">LinkedIn</a></li>
+          <li><a href="#" aria-label="YouTube link pending">YouTube</a></li>
+          <li><a href="#" aria-label="X link pending">X / Twitter</a></li>
+          <li><a href="#" aria-label="TikTok link pending">TikTok</a></li>
+        </ul>
+      </div>
+
     </div>
-    
+
     <div class="footer-bottom">
-        <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
+      &copy; 2026 GrandSignature Properties.
+      All Rights Reserved.
     </div>
-</footer>
+  </footer>
 
-    <script>
-        // Mobile Menu Toggle logic
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-    </script>
+  <!-- JAVASCRIPT -->
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("show");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        mainNav.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+
 </body>
 </html>

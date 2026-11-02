@@ -1,220 +1,589 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/grandsignature-favicon.ico">
-    <title>FAQ | GrandSignature Properties</title>
-    
-    <link rel="icon" type="image/png" href="logo-icon.png">
-    <link rel="apple-touch-icon" href="logo-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Frequently Asked Questions | GrandSignature Properties</title>
+  <meta name="description" content="Find answers to frequently asked questions about property enquiries, viewings, buying property and working with GrandSignature Properties in Nigeria.">
+  <link rel="icon" href="grandsignature-favicon.ico" type="image/x-icon">
 
-    <style>
-        :root { --gold: #d4af37; --dark: #1a1a1a; --white: #ffffff; --grey: #f8f9fa; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-dark: #a47c16;
+      --dark: #1a1a1a;
+      --light: #f8f9fa;
+      --muted: #666;
+      --border: #e7e7e7;
+    }
 
-        /* ================= NAVIGATION ================= */
-        .top-banner { background: var(--gold); color: var(--dark); padding: 10px 5%; display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; }
-        header { background: var(--dark); padding: 20px 5%; position: sticky; top: 0; z-index: 1000; }
-        nav { display: flex; align-items: center; justify-content: space-between; position: relative; }
-        .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; text-transform: uppercase; }
-        .logo span { color: var(--gold); }
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
-        nav ul li a:hover { color: var(--gold); }
-        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 30px; cursor: pointer; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #333;
+      line-height: 1.7;
+      background: #fff;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .container { width: min(1100px, 90%); margin: auto; }
 
-        @media (max-width: 768px) {
-            .top-banner { flex-direction: column; text-align: center; gap: 5px; }
-            .menu-toggle { display: block; }
-            nav ul { position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark); flex-direction: column; align-items: center; display: none; padding: 20px 0; }
-            nav ul.show { display: flex; }
-        }
+    .top-banner {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 5%;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .top-banner a { text-decoration: none; }
 
-        /* ================= FAQ CONTENT ================= */
-        .faq-hero { background: var(--grey); padding: 60px 10%; text-align: center; border-bottom: 1px solid #eee; }
-        .faq-hero h1 { font-size: 2.5rem; color: var(--dark); text-transform: uppercase; letter-spacing: 2px; }
-        
-        .faq-container { padding: 60px 15%; max-width: 1000px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
-        .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; text-align: left; font-size: 1.1rem; font-weight: 600; color: var(--dark); cursor: pointer; padding: 10px 0; transition: 0.3s; }
-        .faq-question:hover { color: var(--gold); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; font-size: 15px; }
-        .faq-answer p { padding: 15px 0; }
-        .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--gold); }
-        .faq-item.active .faq-question::after { content: '-'; }
-        .faq-item.active .faq-answer { max-height: 200px; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--dark);
+      box-shadow: 0 3px 15px rgba(0,0,0,.12);
+    }
+    nav {
+      position: relative;
+      width: min(1300px, 90%);
+      min-height: 80px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo, .footer-logo {
+      color: #fff;
+      font-size: clamp(19px, 2.5vw, 24px);
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .logo span, .footer-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: none;
+      color: #fff;
+      font-size: 29px;
+    }
 
-        /* ================= WHATSAPP ================= */
-        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 10000; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; }
-      
-        /* ================= GLOBAL FOOTER ================= */
-footer { background: var(--dark); color: white; padding: 80px 10% 20px; margin-top: 50px; }
+    .hero {
+      padding: 85px 20px;
+      background: linear-gradient(135deg, #151515, #333);
+      color: #fff;
+      text-align: center;
+    }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      margin: 13px 0;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.2;
+    }
+    .hero p {
+      max-width: 680px;
+      margin: auto;
+      color: #ddd;
+      font-size: 15px;
+    }
 
-.footer-grid { 
-    display: grid; 
-    /* This line now supports all 5 columns in one row */
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 60px; 
-}
+    .faq-section { padding: 75px 0 90px; }
+    .faq-intro { text-align: center; margin-bottom: 35px; }
+    .faq-intro h2 {
+      margin: 10px 0;
+      color: var(--dark);
+      font-size: clamp(26px, 3vw, 35px);
+    }
+    .faq-intro p { color: var(--muted); }
 
-.footer-col { display: flex; flex-direction: column; }
-.footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: block; text-decoration: none; color: white; }
-.footer-logo span { color: var(--gold); }
-.footer-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 15px; }
-.footer-col ul li a { color: #999; text-decoration: none; transition: 0.3s; font-size: 14px; }
-.footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
-.footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #666; font-size: 13px; letter-spacing: 1px; }
+    .search-box {
+      width: min(650px, 100%);
+      display: block;
+      margin: 0 auto 42px;
+      padding: 15px 18px;
+      border: 1px solid #d5d5d5;
+      border-radius: 6px;
+      outline: none;
+      background: #fff;
+    }
+    .search-box:focus { border-color: var(--gold-dark); }
 
-/* Responsive adjustments */
-@media (max-width: 1100px) { 
-    .footer-grid { grid-template-columns: 1fr 1fr; } /* Stacks into 2 columns for tablets */
-}
+    .faq-group { margin-bottom: 42px; }
+    .faq-group h3 {
+      margin-bottom: 17px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gold);
+      color: var(--dark);
+      font-size: 21px;
+    }
+    .faq-item {
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .faq-item[hidden], .faq-group[hidden] { display: none; }
+    .faq-question {
+      width: 100%;
+      padding: 19px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border: 0;
+      background: #fff;
+      color: var(--dark);
+      font-weight: 700;
+      text-align: left;
+    }
+    .faq-question:hover { color: var(--gold-dark); }
+    .faq-question::after {
+      content: "+";
+      color: var(--gold-dark);
+      font-size: 26px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .faq-question[aria-expanded="true"]::after { content: "−"; }
+    .faq-answer {
+      padding: 0 22px 22px;
+      color: #606060;
+      font-size: 14px;
+    }
+    .faq-answer[hidden] { display: none; }
+    .faq-answer a { color: #8a6811; }
+    .no-results {
+      display: none;
+      padding: 25px;
+      color: var(--muted);
+      text-align: center;
+    }
 
-@media (max-width: 768px) { 
-    .footer-grid { grid-template-columns: 1fr; } /* Stacks into 1 column for mobile */
-}
+    .contact-cta {
+      padding: 65px 20px;
+      background: var(--light);
+      text-align: center;
+    }
+    .contact-cta h2 {
+      margin: 10px 0;
+      font-size: clamp(26px, 3vw, 36px);
+    }
+    .contact-cta p {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+    }
+    .btn {
+      display: inline-block;
+      padding: 13px 23px;
+      border-radius: 4px;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .btn:hover { background: #c4a02d; }
 
-        @media (max-width: 900px) { 
-            .footer-grid { grid-template-columns: 1fr; }
-            .faq-container { padding: 40px 5%; }
-        }
-    </style>
+    .whatsapp-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 10000;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 5px 18px rgba(0,0,0,.2);
+    }
+    .whatsapp-float svg { width: 30px; height: 30px; }
+    .whatsapp-float:hover { background: #128c7e; }
+
+    footer {
+      padding: 75px 5% 25px;
+      background: var(--dark);
+      color: #fff;
+    }
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto 55px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 30px;
+    }
+    .footer-col { min-width: 0; }
+    .footer-logo { display: block; margin-bottom: 20px; }
+    .footer-col h4 {
+      margin-bottom: 20px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .footer-col p, .footer-col li a {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 11px; }
+    .footer-col li a { text-decoration: none; }
+    .footer-col li a:hover, .footer-col p a { color: var(--gold); }
+    .footer-contact { margin-top: 15px; }
+    .footer-bottom {
+      max-width: 1300px;
+      margin: auto;
+      padding-top: 25px;
+      border-top: 1px solid #383838;
+      color: #888;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      .footer-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .top-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 3px;
+      }
+      nav { min-height: 72px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -5.55%;
+        width: 111.1%;
+        padding: 22px 5%;
+        flex-direction: column;
+        gap: 18px;
+        background: var(--dark);
+        border-top: 1px solid #333;
+      }
+      .nav-links.show { display: flex; }
+      .hero { padding: 65px 20px; }
+      .faq-section { padding: 55px 0; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .whatsapp-float { right: 17px; bottom: 17px; }
+    }
+    @media (max-width: 520px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .faq-question { padding: 17px; font-size: 14px; }
+      .faq-answer { padding: 0 17px 17px; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="top-banner">
+    <span>📍 Lagos | Abuja | Port Harcourt | Asaba</span>
+    <a href="mailto:info@grandsignatureproperties.com">
+      ✉ info@grandsignatureproperties.com
+    </a>
+  </div>
 
-    <div class="top-banner">
-        <span>📍 Lagos | Abuja | Owerri | Ibadan</span>
-        <span>✉️ info@grandsignatureproperties.com</span>
-    </div>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Grand<span>Signature</span></a>
+      <button class="menu-toggle" type="button"
+        aria-label="Toggle navigation"
+        aria-controls="mainNav"
+        aria-expanded="false">☰</button>
 
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Grand<span>Signature</span></a>
-            <button class="menu-toggle">☰</button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html">Properties</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+      <ul class="nav-links" id="mainNav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Properties</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="faq-hero">
-        <h1>Frequently Asked Questions</h1>
-        <p style="color: var(--gold); font-weight: bold; margin-top: 10px;">Your guide to luxury real estate investments.</p>
+  <main>
+    <section class="hero">
+      <span class="eyebrow">GrandSignature Help Centre</span>
+      <h1>Frequently Asked Questions</h1>
+      <p>Useful answers to common questions about property searches, enquiries, viewings and ownership in Nigeria.</p>
     </section>
 
-    <div class="faq-container">
-        <div class="faq-item">
-            <button class="faq-question">How do I schedule a private viewing?</button>
-            <div class="faq-answer">
-                <p>You can schedule a viewing by contacting our concierge desk via the Contact page or directly through our WhatsApp button. Private tours are typically arranged 24-48 hours in advance.</p>
-            </div>
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-intro">
+          <span class="eyebrow" style="color:var(--gold-dark)">How Can We Help?</span>
+          <h2>Find the Answers You Need</h2>
+          <p>Search below or browse questions by topic.</p>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question">Are the properties on the site currently available?</button>
-            <div class="faq-answer">
-                <p>While we update our digital portfolio frequently, some high-demand luxury estates move off-market quickly. Please inquire for the current status of any specific signature listing.</p>
+        <input id="faqSearch" class="search-box" type="search"
+          placeholder="Search questions..."
+          aria-label="Search frequently asked questions">
+
+        <div class="faq-group">
+          <h3>Property Enquiries &amp; Viewings</h3>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              How do I schedule a private viewing?
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Contact us through our <a href="contact.html">Contact page</a> or WhatsApp with the property you're interested in and your preferred viewing date. Our team can discuss available viewing arrangements and confirm the details with you.</p>
             </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Are all properties displayed on the website available?
+            </button>
+            <div class="faq-answer" hidden> 
+              <p>Website listings may change in availability, price and specification.Please contact us to verify the current status of any property before making plans or financial commitments.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Can you help me find a property in a specific city?
+            </button>
+            <div class="faq-answer" hidden>
+              <p>You can browse our <a href="portfolio.html">property portfolio</a> or send us your preferred city, property type and budget. We can discuss your requirements and relevant opportunities.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question">Do you assist with legal and tax documentation?</button>
-            <div class="faq-answer">
-                <p>Yes, GrandSignature provides end-to-end legal advisory support to ensure all property titles and tax compliance requirements are met during the transaction.</p>
+        <div class="faq-group">
+          <h3>Buying &amp; Due Diligence</h3>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Do you assist with legal and tax documentation?
+            </button>
+            <div class="faq-answer" hidden>
+              <p>We can discuss property documentation questions and help identify matters requiring professional review. Buyers should engage an independent qualified Nigerian property lawyer and appropriate tax adviser to verify title, approvals, transaction documents and applicable obligations.</p>
             </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              What should I check before buying a property?
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Important checks include the seller's authority, title documents, survey details, planning approvals, physical condition, access, service charges and total transaction costs. Independent legal and technical due diligence is recommended before payment.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Can I buy an off-plan property?
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Off-plan opportunities may be available, depending on the project. contact us to  construction timetable, payment schedule, specifications and contractual protections.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question">Can I invest if I am currently outside Nigeria?</button>
-            <div class="faq-answer">
-                <p>Absolutely. We specialize in facilitating international transactions and provide high-quality virtual tours and digital documentation for our global network.</p>
+        <div class="faq-group">
+          <h3>International &amp; Remote Enquiries</h3>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Can I enquire about property while outside Nigeria?
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Yes. You can contact us by email or WhatsApp from outside Nigeria. We can discuss property information and remote consultation arrangements. Transaction requirements, including identity verification and representation, depend on the circumstances.</p>
             </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Are virtual property tours available?
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Availability depends on the property. Contact us to ask whether a video, additional photographs or a remote viewing can be arranged.</p>
+            </div>
+          </div>
         </div>
-    </div>
 
-    <a href="https://wa.me/2347075112759" class="whatsapp-float" target="_blank">
-        <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.601 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.089-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-    </a>
+        <p id="noResults" class="no-results">
+          No matching questions found. Try a different search term.
+        </p>
+      </div>
+    </section>
 
-   <footer>
+    <section class="contact-cta">
+      <div class="container">
+        <span class="eyebrow" style="color:var(--gold-dark)">Still Have Questions?</span>
+        <h2>Speak With GrandSignature Properties</h2>
+        <p>Tell us what you're looking for and we'll help you identify the next steps.</p>
+        <a href="contact.html" class="btn">Contact Our Team</a>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-float"
+    href="https://wa.me/2348114452433?text=Hello%20GrandSignature%2C%20I%20have%20a%20question%20about%20your%20properties."
+    target="_blank" rel="noopener noreferrer"
+    aria-label="Chat with GrandSignature on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.87 11.87 0 0 0 12.05 0C5.46 0 .09 5.37.09 11.96c0 2.1.55 4.16 1.59 5.97L0 24l6.23-1.63a11.95 11.95 0 0 0 5.82 1.48h.01c6.59 0 11.96-5.37 11.96-11.96 0-3.2-1.25-6.2-3.5-8.41ZM12.05 21.83a9.87 9.87 0 0 1-5.04-1.38l-.36-.21-3.74.98.99-3.65-.23-.38a9.84 9.84 0 0 1-1.51-5.23c0-5.45 4.44-9.89 9.9-9.89a9.82 9.82 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.86-9.9 9.86Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.62.72.23 1.36.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+    </svg>
+  </a>
+
+  <footer>
     <div class="footer-grid">
-        <div class="footer-col">
-            <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
-            <p style="color: #999; line-height: 1.8; font-size: 14px; padding-right: 20px;">
-                Curating Nigeria's most exclusive real estate portfolio. We specialize in high-yield investments and premium residential estates for the discerning individual.
-            </p>
-        </div>
-        
-        <div class="footer-col">
-            <h4>Sitemap</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Properties</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </div>
+      <div class="footer-col">
+        <a href="index.html" class="footer-logo">Grand<span>Signature</span></a>
+        <p>Curating real estate opportunities across Nigeria, with a focus on professional property enquiries and client service.</p>
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">Office</strong><br>
+          Tina Johnson Close, Coastal Road,<br>
+          Salem Okun-Ajah, beside Avista Beach,<br>
+          Lekki-Epe Expressway, Eti-Osa LGA,<br>
+          Lagos 106104, Nigeria.
+        </p>
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">WhatsApp</strong><br>
+          <a href="https://wa.me/2348114452433" target="_blank" rel="noopener noreferrer">+234 811 445 2433</a>
+        </p>
+        <p class="footer-contact">
+          <strong style="color:var(--gold)">Email</strong><br>
+          <a href="mailto:info@grandsignatureproperties.com">info@grandsignatureproperties.com</a>
+        </p>
+      </div>
 
-        <div class="footer-col">
-            <h4>Focus Cities</h4>
-            <ul>
-                <li><a href="portfolio.html">Lagos Properties</a></li>
-                <li><a href="portfolio.html">Abuja Estates</a></li>
-                <li><a href="portfolio.html">Port Harcourt</a></li>
-                <li><a href="portfolio.html">Ibadan</a></li>
-                <li><a href="portfolio.html">Asaba & Owerri</a></li>
-            </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Sitemap</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-col">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Use</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Focus Cities</h4>
+        <ul>
+          <li><a href="portfolio.html?city=Lagos">Lagos</a></li>
+          <li><a href="portfolio.html?city=Abuja">Abuja</a></li>
+          <li><a href="portfolio.html?city=Port%20Harcourt">Port Harcourt</a></li>
+          <li><a href="portfolio.html?city=Ibadan">Ibadan</a></li>
+          <li><a href="portfolio.html?city=Asaba">Asaba</a></li>
+          <li><a href="portfolio.html?city=Owerri">Owerri</a></li>
+          <li><a href="portfolio.html?city=Awka">Awka</a></li>
+          <li><a href="portfolio.html?city=Ogun">Ogun</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-col">
-            <h4>Social</h4>
-            <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">YouTube</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">TikTok</a></li>
-            </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="faq.html" aria-current="page">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:info@grandsignatureproperties.com">Email Us</a></li>
+          <li><a href="https://wa.me/2348114452433" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        </ul>
+      </div>
     </div>
-    
+
     <div class="footer-bottom">
-        <p>&copy; 2026 GrandSignature Properties. All Rights Reserved.</p>
+      &copy; 2026 GrandSignature Properties. All Rights Reserved.
     </div>
-</footer>
+  </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('nav ul').classList.toggle('show');
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", () => {
+      const open = mainNav.classList.toggle("show");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!expanded));
+        button.nextElementSibling.hidden = expanded;
+      });
+    });
+
+    const faqSearch = document.getElementById("faqSearch");
+    const faqGroups = document.querySelectorAll(".faq-group");
+    const noResults = document.getElementById("noResults");
+
+    faqSearch.addEventListener("input", () => {
+      const query = faqSearch.value.trim().toLowerCase();
+      let totalVisible = 0;
+
+      faqGroups.forEach(group => {
+        let groupVisible = 0;
+
+        group.querySelectorAll(".faq-item").forEach(item => {
+          const match = item.textContent.toLowerCase().includes(query);
+          item.hidden = !match;
+          if (match) groupVisible++;
         });
 
-        // FAQ Accordion Logic
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
-            });
-        });
-    </script>
+        group.hidden = groupVisible === 0;
+        totalVisible += groupVisible;
+      });
+
+      noResults.style.display = totalVisible ? "none" : "block";
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        mainNav.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 </body>
 </html>
