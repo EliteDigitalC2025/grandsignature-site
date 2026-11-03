@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Property Portfolio | GrandSignature Properties</title>
-  <meta name="description" content="Explore property opportunities across Nigeria with GrandSignature Properties.">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Property Portfolio | GrandSignature Properties</title>
+<meta content="Explore property opportunities across Nigeria with GrandSignature Properties." name="description"/>
+<style>
     :root {
       --dark: #191919;
       --gold: #d4af37;
@@ -367,160 +367,57 @@
       .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
-</head>
-
+<link href="global.css" rel="stylesheet"/></head>
 <body>
-
-<header>
-  <nav>
-    <a href="index.html" class="logo">
-      Grand<span>Signature</span>
-    </a>
-
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-    >☰</button>
-
-    <ul id="mainNav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="portfolio.html" class="active">Properties</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
+<div id="gs-header"></div>
 <section class="hero">
-  <span class="eyebrow">Explore Nigeria</span>
-  <h1>Property Portfolio</h1>
-
-  <p>
+<span class="eyebrow">Explore Nigeria</span>
+<h1>Property Portfolio</h1>
+<p>
     Explore residential property opportunities across
     Nigeria's leading cities and neighbourhoods.
   </p>
-
-  <form id="searchForm" class="searchbar" role="search">
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="Search city, neighbourhood or property type"
-      aria-label="Search properties"
-    >
-    <button type="submit" class="primary">
+<form class="searchbar" id="searchForm" role="search">
+<input aria-label="Search properties" id="searchInput" placeholder="Search city, neighbourhood or property type" type="search"/>
+<button class="primary" type="submit">
       Search Properties
     </button>
-  </form>
-
-  <div class="filters" aria-label="Filter by location">
-    <button type="button" class="filter-btn active" data-city="All">All Locations</button>
-    <button type="button" class="filter-btn" data-city="Lagos">Lagos</button>
-    <button type="button" class="filter-btn" data-city="Abuja">Abuja</button>
-    <button type="button" class="filter-btn" data-city="Owerri">Owerri</button>
-    <button type="button" class="filter-btn" data-city="Port Harcourt">Port Harcourt</button>
-    <button type="button" class="filter-btn" data-city="Asaba">Asaba</button>
-    <button type="button" class="filter-btn" data-city="Awka">Awka</button>
-    <button type="button" class="filter-btn" data-city="Ogun">Ogun</button>
-    <button type="button" class="filter-btn" data-city="Ibadan">Ibadan</button>
-  </div>
+</form>
+<div aria-label="Filter by location" class="filters">
+<button class="filter-btn active" data-city="All" type="button">All Locations</button>
+<button class="filter-btn" data-city="Lagos" type="button">Lagos</button>
+<button class="filter-btn" data-city="Abuja" type="button">Abuja</button>
+<button class="filter-btn" data-city="Owerri" type="button">Owerri</button>
+<button class="filter-btn" data-city="Port Harcourt" type="button">Port Harcourt</button>
+<button class="filter-btn" data-city="Asaba" type="button">Asaba</button>
+<button class="filter-btn" data-city="Awka" type="button">Awka</button>
+<button class="filter-btn" data-city="Ogun" type="button">Ogun</button>
+<button class="filter-btn" data-city="Ibadan" type="button">Ibadan</button>
+</div>
 </section>
-
 <main class="container">
-  <div class="results-bar">
-    <p id="resultsCount" role="status" aria-live="polite">
+<div class="results-bar">
+<p aria-live="polite" id="resultsCount" role="status">
       Loading properties...
     </p>
-
-    <a id="clearFilters" class="clear-link"
-       href="portfolio.html" hidden>
+<a class="clear-link" hidden="" href="portfolio.html" id="clearFilters">
       Clear filters
     </a>
-  </div>
-
-  <div id="portfolioGrid" class="property-grid"></div>
-
-  <div class="load-area">
-    <button id="loadMoreBtn" type="button" class="primary">
+</div>
+<div class="property-grid" id="portfolioGrid"></div>
+<div class="load-area">
+<button class="primary" id="loadMoreBtn" type="button">
       Load More Properties
     </button>
-
-    <a class="back-link" href="index.html">
+<a class="back-link" href="index.html">
       ← Return to Homepage
     </a>
-  </div>
+</div>
 </main>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <a href="index.html" class="footer-logo">
-          Grand<span>Signature</span>
-        </a>
-        <p>
-          Helping clients explore residential property
-          opportunities across Nigeria.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h3>Sitemap</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="portfolio.html">Properties</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="blog.html">Blog</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h3>Focus Cities</h3>
-        <ul>
-          <li><a href="portfolio.html?city=Lagos">Lagos</a></li>
-          <li><a href="portfolio.html?city=Abuja">Abuja</a></li>
-          <li><a href="portfolio.html?city=Owerri">Owerri</a></li>
-          <li><a href="portfolio.html?city=Port%20Harcourt">Port Harcourt</a></li>
-          <li><a href="portfolio.html?city=Asaba">Asaba</a></li>
-          <li><a href="portfolio.html?city=Awka">Awka</a></li>
-          <li><a href="portfolio.html?city=Ogun">Ogun</a></li>
-          <li><a href="portfolio.html?city=Ibadan">Ibadan</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <ul>
-          <li><a href="contact.html">Property Enquiries</a></li>
-          <li>
-            <a href="https://wa.me/2347075112759"
-               target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      © 2026 GrandSignature Properties. All Rights Reserved.
-    </div>
-  </div>
-</footer>
-
+<div id="gs-footer"></div>
 <script src="properties-data.js"></script>
-
 <script>
-  const menuToggle = document.querySelector(".menu-toggle");
-  const mainNav = document.getElementById("mainNav");
-
-  menuToggle.addEventListener("click", () => {
-    const open = mainNav.classList.toggle("show");
-    menuToggle.setAttribute("aria-expanded", String(open));
-  });
+  
 
   const allProperties = window.GRAND_PROPERTIES || [];
   const params = new URLSearchParams(window.location.search);
@@ -770,6 +667,5 @@
 
   render();
 </script>
-
-</body>
+<script src="global.js"></script></body>
 </html>

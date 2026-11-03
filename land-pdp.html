@@ -1,21 +1,15 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1a1a1a">
-
-  <title>Land Details | GrandSignature Properties</title>
-
-  <meta
-    name="description"
-    content="Explore land property details and arrange a private site inspection with GrandSignature Properties."
-  >
-
-  <link rel="icon" href="grandsignature-favicon.ico">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#1a1a1a" name="theme-color"/>
+<title>Land Details | GrandSignature Properties</title>
+<meta content="Explore land property details and arrange a private site inspection with GrandSignature Properties." name="description"/>
+<link href="grandsignature-favicon.ico" rel="icon"/>
+<style>
     :root {
       --dark: #1a1a1a;
       --gold: #d4af37;
@@ -668,396 +662,112 @@
       }
     }
   </style>
-</head>
-
+<link href="global.css" rel="stylesheet"/></head>
 <body>
-
-  <div class="topbar">
-    <span>GrandSignature Land Collection</span>
-    <a href="mailto:info@grandsignatureproperties.com">
+<div class="topbar">
+<span>GrandSignature Land Collection</span>
+<a href="mailto:info@grandsignatureproperties.com">
       info@grandsignatureproperties.com
     </a>
-  </div>
-
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-
-      <a href="index.html" class="logo">
-        GRAND<span>SIGNATURE</span>
-      </a>
-
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-        aria-controls="navlinks"
-      >☰</button>
-
-      <ul class="navlinks" id="navlinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-
-        <li>
-          <a href="portfolio.html">
-            Property Collection
-          </a>
-        </li>
-
-        <li>
-          <a href="lands.html" class="active">
-            Land Collection
-          </a>
-        </li>
-
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-    </nav>
-  </header>
-
-  <main id="propertyPage" class="container">
-
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a> /
+</div>
+<div id="gs-header"></div>
+<main class="container" id="propertyPage">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="index.html">Home</a> /
       <a href="lands.html">Land Collection</a> /
       <span id="breadcrumbName">Land Details</span>
-    </nav>
-
-    <section class="property-heading">
-      <span class="eyebrow">Land Collection</span>
-      <h1 id="propertyName"></h1>
-      <p id="propertyLocation"></p>
-    </section>
-
-    <div class="property-layout">
-
-      <div>
-
-        <figure class="main-image">
-          <img
-            id="propertyImage"
-            alt="Land landscape"
-          >
-        </figure>
-
-        <section class="details-section">
-          <h2>Property Overview</h2>
-          <p id="propertyDescription"></p>
-        </section>
-
-        <section class="details-section">
-          <h2>Property Information</h2>
-          <div class="details-list" id="detailsList"></div>
-        </section>
-
-        <section class="details-section">
-          <h2>Location</h2>
-          <p id="locationDescription"></p>
-
-          <a
-            id="mapLink"
-            class="map-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+</nav>
+<section class="property-heading">
+<span class="eyebrow">Land Collection</span>
+<h1 id="propertyName"></h1>
+<p id="propertyLocation"></p>
+</section>
+<div class="property-layout">
+<div>
+<figure class="main-image">
+<img alt="Land landscape" id="propertyImage"/>
+</figure>
+<section class="details-section">
+<h2>Property Overview</h2>
+<p id="propertyDescription"></p>
+</section>
+<section class="details-section">
+<h2>Property Information</h2>
+<div class="details-list" id="detailsList"></div>
+</section>
+<section class="details-section">
+<h2>Location</h2>
+<p id="locationDescription"></p>
+<a class="map-link" href="#" id="mapLink" rel="noopener noreferrer" target="_blank">
             Explore the Area on Google Maps ↗
           </a>
-        </section>
-
-        <section class="details-section">
-          <h2>Arrange a Private Inspection</h2>
-
-          <p>
+</section>
+<section class="details-section">
+<h2>Arrange a Private Inspection</h2>
+<p>
             Discover more about this property with
             GrandSignature Properties. Our team can
             assist with location information,
             property documentation, pricing
             and inspection arrangements.
           </p>
-        </section>
-
-      </div>
-
-      <aside class="side-card">
-
-        <span class="eyebrow">
+</section>
+</div>
+<aside class="side-card">
+<span class="eyebrow">
           GrandSignature Properties
         </span>
-
-        <h2>Interested in This Property?</h2>
-
-        <p>
+<h2>Interested in This Property?</h2>
+<p>
           Speak with our team for personalised
           property information and inspection enquiries.
         </p>
-
-        <div class="side-price" id="priceSection">
-          <small>Price</small>
-          <strong id="propertyPrice"></strong>
-        </div>
-
-        <a
-          id="whatsappEnquiry"
-          class="btn btn-gold"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+<div class="side-price" id="priceSection">
+<small>Price</small>
+<strong id="propertyPrice"></strong>
+</div>
+<a class="btn btn-gold" href="#" id="whatsappEnquiry" rel="noopener noreferrer" target="_blank">
           Enquire on WhatsApp
         </a>
-
-        <a
-          id="emailEnquiry"
-          class="btn btn-outline"
-          href="#"
-        >
+<a class="btn btn-outline" href="#" id="emailEnquiry">
           Enquire by Email
         </a>
-
-        <a
-          href="contact.html"
-          class="btn btn-outline"
-        >
+<a class="btn btn-outline" href="contact.html">
           Contact Our Team
         </a>
-
-        <div class="side-contact">
-
-          <strong>WhatsApp</strong>
-          <a href="https://wa.me/2348114452433">
+<div class="side-contact">
+<strong>WhatsApp</strong>
+<a href="https://wa.me/2348114452433">
             +234 811 445 2433
           </a>
-
-          <strong>Email</strong>
-          <a href="mailto:info@grandsignatureproperties.com">
+<strong>Email</strong>
+<a href="mailto:info@grandsignatureproperties.com">
             info@grandsignatureproperties.com
           </a>
-
-        </div>
-
-      </aside>
-
-    </div>
-
-  </main>
-
-  <section class="not-found" id="notFound">
-    <h1>Property Not Found</h1>
-
-    <p>
+</div>
+</aside>
+</div>
+</main>
+<section class="not-found" id="notFound">
+<h1>Property Not Found</h1>
+<p>
       The requested property could not be located.
     </p>
-
-    <a href="lands.html">
+<a href="lands.html">
       Explore Land Collection
     </a>
-  </section>
+</section>
+<section class="related" id="relatedSection">
+<div class="container">
+<span class="eyebrow">Discover More</span>
+<h2>Explore More Land Properties</h2>
+<div class="related-grid" id="relatedGrid"></div>
+</div>
+</section>
+<div id="gs-footer"></div>
 
-  <section class="related" id="relatedSection">
-
-    <div class="container">
-
-      <span class="eyebrow">Discover More</span>
-      <h2>Explore More Land Properties</h2>
-
-      <div class="related-grid" id="relatedGrid"></div>
-
-    </div>
-
-  </section>
-
-  <footer class="gs-footer">
-
-    <div class="gs-footer-inner">
-
-      <div class="gs-footer-grid">
-
-        <!-- COMPANY -->
-
-        <div class="gs-footer-col gs-footer-about">
-
-          <a href="index.html" class="gs-footer-brand">
-            GRAND<span>SIGNATURE</span>
-          </a>
-
-          <p class="gs-footer-description">
-            Curating real estate opportunities across Nigeria.
-            We assist clients with property enquiries,
-            viewings and consultations.
-          </p>
-
-          <div class="gs-footer-contact">
-            <strong>Office</strong>
-
-            <p>
-              Tina Johnson Close, Coastal Road,<br>
-              Salem Okun-Ajah, beside Avista Beach,<br>
-              Lekki-Epe Expressway, Eti-Osa LGA,<br>
-              Lagos 106104, Nigeria.
-            </p>
-          </div>
-
-          <div class="gs-footer-contact">
-            <strong>WhatsApp</strong>
-
-            <a href="https://wa.me/2348114452433">
-              +234 811 445 2433
-            </a>
-          </div>
-
-          <div class="gs-footer-contact">
-            <strong>Email</strong>
-
-            <a href="mailto:info@grandsignatureproperties.com">
-              info@grandsignatureproperties.com
-            </a>
-          </div>
-
-        </div>
-
-        <!-- SITEMAP -->
-
-        <div class="gs-footer-col">
-
-          <h4>Sitemap</h4>
-
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-
-            <li>
-              <a href="portfolio.html">
-                Property Collection
-              </a>
-            </li>
-
-            <li>
-              <a href="lands.html">
-                Land Collection
-              </a>
-            </li>
-
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="blog.html">Blog</a></li>
-          </ul>
-
-        </div>
-
-        <!-- FOCUS CITIES -->
-
-        <div class="gs-footer-col">
-
-          <h4>Focus Cities</h4>
-
-          <ul>
-            <li>
-              <a href="lands.html?city=Lagos">Lagos</a>
-            </li>
-
-            <li>
-              <a href="lands.html?city=Abuja">Abuja</a>
-            </li>
-
-            <li>
-              <a href="lands.html?city=Port%20Harcourt">
-                Port Harcourt
-              </a>
-            </li>
-
-            <li>
-              <a href="lands.html?city=Ibadan">Ibadan</a>
-            </li>
-
-            <li>
-              <a href="lands.html?city=Asaba">Asaba</a>
-            </li>
-
-            <li>
-              <a href="lands.html?city=Ogun">Ogun</a>
-            </li>
-
-            <li>
-              <a href="lands.html?city=Enugu">Enugu</a>
-            </li>
-
-            <li>
-              <a href="lands.html?city=Aba">Aba</a>
-            </li>
-          </ul>
-
-        </div>
-
-        <!-- LEGAL -->
-
-        <div class="gs-footer-col">
-
-          <h4>Legal</h4>
-
-          <ul>
-            <li>
-              <a href="privacy-policy.html">
-                Privacy Policy
-              </a>
-            </li>
-
-            <li>
-              <a href="terms.html">
-                Terms of Use
-              </a>
-            </li>
-
-            <li>
-              <a href="faq.html">FAQ</a>
-            </li>
-          </ul>
-
-        </div>
-
-        <!-- SOCIAL -->
-
-        <div class="gs-footer-col">
-
-          <h4>Social</h4>
-
-          <ul>
-            <li><span>Instagram</span></li>
-            <li><span>LinkedIn</span></li>
-            <li><span>YouTube</span></li>
-            <li><span>X / Twitter</span></li>
-            <li><span>TikTok</span></li>
-          </ul>
-
-        </div>
-
-      </div>
-
-      <div class="gs-footer-bottom">
-        © 2026 GrandSignature Properties.
-        All Rights Reserved.
-      </div>
-
-    </div>
-
-  </footer>
-
-  <a
-    class="whatsapp"
-    href="https://wa.me/2348114452433"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Chat with GrandSignature on WhatsApp"
-  >
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 .8A15.1 15.1 0 0 0 2.9 23.4L.8 31l7.8-2A15.2 15.2 0 1 0 16 .8zm0 27.6c-2.4 0-4.7-.6-6.7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5a12.5 12.5 0 1 1 10.9 6zm6.9-9.4c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7.4-.6c.1-.2 0-.5 0-.7l-1.2-2.9c-.3-.7-.6-.6-.8-.6h-.7c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.3s1.5 3.7 1.7 4c.2.2 3 4.5 7.2 6.3 1 .4 1.8.6 2.4.8 1 .3 2 .2 2.7.1.8-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/>
-    </svg>
-  </a>
-
-  <script src="lands-data.js"></script>
-
-  <script>
+<script src="lands-data.js"></script>
+<script>
     "use strict";
 
     const lands = window.GRANDSIGNATURE_LANDS || [];
@@ -1363,41 +1073,8 @@
       }
     }
 
-    /* MOBILE NAVIGATION */
-
-    const menuBtn = document.getElementById(
-      "menuBtn"
-    );
-
-    const navlinks = document.getElementById(
-      "navlinks"
-    );
-
-    menuBtn.addEventListener("click", () => {
-      const open = navlinks.classList.toggle("show");
-
-      menuBtn.setAttribute(
-        "aria-expanded",
-        String(open)
-      );
-
-      menuBtn.textContent = open ? "✕" : "☰";
-    });
-
-    navlinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navlinks.classList.remove("show");
-
-        menuBtn.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        menuBtn.textContent = "☰";
-      });
-    });
+    
 
   </script>
-
-</body>
+<script src="global.js"></script></body>
 </html>

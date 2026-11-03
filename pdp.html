@@ -1,14 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Property Details | GrandSignature Properties</title>
-  <meta name="description" content="Explore property details and enquire with GrandSignature Properties.">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Property Details | GrandSignature Properties</title>
+<meta content="Explore property details and enquire with GrandSignature Properties." name="description"/>
+<style>
     :root {
       --dark: #191919;
       --gold: #d4af37;
@@ -276,107 +275,16 @@
       .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
-</head>
-
+<link href="global.css" rel="stylesheet"/></head>
 <body>
-
-<header>
-  <nav>
-    <a href="index.html" class="logo">
-      Grand<span>Signature</span>
-    </a>
-
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-    >☰</button>
-
-    <ul id="mainNav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="portfolio.html" class="active">Properties</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
+<div id="gs-header"></div>
 <div class="container">
-  <div id="detailRoot"></div>
+<div id="detailRoot"></div>
 </div>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-
-      <div class="footer-col">
-        <a href="index.html" class="footer-logo">
-          Grand<span>Signature</span>
-        </a>
-        <p>
-          Helping clients explore residential property
-          opportunities across Nigeria.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h3>Sitemap</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="portfolio.html">Properties</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="blog.html">Blog</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h3>Focus Cities</h3>
-        <ul>
-          <li><a href="portfolio.html?city=Lagos">Lagos</a></li>
-          <li><a href="portfolio.html?city=Abuja">Abuja</a></li>
-          <li><a href="portfolio.html?city=Owerri">Owerri</a></li>
-          <li><a href="portfolio.html?city=Port%20Harcourt">Port Harcourt</a></li>
-          <li><a href="portfolio.html?city=Asaba">Asaba</a></li>
-          <li><a href="portfolio.html?city=Awka">Awka</a></li>
-          <li><a href="portfolio.html?city=Ogun">Ogun</a></li>
-          <li><a href="portfolio.html?city=Ibadan">Ibadan</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <ul>
-          <li><a href="contact.html">Property Enquiries</a></li>
-          <li>
-            <a href="https://wa.me/2347075112759"
-               target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </a>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      © 2026 GrandSignature Properties. All Rights Reserved.
-    </div>
-  </div>
-</footer>
-
+<div id="gs-footer"></div>
 <script src="properties-data.js"></script>
-
 <script>
-  const menuToggle = document.querySelector(".menu-toggle");
-  const mainNav = document.getElementById("mainNav");
-
-  menuToggle.addEventListener("click", () => {
-    const open = mainNav.classList.toggle("show");
-    menuToggle.setAttribute("aria-expanded", String(open));
-  });
+  
 
   const params = new URLSearchParams(window.location.search);
   const propertyId = params.get("id");
@@ -595,7 +503,7 @@
     );
 
     inquiryButton.href =
-      "https://wa.me/2347075112759?text=" +
+      "https://wa.me/2348114452433?text=" +
       encodeURIComponent(message);
 
     inquiryButton.target = "_blank";
@@ -626,6 +534,5 @@
     root.appendChild(layout);
   }
 </script>
-
-</body>
+<script src="global.js"></script></body>
 </html>

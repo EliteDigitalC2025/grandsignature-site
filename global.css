@@ -1,0 +1,33 @@
+/* GrandSignature shared site chrome */
+#gs-header,#gs-footer {font-family:"Segoe UI",Arial,sans-serif;box-sizing:border-box} 
+#gs-header *,#gs-footer * {box-sizing:border-box}
+#gs-header {position:sticky;top:0;z-index:900;background:#1a1a1a;color:#fff;box-shadow:0 3px 15px #0002}
+#gs-header .gs-nav {max-width:1450px;margin:auto;padding:20px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+#gs-header a,#gs-footer a {text-decoration:none}
+#gs-header .gs-logo,#gs-footer .gs-brand {color:#fff;font-weight:800;letter-spacing:-1px;white-space:nowrap;font-size:25px}
+#gs-header .gs-logo span,#gs-footer .gs-brand span {color:#d4af37}
+#gs-header .gs-links {display:flex;align-items:center;gap:25px;list-style:none;margin:0;padding:0}
+#gs-header .gs-links a {color:#fff;font-size:13px;font-weight:500}
+#gs-header .gs-links a:hover,#gs-header .gs-links a[aria-current="page"] {color:#d4af37}
+#gs-header .gs-menu {display:none;background:transparent;border:0;color:#fff;font-size:28px;cursor:pointer;line-height:1}
+#gs-footer {background:#1a1a1a;color:#fff;padding:80px 5% 28px}
+#gs-footer .gs-inner {max-width:1500px;margin:auto}
+#gs-footer .gs-grid {display:grid;grid-template-columns:minmax(260px,2fr) repeat(4,minmax(0,1fr));gap:35px;padding-bottom:55px}
+#gs-footer .gs-brand {display:inline-block;margin-bottom:22px;font-size:26px}
+#gs-footer .gs-description,#gs-footer .gs-contact p {font-size:14px;line-height:1.9;color:#bcbcbc;margin:0 0 22px}
+#gs-footer .gs-contact {margin-bottom:16px}
+#gs-footer .gs-contact strong,#gs-footer h4 {color:#d4af37}
+#gs-footer .gs-contact strong {display:block;font-size:13px;margin-bottom:3px}
+#gs-footer .gs-contact a {color:#d4af37;overflow-wrap:anywhere;font-size:14px}
+#gs-footer h4 {font-size:13px;letter-spacing:1.4px;text-transform:uppercase;margin:4px 0 24px}
+#gs-footer ul {list-style:none;margin:0;padding:0}
+#gs-footer li {margin:0 0 17px}
+#gs-footer li a,#gs-footer li span {color:#bcbcbc;font-size:14px}
+#gs-footer li a:hover {color:#d4af37}
+#gs-footer .gs-bottom {border-top:1px solid #383838;padding-top:24px;text-align:center;font-size:12px;color:#929292}
+#gs-whatsapp {position:fixed;right:23px;bottom:23px;z-index:950;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#25d366;color:white;box-shadow:0 5px 18px #0003;text-decoration:none}
+#gs-whatsapp svg {width:29px;height:29px;fill:#fff}
+@media(max-width:1150px){#gs-footer .gs-grid {grid-template-columns:repeat(3,minmax(0,1fr))}#gs-footer .gs-about {grid-column:span 2}}
+@media(max-width:950px){#gs-header .gs-links {gap:13px}#gs-header .gs-links a {font-size:12px}}
+@media(max-width:800px){#gs-header .gs-menu {display:block}#gs-header .gs-links {display:none;position:absolute;top:100%;left:0;width:100%;padding:22px 5%;background:#1a1a1a;border-top:1px solid #383838;flex-direction:column;align-items:flex-start;gap:18px}#gs-header .gs-links.is-open {display:flex}#gs-header .gs-links a {font-size:14px}#gs-footer .gs-grid {grid-template-columns:repeat(2,minmax(0,1fr))}#gs-footer .gs-about {grid-column:1/-1}}
+@media(max-width:480px){#gs-header .gs-logo {font-size:21px}#gs-footer .gs-grid {grid-template-columns:1fr}#gs-footer .gs-about {grid-column:auto}#gs-footer {padding:60px 6% 25px}#gs-whatsapp {width:54px;height:54px;right:18px;bottom:18px}}
