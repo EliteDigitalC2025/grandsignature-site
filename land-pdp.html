@@ -1,0 +1,1403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a1a">
+
+  <title>Land Details | GrandSignature Properties</title>
+
+  <meta
+    name="description"
+    content="Explore land property details and arrange a private site inspection with GrandSignature Properties."
+  >
+
+  <link rel="icon" href="grandsignature-favicon.ico">
+
+  <style>
+    :root {
+      --dark: #1a1a1a;
+      --gold: #d4af37;
+      --muted: #737373;
+      --border: #e7e7e7;
+      --light: #f8f8f8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      font: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .topbar {
+      padding: 9px 5%;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .site-header {
+      background: var(--dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 3px 15px rgba(0,0,0,.12);
+    }
+
+    .nav {
+      max-width: 1450px;
+      margin: auto;
+      padding: 22px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+    }
+
+    .navlinks a {
+      color: white;
+      font-size: 13px;
+      transition: color .2s;
+    }
+
+    .navlinks a:hover,
+    .navlinks .active {
+      color: var(--gold);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: white;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .container {
+      width: min(1250px,90%);
+      margin: auto;
+    }
+
+    .breadcrumb {
+      padding: 30px 0 15px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .breadcrumb a:hover {
+      color: #a47c16;
+    }
+
+    .property-heading {
+      margin: 15px 0 35px;
+    }
+
+    .eyebrow {
+      color: #a47c16;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .property-heading h1 {
+      color: var(--dark);
+      font-size: clamp(32px,4vw,49px);
+      line-height: 1.2;
+      margin: 10px 0;
+    }
+
+    .property-heading p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .property-layout {
+      display: grid;
+      grid-template-columns:
+        minmax(0,1.7fr)
+        minmax(300px,1fr);
+      align-items: start;
+      gap: 35px;
+      padding-bottom: 80px;
+    }
+
+    .main-image {
+      overflow: hidden;
+      border-radius: 5px;
+      background: #d9ddd4;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: 440px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .details-section {
+      margin-top: 38px;
+    }
+
+    .details-section h2 {
+      color: var(--dark);
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .details-section p {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 17px;
+    }
+
+    .details-list {
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .details-row {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 15px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .details-row:last-child {
+      border-bottom: 0;
+    }
+
+    .details-row:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .details-row strong {
+      color: var(--dark);
+    }
+
+    .details-row span {
+      color: #666;
+    }
+
+    .side-card {
+      position: sticky;
+      top: 115px;
+      padding: 30px;
+      background: var(--dark);
+      color: white;
+      border-radius: 5px;
+    }
+
+    .side-card .eyebrow {
+      color: var(--gold);
+    }
+
+    .side-card h2 {
+      font-size: 28px;
+      line-height: 1.25;
+      margin: 12px 0;
+    }
+
+    .side-card p {
+      color: #c5c5c5;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .side-price {
+      padding: 18px 0;
+      margin-bottom: 23px;
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+    }
+
+    .side-price small {
+      display: block;
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    .side-price strong {
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      border: 0;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      transition: filter .2s;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+    }
+
+    .btn:hover {
+      filter: brightness(.9);
+    }
+
+    .side-contact {
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      margin-top: 15px;
+    }
+
+    .side-contact strong {
+      display: block;
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .side-contact a {
+      display: block;
+      color: #eee;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+      margin-bottom: 12px;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #a47c16;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .related {
+      background: var(--light);
+      padding: 75px 0;
+    }
+
+    .related h2 {
+      font-size: 30px;
+      color: var(--dark);
+      margin-bottom: 25px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 24px;
+    }
+
+    .related-card {
+      display: block;
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .related-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.1);
+    }
+
+    .related-image {
+      overflow: hidden;
+      background: #d9ddd4;
+    }
+
+    .related-card img {
+      display: block;
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .related-card:hover img {
+      transform: scale(1.045);
+    }
+
+    .related-body {
+      padding: 20px;
+    }
+
+    .related-body small {
+      color: #a47c16;
+      font-weight: 700;
+    }
+
+    .related-body h3 {
+      color: var(--dark);
+      font-size: 18px;
+      line-height: 1.35;
+      margin: 7px 0;
+    }
+
+    .related-body span {
+      color: #666;
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    .gs-footer {
+      background: var(--dark);
+      color: white;
+      padding: 90px 5% 30px;
+    }
+
+    .gs-footer-inner {
+      max-width: 1500px;
+      margin: auto;
+    }
+
+    .gs-footer-grid {
+      display: grid;
+      grid-template-columns:
+        minmax(290px,2fr)
+        repeat(4,minmax(0,1fr));
+      gap: 45px;
+      padding-bottom: 65px;
+    }
+
+    .gs-footer-col {
+      min-width: 0;
+    }
+
+    .gs-footer-brand {
+      display: inline-block;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 25px;
+      white-space: nowrap;
+    }
+
+    .gs-footer-brand span,
+    .gs-footer-contact strong,
+    .gs-footer-col h4 {
+      color: var(--gold);
+    }
+
+    .gs-footer-description,
+    .gs-footer-contact p {
+      color: #bcbcbc;
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .gs-footer-description {
+      margin-bottom: 25px;
+    }
+
+    .gs-footer-contact {
+      margin-bottom: 21px;
+    }
+
+    .gs-footer-contact strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .gs-footer-contact a {
+      color: var(--gold);
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .gs-footer-col h4 {
+      margin: 5px 0 30px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .gs-footer-col ul {
+      list-style: none;
+    }
+
+    .gs-footer-col li {
+      margin-bottom: 22px;
+    }
+
+    .gs-footer-col li a,
+    .gs-footer-col li span {
+      color: #bcbcbc;
+      font-size: 14px;
+    }
+
+    .gs-footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .gs-footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid #383838;
+      color: #929292;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      box-shadow: 0 5px 18px rgba(0,0,0,.2);
+    }
+
+    .whatsapp svg {
+      width: 29px;
+      height: 29px;
+      fill: white;
+    }
+
+    .not-found {
+      display: none;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .not-found h1 {
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .not-found a {
+      display: inline-block;
+      background: var(--gold);
+      padding: 13px 25px;
+      margin-top: 20px;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+
+    @media (max-width:1150px) {
+      .gs-footer-grid {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+      }
+
+      .gs-footer-about {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width:1050px) {
+      .navlinks {
+        gap: 15px;
+      }
+
+      .navlinks a {
+        font-size: 12px;
+      }
+
+      .logo {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width:950px) {
+      .property-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .side-card {
+        position: static;
+      }
+    }
+
+    @media (max-width:768px) {
+      .nav {
+        padding: 19px 5%;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 22px 5%;
+        background: var(--dark);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        border-top: 1px solid #393939;
+      }
+
+      .navlinks.show {
+        display: flex;
+      }
+
+      .navlinks a {
+        font-size: 14px;
+      }
+
+      .main-image img {
+        height: 300px;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gs-footer {
+        padding: 65px 6% 25px;
+      }
+
+      .gs-footer-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 35px 25px;
+      }
+
+      .gs-footer-about {
+        grid-column: 1/-1;
+      }
+    }
+
+    @media (max-width:480px) {
+      .details-row {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .gs-footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gs-footer-about {
+        grid-column: auto;
+      }
+
+      .gs-footer-brand {
+        font-size: 23px;
+      }
+
+      .topbar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .whatsapp {
+        width: 54px;
+        height: 54px;
+        right: 18px;
+        bottom: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <span>GrandSignature Land Collection</span>
+    <a href="mailto:info@grandsignatureproperties.com">
+      info@grandsignatureproperties.com
+    </a>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+
+      <a href="index.html" class="logo">
+        GRAND<span>SIGNATURE</span>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="navlinks"
+      >☰</button>
+
+      <ul class="navlinks" id="navlinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+
+        <li>
+          <a href="portfolio.html">
+            Property Collection
+          </a>
+        </li>
+
+        <li>
+          <a href="lands.html" class="active">
+            Land Collection
+          </a>
+        </li>
+
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <main id="propertyPage" class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> /
+      <a href="lands.html">Land Collection</a> /
+      <span id="breadcrumbName">Land Details</span>
+    </nav>
+
+    <section class="property-heading">
+      <span class="eyebrow">Land Collection</span>
+      <h1 id="propertyName"></h1>
+      <p id="propertyLocation"></p>
+    </section>
+
+    <div class="property-layout">
+
+      <div>
+
+        <figure class="main-image">
+          <img
+            id="propertyImage"
+            alt="Land landscape"
+          >
+        </figure>
+
+        <section class="details-section">
+          <h2>Property Overview</h2>
+          <p id="propertyDescription"></p>
+        </section>
+
+        <section class="details-section">
+          <h2>Property Information</h2>
+          <div class="details-list" id="detailsList"></div>
+        </section>
+
+        <section class="details-section">
+          <h2>Location</h2>
+          <p id="locationDescription"></p>
+
+          <a
+            id="mapLink"
+            class="map-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore the Area on Google Maps ↗
+          </a>
+        </section>
+
+        <section class="details-section">
+          <h2>Arrange a Private Inspection</h2>
+
+          <p>
+            Discover more about this property with
+            GrandSignature Properties. Our team can
+            assist with location information,
+            property documentation, pricing
+            and inspection arrangements.
+          </p>
+        </section>
+
+      </div>
+
+      <aside class="side-card">
+
+        <span class="eyebrow">
+          GrandSignature Properties
+        </span>
+
+        <h2>Interested in This Property?</h2>
+
+        <p>
+          Speak with our team for personalised
+          property information and inspection enquiries.
+        </p>
+
+        <div class="side-price" id="priceSection">
+          <small>Price</small>
+          <strong id="propertyPrice"></strong>
+        </div>
+
+        <a
+          id="whatsappEnquiry"
+          class="btn btn-gold"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Enquire on WhatsApp
+        </a>
+
+        <a
+          id="emailEnquiry"
+          class="btn btn-outline"
+          href="#"
+        >
+          Enquire by Email
+        </a>
+
+        <a
+          href="contact.html"
+          class="btn btn-outline"
+        >
+          Contact Our Team
+        </a>
+
+        <div class="side-contact">
+
+          <strong>WhatsApp</strong>
+          <a href="https://wa.me/2348114452433">
+            +234 811 445 2433
+          </a>
+
+          <strong>Email</strong>
+          <a href="mailto:info@grandsignatureproperties.com">
+            info@grandsignatureproperties.com
+          </a>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <section class="not-found" id="notFound">
+    <h1>Property Not Found</h1>
+
+    <p>
+      The requested property could not be located.
+    </p>
+
+    <a href="lands.html">
+      Explore Land Collection
+    </a>
+  </section>
+
+  <section class="related" id="relatedSection">
+
+    <div class="container">
+
+      <span class="eyebrow">Discover More</span>
+      <h2>Explore More Land Properties</h2>
+
+      <div class="related-grid" id="relatedGrid"></div>
+
+    </div>
+
+  </section>
+
+  <footer class="gs-footer">
+
+    <div class="gs-footer-inner">
+
+      <div class="gs-footer-grid">
+
+        <!-- COMPANY -->
+
+        <div class="gs-footer-col gs-footer-about">
+
+          <a href="index.html" class="gs-footer-brand">
+            GRAND<span>SIGNATURE</span>
+          </a>
+
+          <p class="gs-footer-description">
+            Curating real estate opportunities across Nigeria.
+            We assist clients with property enquiries,
+            viewings and consultations.
+          </p>
+
+          <div class="gs-footer-contact">
+            <strong>Office</strong>
+
+            <p>
+              Tina Johnson Close, Coastal Road,<br>
+              Salem Okun-Ajah, beside Avista Beach,<br>
+              Lekki-Epe Expressway, Eti-Osa LGA,<br>
+              Lagos 106104, Nigeria.
+            </p>
+          </div>
+
+          <div class="gs-footer-contact">
+            <strong>WhatsApp</strong>
+
+            <a href="https://wa.me/2348114452433">
+              +234 811 445 2433
+            </a>
+          </div>
+
+          <div class="gs-footer-contact">
+            <strong>Email</strong>
+
+            <a href="mailto:info@grandsignatureproperties.com">
+              info@grandsignatureproperties.com
+            </a>
+          </div>
+
+        </div>
+
+        <!-- SITEMAP -->
+
+        <div class="gs-footer-col">
+
+          <h4>Sitemap</h4>
+
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+
+            <li>
+              <a href="portfolio.html">
+                Property Collection
+              </a>
+            </li>
+
+            <li>
+              <a href="lands.html">
+                Land Collection
+              </a>
+            </li>
+
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+
+        </div>
+
+        <!-- FOCUS CITIES -->
+
+        <div class="gs-footer-col">
+
+          <h4>Focus Cities</h4>
+
+          <ul>
+            <li>
+              <a href="lands.html?city=Lagos">Lagos</a>
+            </li>
+
+            <li>
+              <a href="lands.html?city=Abuja">Abuja</a>
+            </li>
+
+            <li>
+              <a href="lands.html?city=Port%20Harcourt">
+                Port Harcourt
+              </a>
+            </li>
+
+            <li>
+              <a href="lands.html?city=Ibadan">Ibadan</a>
+            </li>
+
+            <li>
+              <a href="lands.html?city=Asaba">Asaba</a>
+            </li>
+
+            <li>
+              <a href="lands.html?city=Ogun">Ogun</a>
+            </li>
+
+            <li>
+              <a href="lands.html?city=Enugu">Enugu</a>
+            </li>
+
+            <li>
+              <a href="lands.html?city=Aba">Aba</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- LEGAL -->
+
+        <div class="gs-footer-col">
+
+          <h4>Legal</h4>
+
+          <ul>
+            <li>
+              <a href="privacy-policy.html">
+                Privacy Policy
+              </a>
+            </li>
+
+            <li>
+              <a href="terms.html">
+                Terms of Use
+              </a>
+            </li>
+
+            <li>
+              <a href="faq.html">FAQ</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- SOCIAL -->
+
+        <div class="gs-footer-col">
+
+          <h4>Social</h4>
+
+          <ul>
+            <li><span>Instagram</span></li>
+            <li><span>LinkedIn</span></li>
+            <li><span>YouTube</span></li>
+            <li><span>X / Twitter</span></li>
+            <li><span>TikTok</span></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="gs-footer-bottom">
+        © 2026 GrandSignature Properties.
+        All Rights Reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/2348114452433"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with GrandSignature on WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 .8A15.1 15.1 0 0 0 2.9 23.4L.8 31l7.8-2A15.2 15.2 0 1 0 16 .8zm0 27.6c-2.4 0-4.7-.6-6.7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5a12.5 12.5 0 1 1 10.9 6zm6.9-9.4c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7.4-.6c.1-.2 0-.5 0-.7l-1.2-2.9c-.3-.7-.6-.6-.8-.6h-.7c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.3s1.5 3.7 1.7 4c.2.2 3 4.5 7.2 6.3 1 .4 1.8.6 2.4.8 1 .3 2 .2 2.7.1.8-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/>
+    </svg>
+  </a>
+
+  <script src="lands-data.js"></script>
+
+  <script>
+    "use strict";
+
+    const lands = window.GRANDSIGNATURE_LANDS || [];
+
+    /*
+      These landscape images match the collection
+      imagery used on lands.html.
+    */
+
+    const collectionImages = [
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85",
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1100&q=85",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1100&q=85",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1100&q=85",
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1100&q=85"
+    ];
+
+    const params = new URLSearchParams(
+      window.location.search
+    );
+
+    const propertyId = params.get("id");
+
+    const land = lands.find(
+      item => item.id === propertyId
+    );
+
+    const propertyPage = document.getElementById(
+      "propertyPage"
+    );
+
+    const notFound = document.getElementById(
+      "notFound"
+    );
+
+    const relatedSection = document.getElementById(
+      "relatedSection"
+    );
+
+    function createDetailRow(label, value) {
+      const row = document.createElement("div");
+      row.className = "details-row";
+
+      const strong = document.createElement("strong");
+      strong.textContent = label;
+
+      const span = document.createElement("span");
+      span.textContent = value;
+
+      row.append(strong, span);
+
+      return row;
+    }
+
+    function displayValue(value) {
+      if (typeof value !== "string") {
+        return value ? String(value) : "";
+      }
+
+      const trimmed = value.trim();
+
+      const emptyValues = [
+        "",
+        "not provided",
+        "not specified",
+        "to be confirmed",
+        "contact for details",
+        "contact for price",
+        "price on request"
+      ];
+
+      return emptyValues.includes(
+        trimmed.toLowerCase()
+      ) ? "" : trimmed;
+    }
+
+    function getCollectionImage(item) {
+      const index = lands.findIndex(
+        entry => entry.id === item.id
+      );
+
+      return collectionImages[
+        Math.max(index, 0) % collectionImages.length
+      ];
+    }
+
+    if (!land) {
+
+      propertyPage.style.display = "none";
+      relatedSection.style.display = "none";
+      notFound.style.display = "block";
+
+      document.title =
+        "Property Not Found | GrandSignature Properties";
+
+    } else {
+
+      document.title =
+        land.name +
+        " | Land Collection | GrandSignature Properties";
+
+      const description =
+        "Explore " +
+        land.name +
+        " in " +
+        [land.location, land.state]
+          .filter(Boolean)
+          .join(", ") +
+        " with GrandSignature Properties.";
+
+      document
+        .querySelector('meta[name="description"]')
+        .setAttribute("content", description);
+
+      document.getElementById(
+        "breadcrumbName"
+      ).textContent = land.name;
+
+      document.getElementById(
+        "propertyName"
+      ).textContent = land.name;
+
+      const locationParts = [
+        land.location,
+        land.state
+      ].filter(Boolean);
+
+      const fullLocation = [
+        ...new Set(locationParts)
+      ].join(", ");
+
+      document.getElementById(
+        "propertyLocation"
+      ).textContent = fullLocation;
+
+      const propertyImage = document.getElementById(
+        "propertyImage"
+      );
+
+      propertyImage.src = getCollectionImage(land);
+      propertyImage.alt = "Land and green landscape scenery";
+      propertyImage.decoding = "async";
+
+      document.getElementById(
+        "propertyDescription"
+      ).textContent = land.description || "";
+
+      const price = displayValue(land.price);
+
+      if (price) {
+        document.getElementById(
+          "propertyPrice"
+        ).textContent = price;
+      } else {
+        document.getElementById(
+          "priceSection"
+        ).style.display = "none";
+      }
+
+      document.getElementById(
+        "locationDescription"
+      ).textContent =
+        land.name +
+        " is located in " +
+        fullLocation +
+        ". Our team can assist with further " +
+        "location information and site inspections.";
+
+      const detailsList = document.getElementById(
+        "detailsList"
+      );
+
+      const detailFields = [
+        ["Property Name", land.name],
+        ["Property Type", land.category],
+        ["Location", land.location],
+        ["City / Area", land.city],
+        ["State", land.state],
+        ["Price", price],
+        ["Documentation", land.title]
+      ];
+
+      detailFields.forEach(([label, value]) => {
+        const cleanValue = displayValue(value);
+
+        if (cleanValue) {
+          detailsList.appendChild(
+            createDetailRow(label, cleanValue)
+          );
+        }
+      });
+
+      const message =
+        "Hello GrandSignature Properties, " +
+        "I am interested in " +
+        land.name +
+        " at " +
+        fullLocation +
+        ". Please share further property " +
+        "information, pricing, documentation " +
+        "and inspection arrangements.";
+
+      document.getElementById(
+        "whatsappEnquiry"
+      ).href =
+        "https://wa.me/2348114452433?text=" +
+        encodeURIComponent(message);
+
+      const subject =
+        "Land Enquiry: " + land.name;
+
+      document.getElementById(
+        "emailEnquiry"
+      ).href =
+        "mailto:info@grandsignatureproperties.com" +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(message);
+
+      document.getElementById(
+        "mapLink"
+      ).href =
+        "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(
+          fullLocation + ", Nigeria"
+        );
+
+      /* RELATED PROPERTIES */
+
+      const relatedGrid = document.getElementById(
+        "relatedGrid"
+      );
+
+      const related = [
+        ...lands.filter(
+          item =>
+            item.id !== land.id &&
+            item.city === land.city
+        ),
+
+        ...lands.filter(
+          item =>
+            item.id !== land.id &&
+            item.city !== land.city
+        )
+      ].slice(0, 3);
+
+      related.forEach(item => {
+
+        const link = document.createElement("a");
+        link.className = "related-card";
+
+        link.href =
+          "land-pdp.html?id=" +
+          encodeURIComponent(item.id);
+
+        const imageWrap = document.createElement("div");
+        imageWrap.className = "related-image";
+
+        const image = document.createElement("img");
+
+        image.src = getCollectionImage(item);
+        image.alt = "Land and green landscape scenery";
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        imageWrap.appendChild(image);
+
+        const body = document.createElement("div");
+        body.className = "related-body";
+
+        const location = document.createElement("small");
+
+        location.textContent = [
+          ...new Set(
+            [item.location, item.state].filter(Boolean)
+          )
+        ].join(", ");
+
+        const heading = document.createElement("h3");
+        heading.textContent = item.name;
+
+        const action = document.createElement("span");
+        action.textContent = "View Property →";
+
+        body.append(
+          location,
+          heading,
+          action
+        );
+
+        link.append(
+          imageWrap,
+          body
+        );
+
+        relatedGrid.appendChild(link);
+      });
+
+      if (!related.length) {
+        relatedSection.style.display = "none";
+      }
+    }
+
+    /* MOBILE NAVIGATION */
+
+    const menuBtn = document.getElementById(
+      "menuBtn"
+    );
+
+    const navlinks = document.getElementById(
+      "navlinks"
+    );
+
+    menuBtn.addEventListener("click", () => {
+      const open = navlinks.classList.toggle("show");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
+
+      menuBtn.textContent = open ? "✕" : "☰";
+    });
+
+    navlinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navlinks.classList.remove("show");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuBtn.textContent = "☰";
+      });
+    });
+
+  </script>
+
+</body>
+</html>
